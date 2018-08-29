@@ -1,2 +1,2 @@
 # taxotools
-Tools to handle taxonomic data
+Tools to Handle Taxonomic Lists
