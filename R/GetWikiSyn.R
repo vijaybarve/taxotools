@@ -5,20 +5,19 @@
 #' @param namelist list of scientific names
 #' @family Wiki functions
 #' @return a data frame containing names, synonyms and Canonical synonyms matched
-#'    with GBIF backbone taxonomy
+#'    with GBIF backbone taxonomy  \itemize{ \item{Name}  {: Scientific name}
+#'    \item{OrigSyn}  {: Original synonym returned by Wikipedia}
+#'  \item{Syn}  {: Synonym in canonical form, matched with GBIF}}
 #' @importFrom wikitaxa wt_wikipedia
 #' @importFrom taxize gbif_parse
 #' @export
 GetWikiSyn <- function(namelist){
-  #for(i in 1:10){
   res <- NULL
   for(i in 1:length(namelist)){
     accname <- namelist[i]
     cat(paste("\n",i,accname," "))
     wikisyn <- wikitaxa::wt_wikipedia(accname)$synonyms
-    #print(wikisyn)
     wikiacn <- wikitaxa::wt_wikipedia(accname)$classification[which(wt_wikipedia(namelist[i])$classification$rank=="binomial"),]$name
-    #print(wikiacn)
     if(!is.null(wikiacn) & !identical(wikiacn, character(0)) ){
       if(accname!= wikiacn){
         wikisyn <- c(wikisyn,wikiacn)
@@ -45,5 +44,7 @@ GetWikiSyn <- function(namelist){
     res <- rbind(res,recs)
   }
   res <- as.data.frame(res)
+  names(res) <- c("Name","OrigSyn","Syn")
+  cat("\n")
   return(res)
 }
