@@ -15,12 +15,18 @@ BuildCSList(data, pri, sec)
 comma separated)}
 }
 \value{
-a data frame with two fiends Primary and secondary (comma
+a data frame with two fields Primary and secondary (comma
 separated list)
 }
 \description{
 Builds a comma separated list given a data frame with two fiends, primary
 repeating values and secondary values to be summarized with comma separated
 in the same field
+}
+\examples{
+scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
+SynList <- GetITISSyn(scnames)
+BuildCSList(SynList,"Name","Syn")
+
 }
 \concept{List functions}

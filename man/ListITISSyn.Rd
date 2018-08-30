@@ -15,6 +15,11 @@ a list containing synonyms
 \description{
 Fetch Synonyms using ITIS web service
 }
+\examples{
+ListITISSyn("Abrothrix longipilis")
+ListITISSyn("Abditomys latidens")
+
+}
 \seealso{
 Other ITIS functions: \code{\link{GetITISSyn}}
 }

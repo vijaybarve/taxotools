@@ -10,6 +10,10 @@
 #'  \item{Syn}  {: Synonym in canonical form, matched with GBIF}}
 #' @importFrom wikitaxa wt_wikipedia
 #' @importFrom taxize gbif_parse
+#' @examples
+#' GetWikiSyn("Abrothrix illutea")
+#' GetWikiSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
+#'
 #' @export
 GetWikiSyn <- function(namelist){
   res <- NULL

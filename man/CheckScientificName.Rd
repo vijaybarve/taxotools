@@ -16,6 +16,12 @@ Resolved Canonical name and NULL is not matched
 Parse the names using GBIF parse API to make sure the name passed
 is an scientific name
 }
+\examples{
+CheckScientificName("Akodon longipilis (Waterhouse, 1837)")
+CheckScientificName("Mus longipilis Waterhouse, 1837")
+CheckScientificName("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
+
+}
 \seealso{
 Other Name functions: \code{\link{ExpandSyn}},
   \code{\link{GuessTaxoLevel}}

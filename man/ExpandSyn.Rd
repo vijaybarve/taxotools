@@ -17,6 +17,11 @@ Synonym with Genus expanded
 \description{
 Expands Scientific name is the genus is used with '.'
 }
+\examples{
+ExpandSyn("Addax gibbosa", "A. mytilopes")
+ExpandSyn("Oryx addax", "O. nasomaculatus")
+
+}
 \seealso{
 Other Name functions: \code{\link{CheckScientificName}},
   \code{\link{GuessTaxoLevel}}

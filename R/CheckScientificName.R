@@ -8,6 +8,10 @@
 #'
 #' @family Name functions
 #' @importFrom taxize gbif_parse gnr_resolve
+#' @examples
+#' CheckScientificName("Akodon longipilis (Waterhouse, 1837)")
+#' CheckScientificName("Mus longipilis Waterhouse, 1837")
+#' CheckScientificName("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
 #'
 #' @export
 CheckScientificName <- function(name){

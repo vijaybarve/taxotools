@@ -2,6 +2,11 @@
 #' @param name scientific name string to be checked
 #' @family Name functions
 #' @return Guess on level of Taxon name and NULL if not sure
+#' @examples
+#' GuessTaxoLevel("Akodon longipilis")
+#' GuessTaxoLevel("Akodon")
+#' GuessTaxoLevel("Abrocoma cinerea shistacea")
+#'
 #' @export
 GuessTaxoLevel <- function(name){
   level <- ""

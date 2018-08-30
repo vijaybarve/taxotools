@@ -15,6 +15,11 @@ a data frame containing names (passed) and synonyms
 \description{
 Fetch Synonyms from ITIS
 }
+\examples{
+GetITISSyn("Abrothrix longipilis")
+GetITISSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
+
+}
 \seealso{
 Other ITIS functions: \code{\link{ListITISSyn}}
 }

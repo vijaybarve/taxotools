@@ -15,6 +15,12 @@ Guess on level of Taxon name and NULL if not sure
 \description{
 Guess the level of Scientific Name
 }
+\examples{
+GuessTaxoLevel("Akodon longipilis")
+GuessTaxoLevel("Akodon")
+GuessTaxoLevel("Abrocoma cinerea shistacea")
+
+}
 \seealso{
 Other Name functions: \code{\link{CheckScientificName}},
   \code{\link{ExpandSyn}}

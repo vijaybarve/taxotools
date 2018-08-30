@@ -6,6 +6,10 @@
 #' @return a list containing synonyms
 #' @importFrom taxize get_tsn synonyms
 #' @family ITIS functions
+#' @examples
+#' ListITISSyn("Abrothrix longipilis")
+#' ListITISSyn("Abditomys latidens")
+#'
 #' @export
 ListITISSyn <- function(scname){
   tsn <- get_tsn(scname, rows=1)[1]

@@ -18,4 +18,9 @@ a data frame containing names, synonyms and Canonical synonyms matched
 \description{
 Fetch Synonyms from Wikipedia and clean them for use
 }
+\examples{
+GetWikiSyn("Abrothrix illutea")
+GetWikiSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
+
+}
 \concept{Wiki functions}

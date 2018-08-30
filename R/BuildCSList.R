@@ -8,8 +8,13 @@
 #' @param pri Primary field name (repeating values)
 #' @param sec Secondary field (values would be added to same record,
 #' comma separated)
-#' @return a data frame with two fiends Primary and secondary (comma
+#' @return a data frame with two fields Primary and secondary (comma
 #' separated list)
+#' @examples
+#'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
+#'SynList <- GetITISSyn(scnames)
+#'BuildCSList(SynList,"Name","Syn")
+#'
 #' @family List functions
 #' @export
 BuildCSList <- function(data,pri,sec){
