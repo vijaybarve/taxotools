@@ -18,30 +18,36 @@
 #' @family List functions
 #' @export
 BuildCSList <- function(data,pri,sec){
-  tdata <- data[,c(pri,sec)]
+  tdata <- data
+  colnames(tdata)[which(colnames(tdata) == pri)] <- 'pri'
+  colnames(tdata)[which(colnames(tdata) == sec)] <- 'sec'
   if(!is.null(tdata)){
-    names(tdata) <- c("pri","sec")
     tdata$pri <- as.character(tdata$pri)
     tdata$sec <- as.character(tdata$sec)
     tdata <- tdata[order(tdata$pri),]
     oldpri <- tdata$pri[1]
-    first <- TRUE
+    oldrec <- tdata[1,]
     retdat <- NULL
     newsec <- tdata$sec[1]
     for(i in 2:dim(tdata)[1]){
       if(tdata$pri[i]==oldpri){
         newsec <- paste(newsec,", ",tdata$sec[i])
       } else {
-        rec <- cbind(oldpri,newsec)
+        rec <- oldrec
+        rec$sec <- newsec
         retdat <- rbind(retdat,rec)
         oldpri <- tdata$pri[i]
+        oldrec <- tdata[i,]
         newsec <- tdata$sec[i]
       }
     }
-    rec <- cbind(oldpri,newsec)
+    rec <- oldrec
+    rec$sec <- newsec
     retdat <- rbind(retdat,rec)
     retdat <- as.data.frame(retdat)
-    names(retdat) <- c(pri,sec)
+    colnames(retdat)[which(colnames(retdat) == 'pri')] <- pri
+    colnames(retdat)[which(colnames(retdat) == 'sec')] <- sec
+    rownames(retdat) <- NULL
     return(retdat)
   } else {
     return(NULL)
