@@ -12,7 +12,8 @@ ExpandSyn(name, syn)
 \item{syn}{synonym with short form genus name to expand the Genus}
 }
 \value{
-Synonym with Genus expanded
+Synonym with Genus expanded using either name or previous names in
+the syn list
 }
 \description{
 Expands Scientific name is the genus is used with '.'

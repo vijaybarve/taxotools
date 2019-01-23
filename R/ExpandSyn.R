@@ -1,7 +1,8 @@
 #' Expands Scientific name is the genus is used with '.'
 #' @param name scientific name
 #' @param syn synonym with short form genus name to expand the Genus
-#' @return Synonym with Genus expanded
+#' @return Synonym with Genus expanded using either name or previous names in
+#' the syn list
 #' @family Name functions
 #' @examples
 #' ExpandSyn("Addax gibbosa", "A. mytilopes")
@@ -13,6 +14,10 @@ ExpandSyn <- function(name,syn){
     if(substr(syn[i],2,2)=='.'){
       if(substr(syn[i],1,1)==substr(name,1,1)){
         syn[i] <- paste(strsplit(name," ")[[1]][1],substr(syn[i],4,nchar(syn[i])))
+      } else {
+        if((i > 1) & substr(syn[i],1,1)==substr(syn[i-1],1,1)){
+          syn[i] <- paste(strsplit(syn[i-1]," ")[[1]][1],substr(syn[i],4,nchar(syn[i])))
+        }
       }
     }
   }
