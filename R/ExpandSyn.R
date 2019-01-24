@@ -15,8 +15,10 @@ ExpandSyn <- function(name,syn){
       if(substr(syn[i],1,1)==substr(name,1,1)){
         syn[i] <- paste(strsplit(name," ")[[1]][1],substr(syn[i],4,nchar(syn[i])))
       } else {
-        if((i > 1) & substr(syn[i],1,1)==substr(syn[i-1],1,1)){
-          syn[i] <- paste(strsplit(syn[i-1]," ")[[1]][1],substr(syn[i],4,nchar(syn[i])))
+        if(i > 1) {
+          if( substr(syn[i],1,1)==substr(syn[i-1],1,1)){
+            syn[i] <- paste(strsplit(syn[i-1]," ")[[1]][1],substr(syn[i],4,nchar(syn[i])))
+          }
         }
       }
     }
