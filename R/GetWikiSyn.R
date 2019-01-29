@@ -12,7 +12,7 @@
 #' @importFrom taxize gbif_parse
 #' @examples
 #' GetWikiSyn("Abrothrix illutea")
-#' GetWikiSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
+#' #GetWikiSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
 #'
 #' @export
 GetWikiSyn <- function(namelist){

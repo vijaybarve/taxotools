@@ -10,10 +10,11 @@
 #' comma separated)
 #' @return a data frame with two fields Primary and secondary (comma
 #' separated list)
-#' @examples
+#' @examples \dontrun{
 #'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
 #'SynList <- GetITISSyn(scnames)
 #'BuildCSList(SynList,"Name","Syn")
+#'}
 #'
 #' @family List functions
 #' @export

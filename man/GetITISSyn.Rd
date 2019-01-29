@@ -17,7 +17,7 @@ Fetch Synonyms from ITIS
 }
 \examples{
 GetITISSyn("Abrothrix longipilis")
-GetITISSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
+#GetITISSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
 
 }
 \seealso{

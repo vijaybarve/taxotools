@@ -24,9 +24,11 @@ repeating values and secondary values to be summarized with comma separated
 in the same field
 }
 \examples{
+\dontrun{
 scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
 SynList <- GetITISSyn(scnames)
 BuildCSList(SynList,"Name","Syn")
+}
 
 }
 \concept{List functions}

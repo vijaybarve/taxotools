@@ -20,7 +20,7 @@ Fetch Synonyms from Wikipedia and clean them for use
 }
 \examples{
 GetWikiSyn("Abrothrix illutea")
-GetWikiSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
+#GetWikiSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
 
 }
 \concept{Wiki functions}
