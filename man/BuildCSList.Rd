@@ -4,7 +4,7 @@
 \alias{BuildCSList}
 \title{Build a comma separated List}
 \usage{
-BuildCSList(data, pri, sec)
+BuildCSList(data, pri, sec, duplicate = FALSE, sepchar = ",")
 }
 \arguments{
 \item{data}{data frame containing primary and secondary data columns}
@@ -13,6 +13,10 @@ BuildCSList(data, pri, sec)
 
 \item{sec}{Secondary field (values would be added to same record,
 comma separated)}
+
+\item{duplicate}{If true, duplicate entries are allowed in secondary field}
+
+\item{sepchar}{Charactor seperator betewwn the data iteams. Dafaule is comma}
 }
 \value{
 a data frame with two fields Primary and secondary (comma

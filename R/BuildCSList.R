@@ -8,6 +8,8 @@
 #' @param pri Primary field name (repeating values)
 #' @param sec Secondary field (values would be added to same record,
 #' comma separated)
+#' @param duplicate If true, duplicate entries are allowed in secondary field
+#' @param sepchar Charactor seperator betewwn the data iteams. Dafaule is comma
 #' @return a data frame with two fields Primary and secondary (comma
 #' separated list)
 #' @examples \dontrun{
@@ -18,7 +20,7 @@
 #'
 #' @family List functions
 #' @export
-BuildCSList <- function(data,pri,sec){
+BuildCSList <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
   tdata <- data
   colnames(tdata)[which(colnames(tdata) == pri)] <- 'pri'
   colnames(tdata)[which(colnames(tdata) == sec)] <- 'sec'
@@ -32,7 +34,7 @@ BuildCSList <- function(data,pri,sec){
     newsec <- tdata$sec[1]
     for(i in 2:dim(tdata)[1]){
       if(tdata$pri[i]==oldpri){
-        newsec <- paste(newsec,", ",tdata$sec[i])
+        newsec <- paste(newsec,sepchar," ",tdata$sec[i])
       } else {
         rec <- oldrec
         rec$sec <- newsec
@@ -43,6 +45,9 @@ BuildCSList <- function(data,pri,sec){
       }
     }
     rec <- oldrec
+    if(!duplicate){
+      newsec <- dedup_csl(newsec,sepchar)
+    }
     rec$sec <- newsec
     retdat <- rbind(retdat,rec)
     retdat <- as.data.frame(retdat)
@@ -53,4 +58,11 @@ BuildCSList <- function(data,pri,sec){
   } else {
     return(NULL)
   }
+}
+
+dedup_csl <- function(vec,sepchar){
+  tmp <- strsplit(vec,sepchar)[[1]]
+  tmp <- trimws(tmp)
+  tmp <- unique(tmp)
+  return(paste(tmp, collapse=paste(sepchar," ",sep="")))
 }

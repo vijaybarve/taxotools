@@ -21,6 +21,7 @@ Some tools to work with lists taxonomic names.
 \item \link{ExpandSyn}
 \item \link{CheckScientificName}
 \item \link{GuessTaxoLevel}
+\item \link{MakeCanonical}
 }
 }
 
