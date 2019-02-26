@@ -9,7 +9,7 @@
 #' @param sec Secondary field (values would be added to same record,
 #' comma separated)
 #' @param duplicate If true, duplicate entries are allowed in secondary field
-#' @param sepchar Charactor seperator betewwn the data iteams. Dafaule is comma
+#' @param sepchar Character separator between the data items. Default is comma
 #' @return a data frame with two fields Primary and secondary (comma
 #' separated list)
 #' @examples \dontrun{

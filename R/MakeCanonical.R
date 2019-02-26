@@ -1,6 +1,6 @@
-#' Construct cononical names
+#' Construct canonical names
 #'
-#' Cononical names using Genus, Species and Subspecies friends
+#' Canonical names using Genus, Species and Subspecies friends
 #'
 #' @param dat data frame containing taxonomic list
 #' @param genus field name for Genus field
@@ -8,7 +8,7 @@
 #' @param subspecies field name for Subspecies field
 #' @family name functions
 #' @return a data frame containing Canonical names field added or repopulated using
-#'     filed names for Genus, Species and Subspecies specified in paramaters
+#'     filed names for Genus, Species and Subspecies specified in parameters
 #' @examples
 #' \dontrun{
 #' MakeCanonical(mylist,"genus","species","subspecies")

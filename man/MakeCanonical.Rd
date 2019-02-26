@@ -2,7 +2,7 @@
 % Please edit documentation in R/MakeCanonical.R
 \name{MakeCanonical}
 \alias{MakeCanonical}
-\title{Construct cononical names}
+\title{Construct canonical names}
 \usage{
 MakeCanonical(dat, genus = "", species = "", subspecies = "")
 }
@@ -17,10 +17,10 @@ MakeCanonical(dat, genus = "", species = "", subspecies = "")
 }
 \value{
 a data frame containing Canonical names field added or repopulated using
-    filed names for Genus, Species and Subspecies specified in paramaters
+    filed names for Genus, Species and Subspecies specified in parameters
 }
 \description{
-Cononical names using Genus, Species and Subspecies friends
+Canonical names using Genus, Species and Subspecies friends
 }
 \examples{
 \dontrun{

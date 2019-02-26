@@ -16,7 +16,7 @@ comma separated)}
 
 \item{duplicate}{If true, duplicate entries are allowed in secondary field}
 
-\item{sepchar}{Charactor seperator betewwn the data iteams. Dafaule is comma}
+\item{sepchar}{Character separator between the data items. Default is comma}
 }
 \value{
 a data frame with two fields Primary and secondary (comma
