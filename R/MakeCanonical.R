@@ -15,7 +15,7 @@
 #' }
 #' @export
 MakeCanonical <- function(dat,genus="",species="",subspecies=""){
-  newdat <- dat
+  newdat <- as.data.frame(dat)
   newdat$canonical <- ""
   if(genus==""){
     return(NULL)
