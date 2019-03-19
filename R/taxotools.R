@@ -5,6 +5,7 @@
 #'@section List functions:
 #'\itemize{
 #'\item \link{BuildCSList}
+#'\item \link{MatchLists}
 #'}
 #'
 #'@section Name functions:
@@ -18,6 +19,7 @@
 #'@section ITIS functions:
 #'\itemize{
 #'\item \link{GetITISSyn}
+#'\item \link{ListITISSyn}
 #'}
 #'
 #'

@@ -12,6 +12,7 @@ Some tools to work with lists taxonomic names.
 
 \itemize{
 \item \link{BuildCSList}
+\item \link{MatchLists}
 }
 }
 
@@ -29,6 +30,7 @@ Some tools to work with lists taxonomic names.
 
 \itemize{
 \item \link{GetITISSyn}
+\item \link{ListITISSyn}
 }
 }
 
