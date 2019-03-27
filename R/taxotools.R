@@ -4,7 +4,7 @@
 #'
 #'@section List functions:
 #'\itemize{
-#'\item \link{BuildCSList}
+#'\item \link{cast_cs_field}
 #'\item \link{MatchLists}
 #'}
 #'
