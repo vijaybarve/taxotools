@@ -27,6 +27,7 @@ expand_name("Oryx addax", "O. nasomaculatus")
 }
 \seealso{
 Other Name functions: \code{\link{CheckScientificName}},
-  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}}
+  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
+  \code{\link{check_scientific}}
 }
 \concept{Name functions}

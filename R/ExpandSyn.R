@@ -8,9 +8,10 @@
 #' the syn list
 #' @family Name functions
 #' @examples
+#' \dontrun{
 #' ExpandSyn("Addax gibbosa", "A. mytilopes")
 #' ExpandSyn("Oryx addax", "O. nasomaculatus")
-#'
+#' }
 #' @export
 ExpandSyn <- function(name,syn){
   .Deprecated("expand_name")

@@ -19,12 +19,14 @@ the syn list
 This function is depreciated. Please use \link{expand_name}
 }
 \examples{
+\dontrun{
 ExpandSyn("Addax gibbosa", "A. mytilopes")
 ExpandSyn("Oryx addax", "O. nasomaculatus")
-
+}
 }
 \seealso{
 Other Name functions: \code{\link{CheckScientificName}},
-  \code{\link{GuessTaxoLevel}}, \code{\link{expand_name}}
+  \code{\link{GuessTaxoLevel}},
+  \code{\link{check_scientific}}, \code{\link{expand_name}}
 }
 \concept{Name functions}

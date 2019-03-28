@@ -11,7 +11,7 @@
 #'@section Name functions:
 #'\itemize{
 #'\item \link{expand_name}
-#'\item \link{CheckScientificName}
+#'\item \link{check_scientific}
 #'\item \link{GuessTaxoLevel}
 #'\item \link{MakeCanonical}
 #'}
@@ -33,6 +33,7 @@
 #'\item \link{MatchLists}
 #'\item \link{BuildCSList}
 #'\item \link{ExpandSyn}
+#'\item \link{CheckScientificName}
 #'}
 #'@section Citation:
 #'\itemize{

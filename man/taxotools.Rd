@@ -20,7 +20,7 @@ Some tools to work with lists taxonomic names.
 
 \itemize{
 \item \link{expand_name}
-\item \link{CheckScientificName}
+\item \link{check_scientific}
 \item \link{GuessTaxoLevel}
 \item \link{MakeCanonical}
 }
@@ -45,6 +45,7 @@ Some tools to work with lists taxonomic names.
 \item \link{MatchLists}
 \item \link{BuildCSList}
 \item \link{ExpandSyn}
+\item \link{CheckScientificName}
 }
 }
 

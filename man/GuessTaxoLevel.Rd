@@ -23,6 +23,7 @@ GuessTaxoLevel("Abrocoma cinerea shistacea")
 }
 \seealso{
 Other Name functions: \code{\link{CheckScientificName}},
-  \code{\link{ExpandSyn}}, \code{\link{expand_name}}
+  \code{\link{ExpandSyn}}, \code{\link{check_scientific}},
+  \code{\link{expand_name}}
 }
 \concept{Name functions}

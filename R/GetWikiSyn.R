@@ -28,11 +28,11 @@ GetWikiSyn <- function(namelist){
       }
     }
     if(length(wikisyn)>0){
-      wikisyn <- ExpandSyn(accname,wikisyn)
+      wikisyn <- expand_name(accname,wikisyn)
       synlst <- NULL
       for(j in 1:length(wikisyn)){
         rec <- taxize::gbif_parse(wikisyn[j])
-        syn <- CheckScientificName(rec$canonicalname)
+        syn <- check_scientific(rec$canonicalname)
         if(is.null(syn)){
           syn <- ''
         }

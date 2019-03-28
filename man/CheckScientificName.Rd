@@ -13,17 +13,22 @@ CheckScientificName(name)
 Resolved Canonical name and NULL is not matched
 }
 \description{
+This function is depreciated. Please use \link{check_scientific}
+}
+\details{
 Parse the names using GBIF parse API to make sure the name passed
 is an scientific name
 }
 \examples{
+\dontrun{
 CheckScientificName("Akodon longipilis (Waterhouse, 1837)")
 CheckScientificName("Mus longipilis Waterhouse, 1837")
 CheckScientificName("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
-
+}
 }
 \seealso{
 Other Name functions: \code{\link{ExpandSyn}},
-  \code{\link{GuessTaxoLevel}}, \code{\link{expand_name}}
+  \code{\link{GuessTaxoLevel}},
+  \code{\link{check_scientific}}, \code{\link{expand_name}}
 }
 \concept{Name functions}
