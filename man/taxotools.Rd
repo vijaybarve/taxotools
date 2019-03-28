@@ -12,7 +12,7 @@ Some tools to work with lists taxonomic names.
 
 \itemize{
 \item \link{cast_cs_field}
-\item \link{MatchLists}
+\item \link{match_lists}
 }
 }
 
@@ -38,6 +38,12 @@ Some tools to work with lists taxonomic names.
 
 \itemize{
 \item \link{GetWikiSyn}
+}
+
+#'@section Discontinued functions:
+\itemize{
+\item \link{MatchLists}
+\item \link{BuildCSList}
 }
 }
 

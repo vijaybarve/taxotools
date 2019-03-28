@@ -23,7 +23,7 @@ a data frame with two fields Primary and secondary (comma
 separated list)
 }
 \description{
-This function is depriciated. Please use \link{cast_cs_field}
+This function is depreciated. Please use \link{cast_cs_field}
 }
 \details{
 Builds a comma separated list given a data frame with two fiends, primary

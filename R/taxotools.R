@@ -5,7 +5,7 @@
 #'@section List functions:
 #'\itemize{
 #'\item \link{cast_cs_field}
-#'\item \link{MatchLists}
+#'\item \link{match_lists}
 #'}
 #'
 #'@section Name functions:
@@ -28,6 +28,11 @@
 #'\item \link{GetWikiSyn}
 #'}
 #'
+#'#'@section Discontinued functions:
+#'\itemize{
+#'\item \link{MatchLists}
+#'\item \link{BuildCSList}
+#'}
 #'@section Citation:
 #'\itemize{
 #'\item Barve, V., (2018). taxotools: Tools to handle

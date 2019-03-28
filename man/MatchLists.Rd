@@ -19,11 +19,17 @@ MatchLists(master, lst, masterfld, lstfld)
 a list with two data frames containing matched and non-matched names from the master list
 }
 \description{
+This function is depreciated. Please use \link{match_lists}
+}
+\details{
 match two taxonomic lists using canonical names
 }
 \examples{
 \dontrun{
-MakeCanonical(master,lst,"canonical","canonical",)
+MatchLists(master,lst,"canonical","canonical",)
 }
+}
+\seealso{
+Other list functions: \code{\link{match_lists}}
 }
 \concept{list functions}

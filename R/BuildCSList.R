@@ -1,6 +1,6 @@
 #' Build a comma separated List
 #'
-#' This function is depriciated. Please use \link{cast_cs_field}
+#' This function is depreciated. Please use \link{cast_cs_field}
 #'
 #' Builds a comma separated list given a data frame with two fiends, primary
 #' repeating values and secondary values to be summarized with comma separated
