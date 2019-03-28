@@ -19,7 +19,7 @@ Some tools to work with lists taxonomic names.
 \section{Name functions}{
 
 \itemize{
-\item \link{ExpandSyn}
+\item \link{expand_name}
 \item \link{CheckScientificName}
 \item \link{GuessTaxoLevel}
 \item \link{MakeCanonical}
@@ -44,6 +44,7 @@ Some tools to work with lists taxonomic names.
 \itemize{
 \item \link{MatchLists}
 \item \link{BuildCSList}
+\item \link{ExpandSyn}
 }
 }
 
