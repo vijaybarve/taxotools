@@ -35,7 +35,4 @@ cast_cs_field(SynList,"Name","Syn")
 }
 
 }
-\seealso{
-Other List functions: \code{\link{BuildCSList}}
-}
 \concept{List functions}

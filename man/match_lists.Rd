@@ -27,7 +27,4 @@ match two taxonomic lists using canonical names
 match_lists(master,checklist,"canonical","canonical",)
 }
 }
-\seealso{
-Other list functions: \code{\link{MatchLists}}
-}
 \concept{list functions}

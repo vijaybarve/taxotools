@@ -30,6 +30,8 @@ MatchLists(master,lst,"canonical","canonical",)
 }
 }
 \seealso{
-Other list functions: \code{\link{match_lists}}
+Other Discontinued functions: \code{\link{BuildCSList}},
+  \code{\link{CheckScientificName}},
+  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}}
 }
-\concept{list functions}
+\concept{Discontinued functions}

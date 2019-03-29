@@ -8,7 +8,7 @@
 #' @param lst match  taxonomic list
 #' @param masterfld field name for canonical name in master list
 #' @param lstfld field name for canonical name in match list
-#' @family list functions
+#' @family Discontinued functions
 #' @return a list with two data frames containing matched and non-matched names from the master list
 #' @examples
 #' \dontrun{

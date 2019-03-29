@@ -12,7 +12,7 @@
 #'\itemize{
 #'\item \link{expand_name}
 #'\item \link{check_scientific}
-#'\item \link{GuessTaxoLevel}
+#'\item \link{guess_taxo_level}
 #'\item \link{MakeCanonical}
 #'}
 #'
@@ -34,7 +34,7 @@
 #'\item \link{BuildCSList}
 #'\item \link{ExpandSyn}
 #'\item \link{CheckScientificName}
-#'}
+#'\item \link{GuessTaxoLevel}'}
 #'@section Citation:
 #'\itemize{
 #'\item Barve, V., (2018). taxotools: Tools to handle

@@ -25,8 +25,8 @@ ExpandSyn("Oryx addax", "O. nasomaculatus")
 }
 }
 \seealso{
-Other Name functions: \code{\link{CheckScientificName}},
-  \code{\link{GuessTaxoLevel}},
-  \code{\link{check_scientific}}, \code{\link{expand_name}}
+Other Discontinued functions: \code{\link{BuildCSList}},
+  \code{\link{CheckScientificName}},
+  \code{\link{GuessTaxoLevel}}, \code{\link{MatchLists}}
 }
-\concept{Name functions}
+\concept{Discontinued functions}

@@ -23,8 +23,7 @@ check_scientific("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
 
 }
 \seealso{
-Other Name functions: \code{\link{CheckScientificName}},
-  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
-  \code{\link{expand_name}}
+Other Name functions: \code{\link{expand_name}},
+  \code{\link{guess_taxo_level}}
 }
 \concept{Name functions}

@@ -20,7 +20,7 @@
 #'BuildCSList(SynList,"Name","Syn")
 #'}
 #'
-#' @family List functions
+#' @family Discontinued functions
 #' @export
 BuildCSList <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
   .Deprecated("cast_cs_field")

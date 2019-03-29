@@ -27,8 +27,8 @@ CheckScientificName("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
 }
 }
 \seealso{
-Other Name functions: \code{\link{ExpandSyn}},
-  \code{\link{GuessTaxoLevel}},
-  \code{\link{check_scientific}}, \code{\link{expand_name}}
+Other Discontinued functions: \code{\link{BuildCSList}},
+  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
+  \code{\link{MatchLists}}
 }
-\concept{Name functions}
+\concept{Discontinued functions}

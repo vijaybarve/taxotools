@@ -39,6 +39,8 @@ BuildCSList(SynList,"Name","Syn")
 
 }
 \seealso{
-Other List functions: \code{\link{cast_cs_field}}
+Other Discontinued functions: \code{\link{CheckScientificName}},
+  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
+  \code{\link{MatchLists}}
 }
-\concept{List functions}
+\concept{Discontinued functions}
