@@ -41,6 +41,6 @@ BuildCSList(SynList,"Name","Syn")
 \seealso{
 Other Discontinued functions: \code{\link{CheckScientificName}},
   \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
-  \code{\link{MatchLists}}
+  \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
 }
 \concept{Discontinued functions}

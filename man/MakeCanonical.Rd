@@ -20,6 +20,9 @@ a data frame containing Canonical names field added or repopulated using
     filed names for Genus, Species and Subspecies specified in parameters
 }
 \description{
+This function is depreciated. Please use \link{make_canonical}
+}
+\details{
 Canonical names using Genus, Species and Subspecies friends
 }
 \examples{
@@ -27,4 +30,10 @@ Canonical names using Genus, Species and Subspecies friends
 MakeCanonical(mylist,"genus","species","subspecies")
 }
 }
-\concept{name functions}
+\seealso{
+Other Discontinued functions: \code{\link{BuildCSList}},
+  \code{\link{CheckScientificName}},
+  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
+  \code{\link{MatchLists}}
+}
+\concept{Discontinued functions}

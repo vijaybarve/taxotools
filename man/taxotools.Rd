@@ -22,7 +22,7 @@ Some tools to work with lists taxonomic names.
 \item \link{expand_name}
 \item \link{check_scientific}
 \item \link{guess_taxo_level}
-\item \link{MakeCanonical}
+\item \link{make_canonical}
 }
 }
 
@@ -46,7 +46,9 @@ Some tools to work with lists taxonomic names.
 \item \link{BuildCSList}
 \item \link{ExpandSyn}
 \item \link{CheckScientificName}
-\item \link{GuessTaxoLevel}'}
+\item \link{GuessTaxoLevel}
+\item \link{MakeCanonical}
+}
 }
 
 \section{Citation}{

@@ -13,7 +13,7 @@
 #'\item \link{expand_name}
 #'\item \link{check_scientific}
 #'\item \link{guess_taxo_level}
-#'\item \link{MakeCanonical}
+#'\item \link{make_canonical}
 #'}
 #'
 #'@section ITIS functions:
@@ -34,7 +34,9 @@
 #'\item \link{BuildCSList}
 #'\item \link{ExpandSyn}
 #'\item \link{CheckScientificName}
-#'\item \link{GuessTaxoLevel}'}
+#'\item \link{GuessTaxoLevel}
+#'\item \link{MakeCanonical}
+#'}
 #'@section Citation:
 #'\itemize{
 #'\item Barve, V., (2018). taxotools: Tools to handle
