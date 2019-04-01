@@ -27,7 +27,7 @@ ExpandSyn("Oryx addax", "O. nasomaculatus")
 \seealso{
 Other Discontinued functions: \code{\link{BuildCSList}},
   \code{\link{CheckScientificName}},
-  \code{\link{GuessTaxoLevel}},
+  \code{\link{GetWikiSyn}}, \code{\link{GuessTaxoLevel}},
   \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
 }
 \concept{Discontinued functions}

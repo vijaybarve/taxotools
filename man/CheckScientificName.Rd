@@ -28,7 +28,8 @@ CheckScientificName("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
 }
 \seealso{
 Other Discontinued functions: \code{\link{BuildCSList}},
-  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
+  \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
+  \code{\link{GuessTaxoLevel}},
   \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
 }
 \concept{Discontinued functions}

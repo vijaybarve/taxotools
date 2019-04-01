@@ -33,7 +33,7 @@ MakeCanonical(mylist,"genus","species","subspecies")
 \seealso{
 Other Discontinued functions: \code{\link{BuildCSList}},
   \code{\link{CheckScientificName}},
-  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
-  \code{\link{MatchLists}}
+  \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
+  \code{\link{GuessTaxoLevel}}, \code{\link{MatchLists}}
 }
 \concept{Discontinued functions}

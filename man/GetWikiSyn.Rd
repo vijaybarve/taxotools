@@ -16,11 +16,20 @@ a data frame containing names, synonyms and Canonical synonyms matched
  \item{Syn}  {: Synonym in canonical form, matched with GBIF}}
 }
 \description{
+This function is depreciated. Please use \link{list_wiki_syn}
+}
+\details{
 Fetch Synonyms from Wikipedia and clean them for use
 }
 \examples{
-GetWikiSyn("Abrothrix illutea")
+#GetWikiSyn("Abrothrix illutea")
 #GetWikiSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
 
 }
-\concept{Wiki functions}
+\seealso{
+Other Discontinued functions: \code{\link{BuildCSList}},
+  \code{\link{CheckScientificName}},
+  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
+  \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
+}
+\concept{Discontinued functions}

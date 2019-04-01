@@ -40,7 +40,8 @@ BuildCSList(SynList,"Name","Syn")
 }
 \seealso{
 Other Discontinued functions: \code{\link{CheckScientificName}},
-  \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
+  \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
+  \code{\link{GuessTaxoLevel}},
   \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
 }
 \concept{Discontinued functions}
