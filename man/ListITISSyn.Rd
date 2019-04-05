@@ -13,14 +13,18 @@ ListITISSyn(scname)
 a list containing synonyms
 }
 \description{
+This function is depreciated. Please use \link{get_itis_syn}
+}
+\details{
 Fetch Synonyms using ITIS web service
 }
 \examples{
-ListITISSyn("Abrothrix longipilis")
-ListITISSyn("Abditomys latidens")
+#ListITISSyn("Abrothrix longipilis")
+#ListITISSyn("Abditomys latidens")
 
 }
 \seealso{
-Other ITIS functions: \code{\link{GetITISSyn}}
+Other ITIS functions: \code{\link{GetITISSyn}},
+  \code{\link{get_itis_syn}}, \code{\link{list_itis_syn}}
 }
 \concept{ITIS functions}

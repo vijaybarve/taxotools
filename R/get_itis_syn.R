@@ -1,6 +1,4 @@
-#' Get list ITIS Synonyms for a Scientific Name
-#'
-#'  This function is depreciated. Please use \link{get_itis_syn}
+#' Get ITIS Synonyms for a Scientific Name
 #'
 #' Fetch Synonyms using ITIS web service
 #'
@@ -9,12 +7,11 @@
 #' @importFrom taxize get_tsn synonyms
 #' @family ITIS functions
 #' @examples
-#' #ListITISSyn("Abrothrix longipilis")
-#' #ListITISSyn("Abditomys latidens")
+#' get_itis_syn("Abrothrix longipilis")
+#' get_itis_syn("Abditomys latidens")
 #'
 #' @export
-ListITISSyn <- function(scname){
-  .Deprecated("get_itis_syn")
+get_itis_syn <- function(scname){
   tsn <- get_tsn(scname, rows=1)[1]
   t1 <- NULL
   if(!is.na(tsn)){

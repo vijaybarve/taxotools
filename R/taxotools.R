@@ -18,14 +18,14 @@
 #'
 #'@section ITIS functions:
 #'\itemize{
-#'\item \link{GetITISSyn}
-#'\item \link{ListITISSyn}
+#'\item \link{get_itis_syn}
+#'#'\item \link{list_itis_syn}
 #'}
 #'
 #'
 #'@section Wiki functions:
 #'\itemize{
-#'\item \link{GetWikiSyn}
+#'\item \link{list_wiki_syn}
 #'}
 #'
 #'#'@section Discontinued functions:
@@ -36,6 +36,9 @@
 #'\item \link{CheckScientificName}
 #'\item \link{GuessTaxoLevel}
 #'\item \link{MakeCanonical}
+#'\item \link{GetWikiSyn}
+#'\item \link{GetITISSyn}
+#'\item \link{ListITISSyn}
 #'}
 #'@section Citation:
 #'\itemize{

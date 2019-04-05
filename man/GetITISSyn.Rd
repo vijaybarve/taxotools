@@ -13,14 +13,18 @@ GetITISSyn(namelist)
 a data frame containing names (passed) and synonyms
 }
 \description{
+This function is depreciated. Please use \link{list_itis_syn}
+}
+\details{
 Fetch Synonyms from ITIS
 }
 \examples{
-GetITISSyn("Abrothrix longipilis")
+#GetITISSyn("Abrothrix longipilis")
 #GetITISSyn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
 
 }
 \seealso{
-Other ITIS functions: \code{\link{ListITISSyn}}
+Other ITIS functions: \code{\link{ListITISSyn}},
+  \code{\link{get_itis_syn}}, \code{\link{list_itis_syn}}
 }
 \concept{ITIS functions}
