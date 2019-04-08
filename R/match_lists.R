@@ -11,7 +11,7 @@
 #' names from the master list
 #' @examples
 #' \dontrun{
-#' match_lists(master,checklist,"canonical","canonical",)
+#' match_lists(master,checklist,"canonical","canonical")
 #' }
 #' @export
 match_lists <- function(master,checklist,masterfld,checklistfld){

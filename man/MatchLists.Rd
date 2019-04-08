@@ -26,7 +26,7 @@ match two taxonomic lists using canonical names
 }
 \examples{
 \dontrun{
-MatchLists(master,lst,"canonical","canonical",)
+MatchLists(master,lst,"canonical","canonical")
 }
 }
 \seealso{

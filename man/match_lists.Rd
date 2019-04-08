@@ -24,7 +24,7 @@ match two taxonomic lists using canonical names
 }
 \examples{
 \dontrun{
-match_lists(master,checklist,"canonical","canonical",)
+match_lists(master,checklist,"canonical","canonical")
 }
 }
 \concept{list functions}

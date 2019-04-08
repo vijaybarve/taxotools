@@ -30,7 +30,7 @@ character separated in the same field (secondary)
 \examples{
 \dontrun{
 scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-SynList <- GetITISSyn(scnames)
+SynList <- get_itis_syn(scnames)
 cast_cs_field(SynList,"Name","Syn")
 }
 

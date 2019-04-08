@@ -12,7 +12,7 @@
 #' @return a list with two data frames containing matched and non-matched names from the master list
 #' @examples
 #' \dontrun{
-#' MatchLists(master,lst,"canonical","canonical",)
+#' MatchLists(master,lst,"canonical","canonical")
 #' }
 #' @export
 MatchLists <- function(master,lst,masterfld,lstfld){
