@@ -5,6 +5,7 @@
 #'@section List functions:
 #'\itemize{
 #'\item \link{cast_cs_field}
+#'\item \link{melt_cs_field}
 #'\item \link{match_lists}
 #'}
 #'

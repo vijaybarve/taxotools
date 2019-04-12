@@ -14,7 +14,7 @@
 #' separated list)
 #' @examples \dontrun{
 #'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-#'SynList <- get_itis_syn(scnames)
+#'SynList <- list_itis_syn(scnames)
 #'cast_cs_field(SynList,"Name","Syn")
 #'}
 #'

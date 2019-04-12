@@ -30,9 +30,12 @@ character separated in the same field (secondary)
 \examples{
 \dontrun{
 scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-SynList <- get_itis_syn(scnames)
+SynList <- list_itis_syn(scnames)
 cast_cs_field(SynList,"Name","Syn")
 }
 
+}
+\seealso{
+Other List functions: \code{\link{melt_cs_field}}
 }
 \concept{List functions}
