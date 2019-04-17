@@ -21,6 +21,6 @@ guess_taxo_level("Abrocoma cinerea shistacea")
 }
 \seealso{
 Other Name functions: \code{\link{check_scientific}},
-  \code{\link{expand_name}}
+  \code{\link{expand_name}}, \code{\link{list_higher_taxo}}
 }
 \concept{Name functions}

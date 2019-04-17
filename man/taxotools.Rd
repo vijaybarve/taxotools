@@ -24,6 +24,7 @@ Some tools to work with lists taxonomic names.
 \item \link{check_scientific}
 \item \link{guess_taxo_level}
 \item \link{make_canonical}
+\item \link{list_higher_taxo}
 }
 }
 
@@ -40,8 +41,10 @@ Some tools to work with lists taxonomic names.
 \itemize{
 \item \link{list_wiki_syn}
 }
+}
 
-#'@section Discontinued functions:
+\section{Discontinued functions}{
+
 \itemize{
 \item \link{MatchLists}
 \item \link{BuildCSList}
@@ -58,8 +61,8 @@ Some tools to work with lists taxonomic names.
 \section{Citation}{
 
 \itemize{
-\item Barve, V., (2018). taxotools: Tools to handle
-taxonomic data (R package V 0.0.1). Retrieved from
+\item Barve, V., (2019). taxotools: Tools to handle
+taxonomic data (R package V 0.0.20). Retrieved from
 https://cran.r-project.org/web/packages/taxotools/index.html
 }
 }

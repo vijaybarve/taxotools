@@ -20,11 +20,13 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
     return(NULL)
   } else {
     master <- RenameColumn(master,masterfld,"masterfld")
+    master$masterfld <- as.character(master$masterfld)
   }
   if(checklistfld==""){
     return(NULL)
   } else {
     checklist <- RenameColumn(checklist,checklistfld,"checklistfld")
+    checklist$checklistfld <- as.character(checklist$checklistfld)
   }
   retval$matchlist <- master[which(master$masterfld %in% checklist$checklistfld),]
   retval$nonmatchlist <- master[which(master$masterfld %!in% checklist$checklistfld),]
