@@ -1,12 +1,12 @@
-#' Build a list seperating character (comma) separated field into seperate records
+#' Build a list separating character (comma) separated field into separate records
 #'
-#' Builds a list seperating character (comma) separated field given a data frame
+#' Builds a list separating character (comma) separated field given a data frame
 #' with a field with repeating values
 #'
-#' @param data data frame containing a data columns with character(comma) seperated values
-#' @param pri Primary field name with character(comma) seperated values
+#' @param data data frame containing a data columns with character(comma) separated values
+#' @param pri Primary field name with character(comma) separated values
 #' @param sepchar Character separator between the data items. Default is comma
-#' @return a data frame with seperate records for each value in primary field specified
+#' @return a data frame with separate records for each value in primary field specified
 #' @examples \dontrun{
 #'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
 #'syn_list <- list_itis_syn(scnames)

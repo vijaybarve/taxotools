@@ -10,21 +10,21 @@ list_higher_taxo(indf, canonical, genus = FALSE, verbose = FALSE,
 \arguments{
 \item{indf}{input data frame containing taxonomic list}
 
-\item{canonical}{fieldname containing scientific names}
+\item{canonical}{field name containing scientific names}
 
 \item{genus}{If TRUE, use only genus level data to get taxanomy}
 
 \item{verbose}{If TRUE, displays each name string for which the higher
 taxonomy is sought}
 
-\item{progress}{If TRUE prints progress bar and messages on the consol.}
+\item{progress}{If TRUE prints progress bar and messages on the console.}
 }
 \value{
-indf with added / updated columns \itemize{ \item{"Kingdom"}{Kingdom
+data frame with added / updated columns \itemize{ \item{"Kingdom"}{Kingdom
  of the Scientific name} \item{"Phylum"}{Phylum of the Scientific name}
  \item{"Order_"}{Order of the Scientific name} \item{"Family"}{Family of the
  Scientific name} \item{"Genus"}{Genus of the Scientific name} } and also
- saves a local copy of taxanomy downloaded for future use in taxo.db sqlite
+ saves a local copy of taxonomy downloaded for future use in 'taxo.db' sqlite
  file
 }
 \description{

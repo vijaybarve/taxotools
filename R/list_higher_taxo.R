@@ -13,16 +13,16 @@
 #'@import sqldf
 #'@importFrom utils setTxtProgressBar txtProgressBar
 #'@param indf input data frame containing taxonomic list
-#'@param canonical fieldname containing scientific names
-#'@param genus If TRUE, use only genus level data to get taxanomy
+#'@param canonical field name containing scientific names
+#'@param genus If TRUE, use only genus level data to get taxonomy
 #'@param verbose If TRUE, displays each name string for which the higher
 #'  taxonomy is sought
-#'@param progress If TRUE prints progress bar and messages on the consol.
-#'@return indf with added / updated columns \itemize{ \item{"Kingdom"}{Kingdom
+#'@param progress If TRUE prints progress bar and messages on the console.
+#'@return data frame with added / updated columns \itemize{ \item{"Kingdom"}{Kingdom
 #'  of the Scientific name} \item{"Phylum"}{Phylum of the Scientific name}
 #'  \item{"Order_"}{Order of the Scientific name} \item{"Family"}{Family of the
 #'  Scientific name} \item{"Genus"}{Genus of the Scientific name} } and also
-#'  saves a local copy of taxanomy downloaded for future use in taxo.db sqlite
+#'  saves a local copy of taxonomy downloaded for future use in 'taxo.db' sqlite
 #'  file
 #'@examples \dontrun{
 #'inat <- list_higher_taxo(inat)
