@@ -12,7 +12,7 @@ list_higher_taxo(indf, canonical, genus = FALSE, verbose = FALSE,
 
 \item{canonical}{field name containing scientific names}
 
-\item{genus}{If TRUE, use only genus level data to get taxanomy}
+\item{genus}{If TRUE, use only genus level data to get taxonomy}
 
 \item{verbose}{If TRUE, displays each name string for which the higher
 taxonomy is sought}

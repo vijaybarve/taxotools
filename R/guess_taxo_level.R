@@ -20,5 +20,8 @@ guess_taxo_level <- function(name){
                     "Species",
                     "Subspecies")
   }
+  if(is.null(level)){
+    level <- "Unknown"
+  }
   return(level)
 }
