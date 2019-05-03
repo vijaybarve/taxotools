@@ -8,9 +8,9 @@
 #'name (or just genus name) in the data set. When new data are retrieved, they
 #'are stored in a local sqlite database, taxo.db, for faster further access.
 #'
-#'@import plyr
-#'@import taxize
-#'@import sqldf
+#'@importFrom plyr ldply
+#'@importFrom taxize get_uid classification
+#'@importFrom sqldf sqldf
 #'@importFrom utils setTxtProgressBar txtProgressBar
 #'@param indf input data frame containing taxonomic list
 #'@param canonical field name containing scientific names
