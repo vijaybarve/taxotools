@@ -26,6 +26,7 @@ GuessTaxoLevel("Abrocoma cinerea shistacea")
 Other Discontinued functions: \code{\link{BuildCSList}},
   \code{\link{CheckScientificName}},
   \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
-  \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
+  \code{\link{MakeCanonical}}, \code{\link{MatchLists}},
+  \code{\link{make_canonical}}
 }
 \concept{Discontinued functions}

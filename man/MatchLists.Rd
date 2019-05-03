@@ -33,6 +33,7 @@ MatchLists(master,lst,"canonical","canonical")
 Other Discontinued functions: \code{\link{BuildCSList}},
   \code{\link{CheckScientificName}},
   \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
-  \code{\link{GuessTaxoLevel}}, \code{\link{MakeCanonical}}
+  \code{\link{GuessTaxoLevel}},
+  \code{\link{MakeCanonical}}, \code{\link{make_canonical}}
 }
 \concept{Discontinued functions}

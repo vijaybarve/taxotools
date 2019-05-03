@@ -30,6 +30,7 @@ CheckScientificName("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
 Other Discontinued functions: \code{\link{BuildCSList}},
   \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
   \code{\link{GuessTaxoLevel}},
-  \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
+  \code{\link{MakeCanonical}}, \code{\link{MatchLists}},
+  \code{\link{make_canonical}}
 }
 \concept{Discontinued functions}

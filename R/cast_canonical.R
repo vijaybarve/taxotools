@@ -8,16 +8,15 @@
 #' @param genus field name for Genus field
 #' @param species field name for Species field
 #' @param subspecies field name for Subspecies field
-#' @family  Discontinued functions
+#' @family name functions
 #' @return a data frame containing Canonical names field added or repopulated using
 #'     filed names for Genus, Species and Subspecies specified in parameters
 #' @examples
 #' \dontrun{
-#' make_canonical(mylist,"genus","species","subspecies")
+#' cast_canonical(mylist,"genus","species","subspecies")
 #' }
 #' @export
-make_canonical <- function(dat,genus="",species="",subspecies=""){
-  .Deprecated("cast_canonical")
+cast_canonical <- function(dat,genus="",species="",subspecies=""){
   newdat <- as.data.frame(dat)
   newdat$canonical <- ""
   if(genus==""){
@@ -68,7 +67,7 @@ rename_column <- function(dat,old,new){
   if(old %in% colnames(dat)){
     colnames(dat)[which(names(dat) == old)] <- new
   } else {
-    print("Error: Fieldname not found...")
+    print(paste("Error: Fieldname not found...",old))
   }
   return(dat)
 }

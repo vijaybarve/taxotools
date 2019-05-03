@@ -30,6 +30,7 @@ Fetch Synonyms from Wikipedia and clean them for use
 Other Discontinued functions: \code{\link{BuildCSList}},
   \code{\link{CheckScientificName}},
   \code{\link{ExpandSyn}}, \code{\link{GuessTaxoLevel}},
-  \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
+  \code{\link{MakeCanonical}}, \code{\link{MatchLists}},
+  \code{\link{make_canonical}}
 }
 \concept{Discontinued functions}

@@ -19,19 +19,19 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
   if(masterfld==""){
     return(NULL)
   } else {
-    master <- RenameColumn(master,masterfld,"masterfld")
+    master <- rename_column(master,masterfld,"masterfld")
     master$masterfld <- as.character(master$masterfld)
   }
   if(checklistfld==""){
     return(NULL)
   } else {
-    checklist <- RenameColumn(checklist,checklistfld,"checklistfld")
+    checklist <- rename_column(checklist,checklistfld,"checklistfld")
     checklist$checklistfld <- as.character(checklist$checklistfld)
   }
   retval$matchlist <- master[which(master$masterfld %in% checklist$checklistfld),]
   retval$nonmatchlist <- master[which(master$masterfld %!in% checklist$checklistfld),]
-  retval$matchlist <- RenameColumn(retval$matchlist,"masterfld",masterfld)
-  retval$nonmatchlist <- RenameColumn(retval$nonmatchlist,"masterfld",masterfld)
+  retval$matchlist <- rename_column(retval$matchlist,"masterfld",masterfld)
+  retval$nonmatchlist <- rename_column(retval$nonmatchlist,"masterfld",masterfld)
   return(retval)
 }
 
