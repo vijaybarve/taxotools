@@ -14,7 +14,8 @@
 #'\item \link{expand_name}
 #'\item \link{check_scientific}
 #'\item \link{guess_taxo_level}
-#'\item \link{make_canonical}
+#'\item \link{cast_canonical}
+#'\item \link{melt_canonical}
 #'\item \link{list_higher_taxo}
 #'}
 #'
@@ -41,11 +42,12 @@
 #'\item \link{GetWikiSyn}
 #'\item \link{GetITISSyn}
 #'\item \link{ListITISSyn}
+#'\item \link{make_canonical}
 #'}
 #'@section Citation:
 #'\itemize{
 #'\item Barve, V., (2019). taxotools: Tools to handle
-#'taxonomic data (R package V 0.0.20). Retrieved from
+#'taxonomic data (R package V 0.0.26). Retrieved from
 #'https://cran.r-project.org/web/packages/taxotools/index.html
 #'}
 #'

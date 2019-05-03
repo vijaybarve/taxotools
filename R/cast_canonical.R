@@ -8,7 +8,7 @@
 #' @param genus field name for Genus field
 #' @param species field name for Species field
 #' @param subspecies field name for Subspecies field
-#' @family name functions
+#' @family Name functions
 #' @return a data frame containing Canonical names field added or repopulated using
 #'     filed names for Genus, Species and Subspecies specified in parameters
 #' @examples
