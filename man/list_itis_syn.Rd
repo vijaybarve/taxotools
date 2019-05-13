@@ -16,9 +16,10 @@ a data frame containing names (passed) and synonyms
 Fetch Synonyms from ITIS
 }
 \examples{
+\dontrun{
 list_itis_syn("Abrothrix longipilis")
 #list_itis_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
-
+}
 }
 \seealso{
 Other ITIS functions: \code{\link{GetITISSyn}},

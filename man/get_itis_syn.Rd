@@ -16,9 +16,10 @@ a list containing synonyms
 Fetch Synonyms using ITIS web service
 }
 \examples{
+\dontrun{
 get_itis_syn("Abrothrix longipilis")
 get_itis_syn("Abditomys latidens")
-
+}
 }
 \seealso{
 Other ITIS functions: \code{\link{GetITISSyn}},

@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1557774782613.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "485080405",
+    "id" : "C2F9B746",
+    "lastKnownWriteTime" : 1557774799,
+    "last_content_update" : 1557774799537,
+    "path" : "D:/Projects/github/taxotools/R/list_itis_syn.R",
+    "project_path" : "R/list_itis_syn.R",
+    "properties" : {
+        "cursorPosition" : "11,4",
+        "scrollLine" : "0",
+        "tempName" : "Untitled2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 18,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1557774631908.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "32984EB8",
+    "lastKnownWriteTime" : 1554503314,
+    "last_content_update" : 1554503314,
+    "path" : "D:/Projects/github/taxotools/R/GetITISSyn.R",
+    "project_path" : "R/GetITISSyn.R",
+    "properties" : {
+        "cursorPosition" : "9,12",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
