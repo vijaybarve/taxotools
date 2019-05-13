@@ -18,7 +18,7 @@
 #'
 #' @export
 GetWikiSyn <- function(namelist){
-  .Deprecated("ist_wiki_syn")
+  .Deprecated("list_wiki_syn")
   res <- NULL
   for(i in 1:length(namelist)){
     accname <- namelist[i]
