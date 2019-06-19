@@ -64,7 +64,7 @@ Some tools to work with lists taxonomic names.
 
 \itemize{
 \item Barve, V., (2019). taxotools: Tools to handle
-taxonomic data (R package V 0.0.26). Retrieved from
+taxonomic data (R package V 0.0.29). Retrieved from
 https://cran.r-project.org/web/packages/taxotools/index.html
 }
 }

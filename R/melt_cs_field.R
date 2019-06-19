@@ -1,12 +1,13 @@
-#' Build a list separating character (comma) separated field into separate records
+#' Generate a list melting character (comma) separated field values into multiple
+#' records
 #'
-#' Builds a list separating character (comma) separated field given a data frame
+#' Builds a list, melting character (comma) separated field values given a data frame
 #' with a field with repeating values
 #'
 #' @param data data frame containing a data columns with character(comma) separated values
-#' @param pri Primary field name with character(comma) separated values
+#' @param melt Field name with character(comma) separated values
 #' @param sepchar Character separator between the data items. Default is comma
-#' @return a data frame with separate records for each value in primary field specified
+#' @return a data frame with separate records for each value in field specified
 #' @examples \dontrun{
 #'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
 #'syn_list <- list_itis_syn(scnames)
@@ -16,9 +17,9 @@
 #'
 #' @family List functions
 #' @export
-melt_cs_field <- function(data,pri,sepchar=","){
+melt_cs_field <- function(data,melt,sepchar=","){
   tdata <- data
-  colnames(tdata)[which(colnames(tdata) == pri)] <- 'pri'
+  colnames(tdata)[which(colnames(tdata) == melt)] <- 'pri'
   if(!is.null(tdata)){
     tdata$pri <- as.character(tdata$pri)
     retdat <- NULL
@@ -37,7 +38,7 @@ melt_cs_field <- function(data,pri,sepchar=","){
       }
     }
     retdat <- as.data.frame(retdat)
-    colnames(retdat)[which(colnames(retdat) == 'pri')] <- pri
+    colnames(retdat)[which(colnames(retdat) == 'pri')] <- melt
     rownames(retdat) <- NULL
     return(retdat)
   }  else {

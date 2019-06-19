@@ -2,22 +2,23 @@
 % Please edit documentation in R/melt_cs_field.R
 \name{melt_cs_field}
 \alias{melt_cs_field}
-\title{Build a list separating character (comma) separated field into separate records}
+\title{Generate a list melting character (comma) separated field values into multiple
+records}
 \usage{
-melt_cs_field(data, pri, sepchar = ",")
+melt_cs_field(data, melt, sepchar = ",")
 }
 \arguments{
 \item{data}{data frame containing a data columns with character(comma) separated values}
 
-\item{pri}{Primary field name with character(comma) separated values}
+\item{melt}{Field name with character(comma) separated values}
 
 \item{sepchar}{Character separator between the data items. Default is comma}
 }
 \value{
-a data frame with separate records for each value in primary field specified
+a data frame with separate records for each value in field specified
 }
 \description{
-Builds a list separating character (comma) separated field given a data frame
+Builds a list, melting character (comma) separated field values given a data frame
 with a field with repeating values
 }
 \examples{
