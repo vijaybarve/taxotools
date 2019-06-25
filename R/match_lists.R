@@ -7,8 +7,9 @@
 #' @param masterfld field name for canonical name in master list
 #' @param checklistfld field name for canonical name in match list
 #' @family list functions
-#' @return a list with two data frames containing matched and non-matched
-#' names from the master list
+#' @return a list with data frames containing matched records,
+#' records only in master and cheklist and statistics about the
+#' records including Jaccard index
 #' @examples
 #' \dontrun{
 #' match_lists(master,checklist,"canonical","canonical")
@@ -29,9 +30,19 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
     checklist$checklistfld <- as.character(checklist$checklistfld)
   }
   retval$matchlist <- master[which(master$masterfld %in% checklist$checklistfld),]
-  retval$nonmatchlist <- master[which(master$masterfld %!in% checklist$checklistfld),]
+  retval$onlymaster <- master[which(master$masterfld %!in% checklist$checklistfld),]
+  retval$onlychecklist <-  checklist[which(checklist$checklistfld %!in% master$masterfld),]
   retval$matchlist <- rename_column(retval$matchlist,"masterfld",masterfld)
-  retval$nonmatchlist <- rename_column(retval$nonmatchlist,"masterfld",masterfld)
+  retval$onlymaster <- rename_column(retval$onlymaster,"masterfld",masterfld)
+  retval$onlychecklist <- rename_column(retval$onlychecklist,"checklistfld",checklistfld)
+  retval$stat$masterrec <- dim(master)[1]
+  retval$stat$checkrec <- dim(checklist)[1]
+  retval$stat$match <- dim(retval$matchlist)[1]
+  retval$stat$onlymaster <- dim(retval$onlymaster)[1]
+  retval$stat$onlychecklist <- dim(retval$onlychecklist)[1]
+  retval$stat$jacard <- dim(retval$matchlist)[1] / ( dim(retval$matchlist)[1] +
+                                                       dim(retval$onlymaster)[1] +
+                                                       dim(retval$onlychecklist)[1] )
   return(retval)
 }
 

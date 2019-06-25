@@ -16,8 +16,9 @@ match_lists(master, checklist, masterfld, checklistfld)
 \item{checklistfld}{field name for canonical name in match list}
 }
 \value{
-a list with two data frames containing matched and non-matched
-names from the master list
+a list with data frames containing matched records,
+records only in master and cheklist and statistics about the
+records including Jaccard index
 }
 \description{
 match two taxonomic lists using canonical names
