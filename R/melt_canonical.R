@@ -40,14 +40,16 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
       if(tl=="Species" | tl=="Subspecies"){
         newdat$species[i] <- strsplit(newdat$canonical[i]," ")[[1]][2]
       }
-      if(tl=="Subspecies"){
+      if(tl=="Subspecies" & subspecies!=""){
         newdat$subspecies[i] <- strsplit(newdat$canonical[i]," ")[[1]][3]
       }
     }
   }
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)
-  newdat <- rename_column(newdat,"subspecies",subspecies)
+  if(subspecies!=""){
+    newdat <- rename_column(newdat,"subspecies",subspecies)
+  }
   newdat <- rename_column(newdat,"canonical",canonical)
   return(newdat)
 }
