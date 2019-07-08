@@ -27,7 +27,7 @@ Deconstruct canonical names into Genus, Species and Subspecies fields.
 }
 \examples{
 \dontrun{
-melt_canonical(mylist,"genus","species","subspecies")
+melt_canonical(mylist,"canonical","genus","species","subspecies")
 }
 }
 \seealso{
