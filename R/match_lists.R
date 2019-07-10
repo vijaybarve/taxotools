@@ -45,5 +45,3 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
                                                        dim(retval$onlychecklist)[1] )
   return(retval)
 }
-
-'%!in%' <- function(x,y)!('%in%'(x,y))

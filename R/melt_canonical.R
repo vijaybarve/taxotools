@@ -83,11 +83,3 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
   newdat <- rename_column(newdat,"canonical",canonical)
   return(newdat)
 }
-
-isupper <- function(chr){
-  if(chr == toupper(chr)){
-    return(TRUE)
-  } else {
-    return(FALSE)
-  }
-}

@@ -49,25 +49,3 @@ cast_canonical <- function(dat,genus="",species="",subspecies=""){
   newdat <- rename_column(newdat,"subspecies",subspecies)
   return(newdat)
 }
-
-is.empty <- function(val){
-  if(is.null(val)){
-    return(TRUE)
-  }
-  if(is.na(val)){
-    return(TRUE)
-  }
-  if(val==""){
-    return(TRUE)
-  }
-  return(FALSE)
-}
-
-rename_column <- function(dat,old,new){
-  if(old %in% colnames(dat)){
-    colnames(dat)[which(names(dat) == old)] <- new
-  } else {
-    print(paste("Error: Fieldname not found...",old))
-  }
-  return(dat)
-}
