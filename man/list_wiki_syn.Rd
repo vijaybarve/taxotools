@@ -12,6 +12,7 @@ list_wiki_syn(namelist)
 \value{
 a data frame containing names, synonyms and Canonical synonyms matched
    with GBIF backbone taxonomy  \itemize{ \item{Name}  {: Scientific name}
+   \item{WikiName}  {: Wikipedia page name}
    \item{OrigSyn}  {: Original synonym returned by Wikipedia}
  \item{Syn}  {: Synonym in canonical form, matched with GBIF}}
 }

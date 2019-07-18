@@ -6,6 +6,7 @@
 #' @family Wiki functions
 #' @return a data frame containing names, synonyms and Canonical synonyms matched
 #'    with GBIF backbone taxonomy  \itemize{ \item{Name}  {: Scientific name}
+#'    \item{WikiName}  {: Wikipedia page name}
 #'    \item{OrigSyn}  {: Original synonym returned by Wikipedia}
 #'  \item{Syn}  {: Synonym in canonical form, matched with GBIF}}
 #' @importFrom wikitaxa wt_wikipedia
@@ -37,7 +38,7 @@ list_wiki_syn <- function(namelist){
           syn <- ''
         }
         syn_orig <- wikisyn[j]
-        synrec <- cbind(accname,syn_orig,syn)
+        synrec <- cbind(accname,wikiacn,syn_orig,syn)
         synlst <- rbind(synlst,synrec)
         cat("+")
       }
@@ -49,7 +50,7 @@ list_wiki_syn <- function(namelist){
   }
   if(!is.null(res)){
     res <- as.data.frame(res)
-    names(res) <- c("Name","OrigSyn","Syn")
+    names(res) <- c("Name","WikiName","OrigSyn","Syn")
   }
   cat("\n")
   return(res)
