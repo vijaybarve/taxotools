@@ -38,7 +38,7 @@ list_wiki_syn <- function(namelist){
           syn <- ''
         }
         syn_orig <- wikisyn[j]
-        if(identical(wikiacn,character(0))){wikiacn=accname}
+        if(is.null(wikiacn) | identical(wikiacn,character(0))){wikiacn=""}
         synrec <- cbind(accname,wikiacn,syn_orig,syn)
         synlst <- rbind(synlst,synrec)
         cat("+")
