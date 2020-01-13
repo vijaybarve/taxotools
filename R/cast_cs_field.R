@@ -43,11 +43,11 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
         oldrec <- tdata[i,]
         newsec <- tdata$sec[i]
       }
+      if(!duplicate){
+        newsec <- dedup_csl(newsec,sepchar)
+      }
     }
     rec <- oldrec
-    if(!duplicate){
-      newsec <- dedup_csl(newsec,sepchar)
-    }
     rec$sec <- newsec
     retdat <- rbind(retdat,rec)
     retdat <- as.data.frame(retdat)

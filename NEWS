@@ -1,7 +1,8 @@
-taxotools 0.0.39
+taxotools 0.0.40
 ================
 
 * Removed all discontinued functions
+* Function cast_cs_field bug fix duplicated parameter now works
 
 taxotools 0.0.38
 ================
