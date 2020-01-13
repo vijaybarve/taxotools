@@ -22,7 +22,7 @@ list_itis_syn("Abrothrix longipilis")
 }
 }
 \seealso{
-Other ITIS functions: \code{\link{GetITISSyn}},
-  \code{\link{ListITISSyn}}, \code{\link{get_itis_syn}}
+Other ITIS functions: 
+\code{\link{get_itis_syn}()}
 }
 \concept{ITIS functions}

@@ -4,8 +4,7 @@
 \alias{melt_canonical}
 \title{Deconstruct canonical names}
 \usage{
-melt_canonical(dat, canonical = "", genus = "", species = "",
-  subspecies = "")
+melt_canonical(dat, canonical = "", genus = "", species = "", subspecies = "")
 }
 \arguments{
 \item{dat}{data frame containing taxonomic list}
@@ -31,10 +30,11 @@ melt_canonical(mylist,"canonical","genus","species","subspecies")
 }
 }
 \seealso{
-Other Name functions: \code{\link{cast_canonical}},
-  \code{\link{check_scientific}},
-  \code{\link{expand_name}},
-  \code{\link{guess_taxo_level}},
-  \code{\link{list_higher_taxo}}
+Other Name functions: 
+\code{\link{cast_canonical}()},
+\code{\link{check_scientific}()},
+\code{\link{expand_name}()},
+\code{\link{guess_taxo_level}()},
+\code{\link{list_higher_taxo}()}
 }
 \concept{Name functions}

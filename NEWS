@@ -1,0 +1,45 @@
+taxotools 0.0.39
+================
+
+* Removed all discontinued functions
+
+taxotools 0.0.38
+================
+
+* Function match_lists returns Jaccard index and new records in the checklist
+* Functions melt_canonical handles some stirngs in names like f. sp. spp. etc
+* Function list_wiki_syn returns wikipedia name too
+* Few bugfixes
+
+
+taxotools 0.0.30
+================
+
+* Function melt_canonical added
+* Function make_canonical renamed to cast_canonical
+* Function melt_cs_field parameter pri changed to melt
+
+taxotools 0.0.23
+================
+
+* Functions melt_cs_field, list_higher_taxo added
+
+taxotools 0.0.20
+================
+
+* Revised all function names to make them user friendly
+
+taxotools 0.0.11
+================
+
+New Features
+
+* BuildCSList returns all fields in place of just Primary and Secondary
+* ExpandSyn can expand using previous names in the synonym list
+* MakeCanonical function added to build Canonical names using Genus, Species and Subspecies fields
+* BuildCSList has parameter duplicate to indicate if duplicates are allowed in CSList
+
+taxotools 0.0.3
+===============
+
+* released to CRAN

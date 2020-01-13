@@ -31,6 +31,7 @@ syn_list_new <- melt_cs_field(cs_syn_list,"Syn")
 
 }
 \seealso{
-Other List functions: \code{\link{cast_cs_field}}
+Other List functions: 
+\code{\link{cast_cs_field}()}
 }
 \concept{List functions}

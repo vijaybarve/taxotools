@@ -30,10 +30,11 @@ cast_canonical(mylist,"genus","species","subspecies")
 }
 }
 \seealso{
-Other Name functions: \code{\link{check_scientific}},
-  \code{\link{expand_name}},
-  \code{\link{guess_taxo_level}},
-  \code{\link{list_higher_taxo}},
-  \code{\link{melt_canonical}}
+Other Name functions: 
+\code{\link{check_scientific}()},
+\code{\link{expand_name}()},
+\code{\link{guess_taxo_level}()},
+\code{\link{list_higher_taxo}()},
+\code{\link{melt_canonical}()}
 }
 \concept{Name functions}

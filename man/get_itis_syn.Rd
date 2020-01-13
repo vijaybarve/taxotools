@@ -22,7 +22,7 @@ get_itis_syn("Abditomys latidens")
 }
 }
 \seealso{
-Other ITIS functions: \code{\link{GetITISSyn}},
-  \code{\link{ListITISSyn}}, \code{\link{list_itis_syn}}
+Other ITIS functions: 
+\code{\link{list_itis_syn}()}
 }
 \concept{ITIS functions}

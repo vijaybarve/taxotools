@@ -4,8 +4,13 @@
 \alias{list_higher_taxo}
 \title{Get higher taxonomy data for list of names}
 \usage{
-list_higher_taxo(indf, canonical, genus = FALSE, verbose = FALSE,
-  progress = TRUE)
+list_higher_taxo(
+  indf,
+  canonical,
+  genus = FALSE,
+  verbose = FALSE,
+  progress = TRUE
+)
 }
 \arguments{
 \item{indf}{input data frame containing taxonomic list}
@@ -43,10 +48,11 @@ inat <- list_higher_taxo(inat)
 }
 }
 \seealso{
-Other Name functions: \code{\link{cast_canonical}},
-  \code{\link{check_scientific}},
-  \code{\link{expand_name}},
-  \code{\link{guess_taxo_level}},
-  \code{\link{melt_canonical}}
+Other Name functions: 
+\code{\link{cast_canonical}()},
+\code{\link{check_scientific}()},
+\code{\link{expand_name}()},
+\code{\link{guess_taxo_level}()},
+\code{\link{melt_canonical}()}
 }
 \concept{Name functions}
