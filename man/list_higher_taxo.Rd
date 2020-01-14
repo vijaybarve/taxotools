@@ -44,7 +44,14 @@ are stored in a local sqlite database, taxo.db, for faster further access.
 }
 \examples{
 \dontrun{
-inat <- list_higher_taxo(inat)
+mylist <- data.frame("canonical" = c("Abrothrix longipilis",
+                                    "Mus longipilis",
+                                    "Abrothrix jelskii",
+                                    "Cardinalis cardinalis",
+                                    "Danaus plexippus"),
+                    stringsAsFactors = F)
+
+my_taxo_list <- list_higher_taxo(mylist,"canonical")
 }
 }
 \seealso{

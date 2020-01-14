@@ -25,7 +25,14 @@
 #'  saves a local copy of taxonomy downloaded for future use in 'taxo.db' sqlite
 #'  file
 #'@examples \dontrun{
-#'inat <- list_higher_taxo(inat)
+#'mylist <- data.frame("canonical" = c("Abrothrix longipilis",
+#'                                     "Mus longipilis",
+#'                                     "Abrothrix jelskii",
+#'                                     "Cardinalis cardinalis",
+#'                                     "Danaus plexippus"),
+#'                     stringsAsFactors = F)
+#'
+#'my_taxo_list <- list_higher_taxo(mylist,"canonical")
 #'}
 #'@family Name functions
 #'@export
