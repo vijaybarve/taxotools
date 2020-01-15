@@ -12,6 +12,19 @@
 #' records including Jaccard index
 #' @examples
 #' \dontrun{
+#'master <- data.frame("canonical" = c("Abrothrix longipilis",
+#'                                     "Acodon hirtus",
+#'                                     "Akodon longipilis apta",
+#'                                     "Akodon longipilis castaneus",
+#'                                     "Chroeomys jelskii",
+#'                                     "Acodon jelskii pyrrhotis"),
+#'                     stringsAsFactors = F)
+#'checklist <- data.frame("canonical" = c("Abrothrix longipilis",
+#'                                     "Akodon longipilis apta",
+#'                                     "Akodon longipilis castaneus",
+#'                                     "Abrothrix jelskii",
+#'                                     "Acodon jelskii pyrrhotis"),
+#'                     stringsAsFactors = F)
 #' match_lists(master,checklist,"canonical","canonical")
 #' }
 #' @export

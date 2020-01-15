@@ -26,6 +26,13 @@ Deconstruct canonical names into Genus, Species and Subspecies fields.
 }
 \examples{
 \dontrun{
+mylist <- data.frame("canonical" = c("Abrothrix longipilis",
+                                    "Acodon hirtus",
+                                    "Akodon longipilis apta",
+                                    "Akodon longipilis castaneus",
+                                    "Chroeomys jelskii",
+                                    "Acodon jelskii pyrrhotis"),
+                    stringsAsFactors = F)
 melt_canonical(mylist,"canonical","genus","species","subspecies")
 }
 }
