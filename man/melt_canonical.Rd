@@ -18,8 +18,8 @@ melt_canonical(dat, canonical = "", genus = "", species = "", subspecies = "")
 \item{subspecies}{field name for Subspecies}
 }
 \value{
-a data frame containing Genus, Species and Subspecies fields added or or repopulated
- using data in canonical name field.
+a data frame containing Genus, Species and Subspecies fields
+ added or repopulated using data in canonical name field.
 }
 \description{
 Deconstruct canonical names into Genus, Species and Subspecies fields.
@@ -29,7 +29,7 @@ Deconstruct canonical names into Genus, Species and Subspecies fields.
 mylist <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Acodon hirtus",
                                     "Akodon longipilis apta",
-                                    "Akodon longipilis castaneus",
+                                    "AKODON LONGIPILIS CASTANEUS",
                                     "Chroeomys jelskii",
                                     "Acodon jelskii pyrrhotis"),
                     stringsAsFactors = F)
