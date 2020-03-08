@@ -13,6 +13,9 @@
 #'     filed names for Genus, Species and Subspecies specified in parameters
 #' @examples
 #' \dontrun{
+#' mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
+#'                      "species" = c("jelskii","longipilis","longipilis", "sevia"),
+#'                      "subspecies" = c("pyrrhotis","castaneus","", NA))
 #' cast_canonical(mylist,"genus","species","subspecies")
 #' }
 #' @export
