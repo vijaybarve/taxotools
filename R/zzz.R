@@ -30,6 +30,7 @@ rename_column <- function(dat,old,new){
     colnames(dat)[which(names(dat) == old)] <- new
   } else {
     print(paste("Error: Fieldname not found...",old))
+    return(NULL)
   }
   return(dat)
 }

@@ -19,7 +19,7 @@
 #' @export
 melt_cs_field <- function(data,melt,sepchar=","){
   tdata <- data
-  colnames(tdata)[which(colnames(tdata) == melt)] <- 'pri'
+  tdata <- rename_column(tdata,melt,'pri')
   if(!is.null(tdata)){
     tdata$pri <- as.character(tdata$pri)
     retdat <- NULL
@@ -38,7 +38,7 @@ melt_cs_field <- function(data,melt,sepchar=","){
       }
     }
     retdat <- as.data.frame(retdat)
-    colnames(retdat)[which(colnames(retdat) == 'pri')] <- melt
+    retdat <- rename_column(retdat,'pri',melt)
     rownames(retdat) <- NULL
     return(retdat)
   }  else {
