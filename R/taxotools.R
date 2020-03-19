@@ -33,8 +33,8 @@
 #'
 #'@section Citation:
 #'\itemize{
-#'\item Barve, V., (2019). taxotools: Tools to handle
-#'taxonomic data (R package V 0.0.39). Retrieved from
+#'\item Barve, V., (2020). taxotools: Tools to handle
+#'taxonomic data (R package V 0.0.43). Retrieved from
 #'https://cran.r-project.org/web/packages/taxotools/index.html
 #'}
 #'

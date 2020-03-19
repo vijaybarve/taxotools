@@ -4,10 +4,18 @@
 \alias{cast_canonical}
 \title{Construct canonical names}
 \usage{
-cast_canonical(dat, genus = "", species = "", subspecies = "")
+cast_canonical(
+  dat,
+  canonical = "canonical",
+  genus = "",
+  species = "",
+  subspecies = ""
+)
 }
 \arguments{
 \item{dat}{data frame containing taxonomic list}
+
+\item{canonical}{field name for canonical names}
 
 \item{genus}{field name for Genus field}
 
@@ -29,7 +37,7 @@ canonical names.
 mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
                      "species" = c("jelskii","longipilis","longipilis", "sevia"),
                      "subspecies" = c("pyrrhotis","castaneus","", NA))
-cast_canonical(mylist,"genus","species","subspecies")
+cast_canonical(mylist,"canonical","genus","species","subspecies")
 }
 }
 \seealso{
