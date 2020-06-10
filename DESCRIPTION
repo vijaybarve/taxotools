@@ -1,15 +1,15 @@
 Package: taxotools
 Type: Package
 Title: Tools to Handle Taxonomic Lists
-Version: 0.0.46
-Date: 2020-03-19
+Version: 0.0.47
+Date: 2020-06-10
 Authors@R: c(
     person("Vijay", "Barve", ,"vijay.barve@gmail.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-4852-2567")))
 Maintainer: Vijay Barve <vijay.barve@gmail.com>
 Description: Some tools to work with taxonomic name lists. 
 License: CC0
-Imports: taxize, wikitaxa, plyr, sqldf
+Imports: taxize, wikitaxa, plyr, sqldf, stringr, stringdist
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2

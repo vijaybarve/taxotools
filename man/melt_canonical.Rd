@@ -22,7 +22,7 @@ a data frame containing Genus, Species and Subspecies fields
  added or repopulated using data in canonical name field.
 }
 \description{
-Deconstruct canonical names into Genus, Species and Subspecies fields.
+Deconstruct canonical names into Genus, Species and Subspecies fields
 }
 \examples{
 \dontrun{
@@ -41,6 +41,7 @@ Other Name functions:
 \code{\link{cast_canonical}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
+\code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_level}()},
 \code{\link{list_higher_taxo}()}
 }

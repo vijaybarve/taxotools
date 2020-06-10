@@ -25,6 +25,8 @@ Some tools to work with lists taxonomic names.
 \item \link{cast_canonical}
 \item \link{melt_canonical}
 \item \link{list_higher_taxo}
+\item \link{get_accepted_names}
+\item \link{taxo_fuzzy_match}
 }
 }
 

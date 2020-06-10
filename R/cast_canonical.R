@@ -5,6 +5,7 @@
 #' canonical names.
 #'
 #' @param dat data frame containing taxonomic list
+#' @param canonical field name for canonical names
 #' @param genus field name for Genus field
 #' @param species field name for Species field
 #' @param subspecies field name for Subspecies field
@@ -16,12 +17,17 @@
 #' mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
 #'                      "species" = c("jelskii","longipilis","longipilis", "sevia"),
 #'                      "subspecies" = c("pyrrhotis","castaneus","", NA))
-#' cast_canonical(mylist,"genus","species","subspecies")
+#' cast_canonical(mylist,"canonical","genus","species","subspecies")
 #' }
 #' @export
-cast_canonical <- function(dat,genus="",species="",subspecies=""){
+cast_canonical <- function(dat,canonical="canonical",genus="",
+                           species="",subspecies=""){
   newdat <- as.data.frame(dat)
-  newdat$canonical <- ""
+  newdat$canonical_ <- NA
+  if(is.empty(canonical)){
+    print("Empty")
+    canonical <- "canonical"
+  }
   if(genus==""){
     return(NULL)
   } else {
@@ -34,6 +40,8 @@ cast_canonical <- function(dat,genus="",species="",subspecies=""){
   }
   if(subspecies!=""){
     newdat <- rename_column(newdat,subspecies,"subspecies")
+  } else {
+    newdat$subspecies <- NA
   }
   for(i in 1:dim(newdat)[1]){
     cano <- newdat$genus[i]
@@ -45,10 +53,23 @@ cast_canonical <- function(dat,genus="",species="",subspecies=""){
         cano <- paste(cano,newdat$subspecies[i])
       }
     }
-    newdat$canonical[i] <- cano
+    newdat$canonical_[i] <- proper(cano)
   }
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)
-  newdat <- rename_column(newdat,"subspecies",subspecies)
+  if(subspecies!=""){
+    newdat <- rename_column(newdat,"subspecies",subspecies)
+  } else {
+    newdat <- newdat[ , !(names(newdat) %in% c("subspecies"))]
+  }
+  if((canonical == "canonical") & ("canonical" %in% names(newdat))){
+    newdat$canonical <- newdat$canonical_
+    newdat <- newdat[ , !(names(newdat) %in% c("canonical_"))]
+  } else {
+    if(canonical %in% names(newdat)){
+      newdat <- newdat[ , !(names(newdat) %in% canonical)]
+    }
+    newdat <- rename_column(newdat,"canonical_",canonical)
+  }
   return(newdat)
 }

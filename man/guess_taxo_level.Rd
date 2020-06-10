@@ -24,6 +24,7 @@ Other Name functions:
 \code{\link{cast_canonical}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
+\code{\link{get_accepted_names}()},
 \code{\link{list_higher_taxo}()},
 \code{\link{melt_canonical}()}
 }

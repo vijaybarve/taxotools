@@ -1,8 +1,16 @@
-taxotools 0.0.40
+taxotools 0.0.47
+================
+* Function cast_canonical returns proper case names rather than oroginal
+* Documentation and example code fixes, bug fixes
+* Added function taxo_fuzzy_match and get_accepted_names
+* Function rename_column has silent paramater
+
+taxotools 0.0.43
 ================
 
 * Removed all discontinued functions
 * Function cast_cs_field bug fix duplicated parameter now works
+* Minor bug fixes and feature additions
 
 taxotools 0.0.38
 ================

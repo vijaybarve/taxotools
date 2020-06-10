@@ -1,6 +1,6 @@
 #' Deconstruct canonical names
 #'
-#' Deconstruct canonical names into Genus, Species and Subspecies fields.
+#' Deconstruct canonical names into Genus, Species and Subspecies fields
 #'
 #' @param dat data frame containing taxonomic list
 #' @param canonical field name for canonical names
@@ -27,17 +27,17 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
   if(genus==""){
     return(NULL)
   } else {
-    newdat <- rename_column(newdat,genus,"genus")
+    newdat <- rename_column(newdat,genus,"genus",silent=TRUE)
     newdat$genus <- NA
   }
   if(species==""){
     return(NULL)
   } else {
-    newdat <- rename_column(newdat,species,"species")
+    newdat <- rename_column(newdat,species,"species",silent=TRUE)
     newdat$species <- NA
   }
   if(subspecies!=""){
-    newdat <- rename_column(newdat,subspecies,"subspecies")
+    newdat <- rename_column(newdat,subspecies,"subspecies",silent=TRUE)
     newdat$subspecies <- NA
   }
   if(canonical!=""){

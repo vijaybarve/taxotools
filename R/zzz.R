@@ -25,12 +25,13 @@ is.empty <- function(val){
   return(FALSE)
 }
 
-rename_column <- function(dat,old,new){
+rename_column <- function(dat,old,new,silent=FALSE){
   if(old %in% colnames(dat)){
     colnames(dat)[which(names(dat) == old)] <- new
   } else {
-    print(paste("Error: Fieldname not found...",old))
-    return(NULL)
+    if(!silent){
+      print(paste("Fieldname not found...",old))
+    }
   }
   return(dat)
 }
