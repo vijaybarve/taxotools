@@ -23,19 +23,21 @@ melt_cs_field <- function(data,melt,sepchar=","){
   if(!is.null(tdata)){
     tdata$pri <- as.character(tdata$pri)
     retdat <- NULL
-    for(i in 1:dim(tdata)[1]){
+    pb = txtProgressBar(min = 0, max = nrow(tdata), initial = 0)
+    for(i in 1:nrow(tdata)){
       crec <- tdata[i,]
       if(tdata$pri[i]!="" & !is.na(tdata$pri[i])){
         items <- strsplit(tdata$pri[i],sepchar)[[1]]
         for (j in 1:length(items)){
           addrec <- crec
-          addrec$pri <- items[j]
+          addrec$pri <- trimws(items[j])
           retdat <- rbind(retdat,addrec)
         }
       } else {
         addrec <- crec
         retdat <- rbind(retdat,addrec)
       }
+      setTxtProgressBar(pb,i)
     }
     retdat <- as.data.frame(retdat)
     retdat <- rename_column(retdat,'pri',melt)

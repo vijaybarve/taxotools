@@ -45,6 +45,9 @@
 #' \item{sub2sp - }{subspecies elevated to species}
 #' \item{NA - }{could not be resolved}
 #' }
+#'
+#' Note: Make sure all the data frames have same character encoding to prevent
+#'  errors.
 #' @importFrom stringr word
 #' @family Name functions
 #' @examples
@@ -120,6 +123,7 @@ get_accepted_names <- function(master,gen_syn=NA,namelookup=NA,namelist,
                                verbose=TRUE){
   # Set the data
   names(master) <- tolower(names(master))
+
   if(is.na(canonical)){
     if(verbose){cat("\nConstructing canonical name field")}
     namelist <- cast_canonical(namelist,"canonical",genus,species,subspecies)
