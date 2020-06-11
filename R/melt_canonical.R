@@ -43,7 +43,8 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
   if(canonical!=""){
     newdat <- rename_column(newdat,canonical,"canonical")
   }
-  for(i in 1:dim(newdat)[1]){
+  pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
+  for(i in 1:nrow(newdat)){
     if(!is.empty(newdat$canonical[i])){
       tl <- guess_taxo_level(newdat$canonical[i])
       newdat$genus[i] <- proper(strsplit(newdat$canonical[i]," ")[[1]][1])
@@ -54,6 +55,7 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
         newdat$subspecies[i] <- tolower(strsplit(newdat$canonical[i]," ")[[1]][3])
       }
     }
+    setTxtProgressBar(pb,i)
   }
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)

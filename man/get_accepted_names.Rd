@@ -76,7 +76,6 @@ Name resolution methods:\itemize{
 \item{sub2sp - }{subspecies elevated to species}
 \item{NA - }{could not be resolved}
 }
-
 Note: Make sure all the data frames have same character encoding to prevent
  errors.
 }

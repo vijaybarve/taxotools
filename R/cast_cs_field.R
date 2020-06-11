@@ -32,7 +32,8 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
     oldrec <- tdata[1,]
     retdat <- NULL
     newsec <- tdata$sec[1]
-    for(i in 2:dim(tdata)[1]){
+    pb = txtProgressBar(min = 0, max = nrow(tdata), initial = 0)
+    for(i in 2:nrow(tdata)){
       if(tdata$pri[i]==oldpri){
         newsec <- paste(newsec,sepchar," ",tdata$sec[i])
       } else {
@@ -46,6 +47,7 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
       if(!duplicate){
         newsec <- dedup_csl(newsec,sepchar)
       }
+      setTxtProgressBar(pb,i)
     }
     rec <- oldrec
     rec$sec <- newsec

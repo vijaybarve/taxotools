@@ -43,7 +43,8 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
   } else {
     newdat$subspecies <- NA
   }
-  for(i in 1:dim(newdat)[1]){
+  pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
+  for(i in 1:nrow(newdat)){
     cano <- newdat$genus[i]
     if(!is.empty(newdat$species[i])){
       cano <- paste(cano,newdat$species[i])
@@ -54,6 +55,7 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
       }
     }
     newdat$canonical_[i] <- proper(cano)
+    setTxtProgressBar(pb,i)
   }
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)
