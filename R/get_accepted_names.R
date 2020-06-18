@@ -1,6 +1,11 @@
 #' @title get_accepted_name
 #' @description Match namelist with master and fetch the accepted names
 #' using the linkages provided within the data
+#' @param namelist data frame of the list of names to be resolved. Must
+#' contain either column canonical containing binomial or trinominal name
+#' without spp. and var. etc. or may contain columns for genus, species
+#' and subspecies (any subspecific unit) and the names of the columns are
+#' passed as subsequent parameters.
 #' @param master data frame with required columns id, canonical and accid.
 #' Other columns like order, family are optional. Column id is typically
 #' running ids for each record and accid will contain 0 if the name is
@@ -14,11 +19,7 @@
 #' need manual lookup. The columns required are binomial and validname
 #' where binomial is new name and validname is present in the master.
 #'  Default: NA when namelookup is not used.
-#' @param namelist data frame of the list of names to be resolved. Must
-#' contain either column canonical containing binomial or trinominal name
-#' without spp. and var. etc. or may contain columns for genus, species
-#' and subspecies (any subspecific unit) and the names of the columns are
-#' passed as subsequent parameters.
+#' @param mastersource vector of sources to be used for assignment with priority
 #' @param canonical column containing names to be resolved to accepted names
 #' , Default: NA when columns for genus and species are specified.
 #' @param genus column containing genus names to be resolved to accepted
@@ -38,6 +39,7 @@
 #' @details
 #' Name resolution methods:\itemize{
 #' \item{direct - }{was a direct match with name or a synonym}
+#' \item{direct2 - }{was a direct match with name or a synonym in non mastersource}
 #' \item{fuzzy - }{used fuzzy matching}
 #' \item{gensyn - }{genus substitution with known genus level synonyms}
 #' \item{lookup - }{Manual lookup in earlier processing}
@@ -60,6 +62,8 @@
 #'                                     "Hypochlorosis ancharia obiana",
 #'                                     "Hypochlorosis lorquinii"),
 #'                     "accid" = c(0,1,1,1,0,0,0),
+#'                     "source" = c("itis","itis","wiki","wiki","itis",
+#'                                  "itis","itis"),
 #'                     stringsAsFactors = F)
 #'
 #'mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
@@ -74,8 +78,8 @@
 #'                                  "Sithon lorquinii"),
 #'                     stringsAsFactors = F)
 #'
-#'res <- get_accepted_names(master=master,
-#'                          namelist = mylist,
+#'res <- get_accepted_names(namelist = mylist,
+#'                          master=master,
 #'                          canonical = "scname")
 #'
 #'gen_syn_list <- data.frame("Original_Genus"=c("Pseudonotis",
@@ -84,9 +88,9 @@
 #'                                           "Hypochlorosis"),
 #'                           stringsAsFactors = F)
 #'
-#'res <- get_accepted_names(master=master,
+#'res <- get_accepted_names(namelist = mylist,
+#'                          master=master,
 #'                          gen_syn = gen_syn_list,
-#'                          namelist = mylist,
 #'                          canonical = "scname")
 #'
 #'lookup_list <- data.frame("binomial"=c("Sithon lorquinii",
@@ -95,10 +99,10 @@
 #'                                        "Hypochlorosis lorquinii"),
 #'                          stringsAsFactors = F)
 #'
-#'res <- get_accepted_names(master=master,
+#'res <- get_accepted_names(namelist = mylist,
+#'                          master=master,
 #'                          gen_syn = gen_syn_list,
 #'                          namelookup = lookup_list,
-#'                          namelist = mylist,
 #'                          canonical = "scname")
 #'
 #'mylist_s <- melt_canonical(mylist,canonical = "scname",
@@ -106,23 +110,43 @@
 #'                           species = "species",
 #'                           subspecies = "subspecies")
 #'
-#'res <- get_accepted_names(master=master,
+#'res <- get_accepted_names(namelist = mylist_s,
+#'                          master=master,
 #'                          gen_syn = gen_syn_list,
 #'                          namelookup = lookup_list,
-#'                          namelist = mylist_s,
+#'                          genus = "genus",
+#'                          species = "species",
+#'                          subspecies = "subspecies")
+#'
+#'res <- get_accepted_names(namelist = mylist_s,
+#'                          master=master,
+#'                          gen_syn = gen_syn_list,
+#'                          namelookup = lookup_list,
+#'                          mastersource = c("itis"),
 #'                          genus = "genus",
 #'                          species = "species",
 #'                          subspecies = "subspecies")
 #' }
 #' @rdname get_accepted_names
 #' @export
-
-get_accepted_names <- function(master,gen_syn=NA,namelookup=NA,namelist,
-                               canonical=NA, genus=NA,species=NA,subspecies=NA,
-                               verbose=TRUE){
+get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
+                               mastersource=NA, canonical=NA, genus=NA,
+                               species=NA, subspecies=NA, verbose=TRUE){
   # Set the data
   names(master) <- tolower(names(master))
-
+  if(!missing(mastersource)){
+    orig_master <- master
+    if("source" %in% names(master) ){
+      master <- master[which(master$source %in% mastersource),]
+      if(nrow(master)==0){
+        cat("\nProblem matching mastersource")
+        return(NULL)
+      }
+    } else {
+      cat("\nmaster data frame needs to have source column to use mastersource option")
+      return(NULL)
+    }
+  }
   if(is.na(canonical)){
     if(verbose){cat("\nConstructing canonical name field")}
     namelist <- cast_canonical(namelist,"canonical",genus,species,subspecies)
@@ -180,42 +204,41 @@ get_accepted_names <- function(master,gen_syn=NA,namelookup=NA,namelist,
   new$source <- master$source[match(new$id_, master$id)]
   new$method[which(is.na(new$method) & !is.na(new$accepted_name))] <- "direct"
 
-
   # Genus swap
-  if(!missing(gen_syn)){
-    if(verbose){cat("\nTrying Genus level synonyms\n")}
-    for(i in 1:nrow(new)){
-      #print(i)
-      if(is.na(new$accepted_name[i])){
-        curgenus <- word(new$canonical_[i],1,1)
-        genlist <- as.character(gen_syn[which(gen_syn$Valid_Genus==
-                                                curgenus),
-                                        c("Original_Genus")])
-        if(length(genlist)>0){
-          for(j in 1:length(genlist)){
-            combi_name <- paste(genlist[j],
-                                word(new$canonical_[i],
-                                     2,length(strsplit(new$canonical_[i],
-                                                       ' ')[[1]])))
-            name_match <- master[which(master$canonical==combi_name),]
-            if(dim(name_match)[1]==1){
-              if(name_match$accid[1]==0){
-                match_rec <- name_match
-                if(verbose){cat("+")}
-              } else {
-                match_rec <- master[which(master$id==name_match$accid[1]),]
-                if(verbose){cat("*")}
+  if(nrow(new[which(is.na(new$accepted_name)),])>0){
+    if(!missing(gen_syn)){
+      if(verbose){cat("\nTrying Genus level synonyms\n")}
+      for(i in 1:nrow(new)){
+        if(is.na(new$accepted_name[i])){
+          curgenus <- word(new$canonical_[i],1,1)
+          genlist <- as.character(gen_syn[which(gen_syn$Valid_Genus==
+                                                  curgenus),
+                                          c("Original_Genus")])
+          if(length(genlist)>0){
+            for(j in 1:length(genlist)){
+              combi_name <- paste(genlist[j],
+                                  word(new$canonical_[i],
+                                       2,length(strsplit(new$canonical_[i],
+                                                         ' ')[[1]])))
+              name_match <- master[which(master$canonical==combi_name),]
+              if(dim(name_match)[1]==1){
+                if(name_match$accid[1]==0){
+                  match_rec <- name_match
+                  if(verbose){cat("+")}
+                } else {
+                  match_rec <- master[which(master$id==name_match$accid[1]),]
+                  if(verbose){cat("*")}
+                }
+                new$accepted_name[i] <- match_rec$canonical[1]
+                new$source[i] <- name_match$source[1]
+                new$method[i] <- "gensyn"
               }
-              new$accepted_name[i] <- match_rec$canonical[1]
-              new$source[i] <- name_match$source[1]
-              new$method[i] <- "gensyn"
             }
           }
         }
       }
     }
   }
-
   # Subspecies to species
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
     if(verbose){cat("\nTrying Subspecies to species\n")}
@@ -263,6 +286,23 @@ get_accepted_names <- function(master,gen_syn=NA,namelookup=NA,namelist,
           new$method[i] <- "sppdrop"
         }
       }
+    }
+  }
+
+  if(nrow(new[which(is.na(new$accepted_name)),])>0){
+    if(!missing(mastersource)){
+      if(verbose){cat("\nFetching accepted names from remaining names")}
+      master <- orig_master
+      new_resolved <- new[which(!is.na(new$accepted_name)),]
+      new <- new[which(is.na(new$accepted_name)),]
+      new$id_<- master$id[match(new$canonical_, master$canonical)]
+      new$accid_<- master$accid[match(new$canonical_, master$canonical)]
+      new$newid_[which(new$accid_==0)] <- new$id_[which(new$accid_==0)]
+      new$newid_[which(new$accid_!=0)] <- new$accid_[which(new$accid_!=0)]
+      new$accepted_name <- master$canonical[match(new$newid_, master$id)]
+      new$source <- master$source[match(new$id_, master$id)]
+      new$method[which(is.na(new$method) & !is.na(new$accepted_name))] <- "direct2"
+      new <- rbind(new_resolved,new)
     }
   }
 

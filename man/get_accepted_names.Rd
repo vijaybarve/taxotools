@@ -5,10 +5,11 @@
 \title{get_accepted_name}
 \usage{
 get_accepted_names(
+  namelist,
   master,
   gen_syn = NA,
   namelookup = NA,
-  namelist,
+  mastersource = NA,
   canonical = NA,
   genus = NA,
   species = NA,
@@ -17,6 +18,12 @@ get_accepted_names(
 )
 }
 \arguments{
+\item{namelist}{data frame of the list of names to be resolved. Must
+contain either column canonical containing binomial or trinominal name
+without spp. and var. etc. or may contain columns for genus, species
+and subspecies (any subspecific unit) and the names of the columns are
+passed as subsequent parameters.}
+
 \item{master}{data frame with required columns id, canonical and accid.
 Other columns like order, family are optional. Column id is typically
 running ids for each record and accid will contain 0 if the name is
@@ -33,11 +40,7 @@ need manual lookup. The columns required are binomial and validname
 where binomial is new name and validname is present in the master.
  Default: NA when namelookup is not used.}
 
-\item{namelist}{data frame of the list of names to be resolved. Must
-contain either column canonical containing binomial or trinominal name
-without spp. and var. etc. or may contain columns for genus, species
-and subspecies (any subspecific unit) and the names of the columns are
-passed as subsequent parameters.}
+\item{mastersource}{vector of sources to be used for assignment with priority}
 
 \item{canonical}{column containing names to be resolved to accepted names
 , Default: NA when columns for genus and species are specified.}
@@ -69,6 +72,7 @@ using the linkages provided within the data
 \details{
 Name resolution methods:\itemize{
 \item{direct - }{was a direct match with name or a synonym}
+\item{direct2 - }{was a direct match with name or a synonym in non mastersource}
 \item{fuzzy - }{used fuzzy matching}
 \item{gensyn - }{genus substitution with known genus level synonyms}
 \item{lookup - }{Manual lookup in earlier processing}
@@ -90,6 +94,8 @@ master <- data.frame("id" = c(1,2,3,4,5,6,7),
                                     "Hypochlorosis ancharia obiana",
                                     "Hypochlorosis lorquinii"),
                     "accid" = c(0,1,1,1,0,0,0),
+                    "source" = c("itis","itis","wiki","wiki","itis",
+                                 "itis","itis"),
                     stringsAsFactors = F)
 
 mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
@@ -104,8 +110,8 @@ mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
                                  "Sithon lorquinii"),
                     stringsAsFactors = F)
 
-res <- get_accepted_names(master=master,
-                         namelist = mylist,
+res <- get_accepted_names(namelist = mylist,
+                         master=master,
                          canonical = "scname")
 
 gen_syn_list <- data.frame("Original_Genus"=c("Pseudonotis",
@@ -114,9 +120,9 @@ gen_syn_list <- data.frame("Original_Genus"=c("Pseudonotis",
                                           "Hypochlorosis"),
                           stringsAsFactors = F)
 
-res <- get_accepted_names(master=master,
+res <- get_accepted_names(namelist = mylist,
+                         master=master,
                          gen_syn = gen_syn_list,
-                         namelist = mylist,
                          canonical = "scname")
 
 lookup_list <- data.frame("binomial"=c("Sithon lorquinii",
@@ -125,10 +131,10 @@ lookup_list <- data.frame("binomial"=c("Sithon lorquinii",
                                        "Hypochlorosis lorquinii"),
                          stringsAsFactors = F)
 
-res <- get_accepted_names(master=master,
+res <- get_accepted_names(namelist = mylist,
+                         master=master,
                          gen_syn = gen_syn_list,
                          namelookup = lookup_list,
-                         namelist = mylist,
                          canonical = "scname")
 
 mylist_s <- melt_canonical(mylist,canonical = "scname",
@@ -136,10 +142,19 @@ mylist_s <- melt_canonical(mylist,canonical = "scname",
                           species = "species",
                           subspecies = "subspecies")
 
-res <- get_accepted_names(master=master,
+res <- get_accepted_names(namelist = mylist_s,
+                         master=master,
                          gen_syn = gen_syn_list,
                          namelookup = lookup_list,
-                         namelist = mylist_s,
+                         genus = "genus",
+                         species = "species",
+                         subspecies = "subspecies")
+
+res <- get_accepted_names(namelist = mylist_s,
+                         master=master,
+                         gen_syn = gen_syn_list,
+                         namelookup = lookup_list,
+                         mastersource = c("itis"),
                          genus = "genus",
                          species = "species",
                          subspecies = "subspecies")
