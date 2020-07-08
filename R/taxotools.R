@@ -37,7 +37,7 @@
 #'\itemize{
 #'\item Barve, V., (2020). taxotools: Tools to handle
 #'taxonomic data (R package V 0.0.43). Retrieved from
-#'https://cran.r-project.org/web/packages/taxotools/index.html
+#'https://doi.org/10.5281/zenodo.3934939
 #'}
 #'
 #' @docType package

@@ -1,4 +1,4 @@
-#' @title get_accepted_name
+#' @title get_accepted_names
 #' @description Match namelist with master and fetch the accepted names
 #' using the linkages provided within the data
 #' @param namelist data frame of the list of names to be resolved. Must
