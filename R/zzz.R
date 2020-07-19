@@ -1,8 +1,8 @@
 
 '%!in%' <- function(x,y)!('%in%'(x,y))
 
-proper=function(x) paste0(toupper(substr(x, 1, 1)),
-                          tolower(substring(x, 2)))
+toproper <- function(x) paste0(toupper(substr(x, 1, 1)),
+                             tolower(substring(x, 2)))
 
 isupper <- function(chr){
   if(chr == toupper(chr)){

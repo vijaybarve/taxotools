@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_accepted_names.R
 \name{get_accepted_names}
 \alias{get_accepted_names}
-\title{get_accepted_name}
+\title{get_accepted_names}
 \usage{
 get_accepted_names(
   namelist,
