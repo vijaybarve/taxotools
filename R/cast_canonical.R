@@ -45,7 +45,9 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
   }
   pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
   for(i in 1:nrow(newdat)){
+    if(!is.empty(newdat$genus[i])){
     cano <- newdat$genus[i]
+    }
     if(!is.empty(newdat$species[i])){
       cano <- paste(cano,newdat$species[i])
     }
