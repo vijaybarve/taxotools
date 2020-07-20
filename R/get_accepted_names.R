@@ -156,7 +156,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
     gen_synr <- data.frame(cbind(gen_syn[,2],gen_syn[,1]))
     names(gen_synr) <- names(gen_syn)
     gen_syn <- rbind(gen_syn,gen_synr)
-    gen_syn <<- gen_syn[!duplicated(gen_syn),]
+    gen_syn <- gen_syn[!duplicated(gen_syn),]
   }
   namelist <- rename_column(namelist,canonical,"canonical_")
   new <- namelist
@@ -311,23 +311,25 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
     if(verbose){cat("\nTrying Fuzzy Matches\n")}
     for(i in 1:nrow(new)){
       if(is.na(new$accepted_name[i]) & !is.na(new$canonical_[i])){
-        if(verbose){cat(paste("\n",new$canonical_[i]," "))}
-        fres <- taxo_fuzzy_match(new$canonical_[i],master,dist=3)
-        if(!is.null(fres)){
-          new$canonical_[i] <- fres$canonical
-          name_match <- master[which(master$canonical==fres$canonical),]
-          if(verbose){cat(name_match$source[1])}
-          if(dim(name_match)[1]==1){
-            if(name_match$accid[1]==0){
-              match_rec <- name_match
-              if(verbose){cat("+")}
-            } else {
-              match_rec <- master[which(master$id==name_match$accid[1]),]
-              if(verbose){cat("*")}
+        if(guess_taxo_level(new$canonical_[i])!="Genus or above"){
+          if(verbose){cat(paste("\n",new$canonical_[i]," "))}
+          fres <- taxo_fuzzy_match(new$canonical_[i],master,dist=3)
+          if(!is.null(fres)){
+            new$canonical_[i] <- fres$canonical
+            name_match <- master[which(master$canonical==fres$canonical),]
+            if(verbose){cat(name_match$source[1])}
+            if(dim(name_match)[1]==1){
+              if(name_match$accid[1]==0){
+                match_rec <- name_match
+                if(verbose){cat("+")}
+              } else {
+                match_rec <- master[which(master$id==name_match$accid[1]),]
+                if(verbose){cat("*")}
+              }
+              new$accepted_name[i] <- match_rec$canonical[1]
+              new$source[i] <- name_match$source[1]
+              new$method[i] <- "fuzzy"
             }
-            new$accepted_name[i] <- match_rec$canonical[1]
-            new$source[i] <- name_match$source[1]
-            new$method[i] <- "fuzzy"
           }
         }
       }
