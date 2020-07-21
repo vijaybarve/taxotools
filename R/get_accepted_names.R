@@ -148,7 +148,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
     }
   }
   if(is.na(canonical)){
-    if(verbose){cat("\nConstructing canonical name field")}
+    if(verbose){cat("\nConstructing canonical name field\n")}
     namelist <- cast_canonical(namelist,"canonical",genus,species,subspecies)
     canonical="canonical"
   }
@@ -309,11 +309,17 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
   # Fuzzy matches
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
     if(verbose){cat("\nTrying Fuzzy Matches\n")}
+    names_matched <- NULL
     for(i in 1:nrow(new)){
       if(is.na(new$accepted_name[i]) & !is.na(new$canonical_[i])){
         if(guess_taxo_level(new$canonical_[i])!="Genus or above"){
           if(verbose){cat(paste("\n",new$canonical_[i]," "))}
-          fres <- taxo_fuzzy_match(new$canonical_[i],master,dist=3)
+          if(new$canonical_[i] %in% names_matched$sname){
+            fres <- names_matched[which(names_matched$sname==new$canonical_[i]),]
+          } else {
+            fres <- taxo_fuzzy_match(new$canonical_[i],master,dist=3)
+            names_matched <- rbind(names_matched,fres)
+          }
           if(!is.null(fres)){
             new$canonical_[i] <- fres$canonical
             name_match <- master[which(master$canonical==fres$canonical),]
@@ -330,6 +336,12 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
               new$source[i] <- name_match$source[1]
               new$method[i] <- "fuzzy"
             }
+          } else {
+            fres <- data.frame("canonical"=NA,
+                               "dist"=NA,
+                               "sname"=new$canonical_[i],
+                               stringsAsFactors = F)
+            names_matched <- rbind(names_matched,fres)
           }
         }
       }

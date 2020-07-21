@@ -3,7 +3,7 @@
 #' @param name Name to search
 #' @param master List of names
 #' @param dist Distance tolerance, Default: 2
-#' @return Matched name. Null if not found.
+#' @return Matched name, string distance and original name. Null if not found.
 #' @details Fuzzy matching with names in the master list and return best match.
 #' @importFrom stringdist stringdist
 #' @examples
@@ -21,19 +21,18 @@
 #' @export
 taxo_fuzzy_match <- function(name,master,dist=2){
   ret <- master[agrep(name,master$canonical),c("canonical")]
+
   if(identical(ret, character(0)) ){
-      ret <- NULL
+    ret <- NULL
   } else {
     ret <- data.frame("canonical"=ret,
                       stringsAsFactors = F)
     ret$dist <- stringdist(name,ret$canonical)
+    ret$sname <- replicate(nrow(ret), name)
     if(min(ret$dist)>dist){
       ret <- NULL
-    }else {
-      ans <- NULL
-      ans$canonical <- ret$canonical[which(ret$dist==min(ret$dist))]
-      ans$dist <- min(ret$dist)
-      ret <- ans
+    } else {
+      ret <- ret[which(ret$dist==min(ret$dist)),]
     }
   }
   return(ret)

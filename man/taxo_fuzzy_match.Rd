@@ -14,7 +14,7 @@ taxo_fuzzy_match(name, master, dist = 2)
 \item{dist}{Distance tolerance, Default: 2}
 }
 \value{
-Matched name. Null if not found.
+Matched name, string distance and original name. Null if not found.
 }
 \description{
 Fuzzy matching with names
