@@ -56,11 +56,13 @@ my_taxo_list <- list_higher_taxo(mylist,"canonical")
 }
 \seealso{
 Other Name functions: 
+\code{\link{build_gen_syn}()},
 \code{\link{cast_canonical}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
 \code{\link{get_accepted_names}()},
-\code{\link{guess_taxo_level}()},
-\code{\link{melt_canonical}()}
+\code{\link{guess_taxo_rank}()},
+\code{\link{melt_canonical}()},
+\code{\link{melt_scientificname}()}
 }
 \concept{Name functions}

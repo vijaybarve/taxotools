@@ -1,17 +1,17 @@
-#' Guess the taxonomic level of Scientific Name
+#' Guess the taxonomic rank of Scientific Name
 #'
-#' Guesses the taxonomic level i.e. Genus, Species or Subspecies based on
+#' Guesses the taxonomic rank i.e. Genus, Species or Subspecies based on
 #' number of words
 #'
 #' @param name scientific name string to be checked
 #' @family Name functions
 #' @examples
-#' guess_taxo_level("Akodon longipilis")
-#' guess_taxo_level("Akodon")
-#' guess_taxo_level("Abrocoma cinerea shistacea")
+#' guess_taxo_rank("Akodon longipilis")
+#' guess_taxo_rank("Akodon")
+#' guess_taxo_rank("Abrocoma cinerea shistacea")
 #'
 #' @export
-guess_taxo_level <- function(name){
+guess_taxo_rank <- function(name){
   level <- ""
   if(!(is.na(name) | is.null(name) | name =="")){
     wordcount <- length(strsplit(name," ")[[1]])

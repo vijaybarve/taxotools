@@ -13,6 +13,7 @@
 #' @details Helpful function to break down Scientific names into Genus,
 #' species, Subspecies, Author so that the names can be constructed into canonical
 #'  names for matching
+#' @family Name functions
 #' @examples
 #' \dontrun{
 #' if(interactive()){

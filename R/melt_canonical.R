@@ -46,7 +46,7 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
   pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
   for(i in 1:nrow(newdat)){
     if(!is.empty(newdat$canonical[i])){
-      tl <- guess_taxo_level(newdat$canonical[i])
+      tl <- guess_taxo_rank(newdat$canonical[i])
       newdat$genus[i] <- toproper(strsplit(newdat$canonical[i]," ")[[1]][1])
       if(tl=="Species" | tl=="Subspecies"){
         newdat$species[i] <- tolower(strsplit(newdat$canonical[i]," ")[[1]][2])

@@ -313,7 +313,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
     names_matched <- NULL
     for(i in 1:nrow(new)){
       if(is.na(new$accepted_name[i]) & !is.na(new$canonical_[i])){
-        if(guess_taxo_level(new$canonical_[i])!="Genus or above"){
+        if(guess_taxo_rank(new$canonical_[i])!="Genus or above"){
           if(verbose){cat(paste("\n",new$canonical_[i]," "))}
           if(new$canonical_[i] %in% names_matched$sname){
             fres <- names_matched[which(names_matched$sname==new$canonical_[i]),]

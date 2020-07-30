@@ -27,3 +27,15 @@ if(interactive()){
  }
 }
 }
+\seealso{
+Other Name functions: 
+\code{\link{cast_canonical}()},
+\code{\link{check_scientific}()},
+\code{\link{expand_name}()},
+\code{\link{get_accepted_names}()},
+\code{\link{guess_taxo_rank}()},
+\code{\link{list_higher_taxo}()},
+\code{\link{melt_canonical}()},
+\code{\link{melt_scientificname}()}
+}
+\concept{Name functions}

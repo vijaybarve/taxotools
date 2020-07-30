@@ -21,11 +21,13 @@ Some tools to work with lists taxonomic names.
 \itemize{
 \item \link{expand_name}
 \item \link{check_scientific}
-\item \link{guess_taxo_level}
+\item \link{guess_taxo_rank}
 \item \link{cast_canonical}
 \item \link{melt_canonical}
+\item \link{melt_scientificname}
 \item \link{list_higher_taxo}
 \item \link{get_accepted_names}
+\item \link{build_gen_syn}
 \item \link{taxo_fuzzy_match}
 }
 }

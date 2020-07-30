@@ -5,6 +5,7 @@
 #' and Original_Genus
 #' @details This is to #'  be passed on to get_accepted_names function
 #'  as a parameter
+#' @family Name functions
 #' @examples
 #' \dontrun{
 #' if(interactive()){
