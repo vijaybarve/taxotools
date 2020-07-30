@@ -2,7 +2,7 @@
 #' @description Match namelist with master and fetch the accepted names
 #' using the linkages provided within the data
 #' @param namelist data frame of the list of names to be resolved. Must
-#' contain either column canonical containing binomial or trinominal name
+#' contain either column canonical containing binomial or trinomial name
 #' without spp. and var. etc. or may contain columns for genus, species
 #' and subspecies (any subspecific unit) and the names of the columns are
 #' passed as subsequent parameters.
@@ -15,7 +15,7 @@
 #' @param gen_syn data frame with columns Original_Genus and Valid_Genus
 #'  where Original_genus is synonym and valid_genus is one present in the
 #'  master. Default: NA when gen_syn is not used.
-#' @param namelookup Lookup data frame for names where some neames might
+#' @param namelookup Lookup data frame for names where some names might
 #' need manual lookup. The columns required are binomial and validname
 #' where binomial is new name and validname is present in the master.
 #'  Default: NA when namelookup is not used.
@@ -239,6 +239,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
       }
     }
   }
+
   # Subspecies to species
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
     if(verbose){cat("\nTrying Subspecies to species\n")}
