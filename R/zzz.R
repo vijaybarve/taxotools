@@ -3,6 +3,21 @@
 
 toproper <- function(x) paste0(toupper(substr(x, 1, 1)),
                              tolower(substring(x, 2)))
+isproper <- function(word){
+  if(word == toproper(word)){
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+
+islower <- function(word){
+  if(word == tolower(word)){
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
 
 isupper <- function(chr){
   if(chr == toupper(chr)){
