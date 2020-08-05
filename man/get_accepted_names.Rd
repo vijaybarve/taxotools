@@ -10,6 +10,7 @@ get_accepted_names(
   gen_syn = NA,
   namelookup = NA,
   mastersource = NA,
+  match_higher = FALSE,
   canonical = NA,
   genus = NA,
   species = NA,
@@ -21,14 +22,14 @@ get_accepted_names(
 \item{namelist}{data frame of the list of names to be resolved. Must
 contain either column canonical containing binomial or trinomial name
 without spp. and var. etc. or may contain columns for genus, species
-and subspecies (any subspecific unit) and the names of the columns are
+and subspecies (any sub-specific unit) and the names of the columns are
 passed as subsequent parameters.}
 
 \item{master}{data frame with required columns id, canonical and accid.
 Other columns like order, family are optional. Column id is typically
 running ids for each record and accid will contain 0 if the name is
 currently accepted name and id number of accepted name in case the name
-is a synonym. Column canonical contains bionomial or trinomial without
+is a synonym. Column canonical contains binomial or trinomial without
 spp. var. etc.}
 
 \item{gen_syn}{data frame with columns Original_Genus and Valid_Genus
@@ -40,7 +41,11 @@ need manual lookup. The columns required are binomial and validname
 where binomial is new name and validname is present in the master.
  Default: NA when namelookup is not used.}
 
-\item{mastersource}{vector of sources to be used for assignment with priority}
+\item{mastersource}{vector of sources to be used for assignment with
+priority}
+
+\item{match_higher}{match genus and family names present in canonical
+field}
 
 \item{canonical}{column containing names to be resolved to accepted names
 , Default: NA when columns for genus and species are specified.}
@@ -78,6 +83,8 @@ Name resolution methods:\itemize{
 \item{lookup - }{Manual lookup in earlier processing}
 \item{sppdrop - }{subspecies was dropped}
 \item{sub2sp - }{subspecies elevated to species}
+\item{genus - }{genus was mateched}
+\item{family - }{family was matched}
 \item{NA - }{could not be resolved}
 }
 Note: Make sure all the data frames have same character encoding to prevent

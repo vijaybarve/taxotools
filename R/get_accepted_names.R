@@ -4,13 +4,13 @@
 #' @param namelist data frame of the list of names to be resolved. Must
 #' contain either column canonical containing binomial or trinomial name
 #' without spp. and var. etc. or may contain columns for genus, species
-#' and subspecies (any subspecific unit) and the names of the columns are
+#' and subspecies (any sub-specific unit) and the names of the columns are
 #' passed as subsequent parameters.
 #' @param master data frame with required columns id, canonical and accid.
 #' Other columns like order, family are optional. Column id is typically
 #' running ids for each record and accid will contain 0 if the name is
 #' currently accepted name and id number of accepted name in case the name
-#' is a synonym. Column canonical contains bionomial or trinomial without
+#' is a synonym. Column canonical contains binomial or trinomial without
 #' spp. var. etc.
 #' @param gen_syn data frame with columns Original_Genus and Valid_Genus
 #'  where Original_genus is synonym and valid_genus is one present in the
@@ -19,7 +19,10 @@
 #' need manual lookup. The columns required are binomial and validname
 #' where binomial is new name and validname is present in the master.
 #'  Default: NA when namelookup is not used.
-#' @param mastersource vector of sources to be used for assignment with priority
+#' @param mastersource vector of sources to be used for assignment with
+#' priority
+#' @param match_higher match genus and family names present in canonical
+#' field
 #' @param canonical column containing names to be resolved to accepted names
 #' , Default: NA when columns for genus and species are specified.
 #' @param genus column containing genus names to be resolved to accepted
@@ -45,6 +48,8 @@
 #' \item{lookup - }{Manual lookup in earlier processing}
 #' \item{sppdrop - }{subspecies was dropped}
 #' \item{sub2sp - }{subspecies elevated to species}
+#' \item{genus - }{genus was mateched}
+#' \item{family - }{family was matched}
 #' \item{NA - }{could not be resolved}
 #' }
 #' Note: Make sure all the data frames have same character encoding to prevent
@@ -61,6 +66,9 @@
 #'                                     "Hypochlorosis ancharia tenebrosa",
 #'                                     "Hypochlorosis ancharia obiana",
 #'                                     "Hypochlorosis lorquinii"),
+#'                      "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae",
+#'                                   "Lycaenidae", "Lycaenidae", "Lycaenidae",
+#'                                   "Lycaenidae"),
 #'                     "accid" = c(0,1,1,1,0,0,0),
 #'                     "source" = c("itis","itis","wiki","wiki","itis",
 #'                                  "itis","itis"),
@@ -126,12 +134,28 @@
 #'                          genus = "genus",
 #'                          species = "species",
 #'                          subspecies = "subspecies")
+#'
+#'mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18),
+#'                     "scname" = c("Hypochlorosis ancharia",
+#'                                  "Hypochlorosis ancharii",
+#'                                  "Hypochlorosis",
+#'                                  "Pseudonotis",
+#'                                  "Lycaenidae",
+#'                                  "Pseudonotis humboldtii",
+#'                                  "Abrothrix longipilis",
+#'                                  "Myrinana anchariana"),
+#'                     stringsAsFactors = F)
+#'
+#'res <- get_accepted_names(namelist = mylist,
+#'                          master=master,
+#'                          match_higher = TRUE,
+#'                          canonical = "scname")
 #' }
 #' @rdname get_accepted_names
 #' @export
-get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
-                               mastersource=NA, canonical=NA, genus=NA,
-                               species=NA, subspecies=NA, verbose=TRUE){
+get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
+                               mastersource=NA, match_higher=FALSE, canonical=NA,
+                               genus=NA, species=NA, subspecies=NA, verbose=TRUE){
   # Set the data
   names(master) <- tolower(names(master))
   if(!missing(mastersource)){
@@ -170,6 +194,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
   new$source <- NA
   new$id_ <- 0
   new$accid_ <- 0
+  new$mysrno_ <- seq(1:nrow(new))
 
   # Get Name lookup table names replaced
   if(!missing(namelookup)){
@@ -207,7 +232,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
   # Genus swap
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
     if(!missing(gen_syn)){
-      if(verbose){cat("\nTrying Genus level synonyms\n")}
+      if(verbose){cat("\nTrying Genus level synonyms")}
       for(i in 1:nrow(new)){
         if(is.na(new$accepted_name[i])){
           curgenus <- word(new$canonical_[i],1,1)
@@ -242,7 +267,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
 
   # Subspecies to species
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
-    if(verbose){cat("\nTrying Subspecies to species\n")}
+    if(verbose){cat("\nTrying Subspecies to species")}
     for(i in 1:nrow(new)){
       if(is.na(new$accepted_name[i]) &
          length(strsplit(new$canonical_[i],' ')[[1]])>2){
@@ -267,7 +292,7 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
 
   # Dropping subspecies
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
-    if(verbose){cat("\nTrying dropping Subspecies\n")}
+    if(verbose){cat("\nTrying dropping Subspecies")}
     for(i in 1:nrow(new)){
       if(is.na(new$accepted_name[i]) &
          length(strsplit(new$canonical_[i],' ')[[1]])>2){
@@ -309,12 +334,12 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
 
   # Fuzzy matches
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
-    if(verbose){cat("\nTrying Fuzzy Matches\n")}
+    if(verbose){cat("\nTrying Fuzzy Matches")}
     names_matched <- NULL
     for(i in 1:nrow(new)){
       if(is.na(new$accepted_name[i]) & !is.na(new$canonical_[i])){
         if(guess_taxo_rank(new$canonical_[i])!="Genus or above"){
-          if(verbose){cat(paste("\n",new$canonical_[i]," "))}
+          if(verbose){cat(paste("\n ",new$canonical_[i],"- "))}
           if(new$canonical_[i] %in% names_matched$sname){
             fres <- names_matched[which(names_matched$sname==new$canonical_[i]),]
           } else {
@@ -328,10 +353,10 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
             if(dim(name_match)[1]==1){
               if(name_match$accid[1]==0){
                 match_rec <- name_match
-                if(verbose){cat("+")}
+                if(verbose){cat(" +")}
               } else {
                 match_rec <- master[which(master$id==name_match$accid[1]),]
-                if(verbose){cat("*")}
+                if(verbose){cat(" *")}
               }
               new$accepted_name[i] <- match_rec$canonical[1]
               new$source[i] <- name_match$source[1]
@@ -354,9 +379,46 @@ get_accepted_names <- function(namelist,master, gen_syn=NA, namelookup=NA,
   new$subfamily <- master$subfamily[match(new$canonical_, master$canonical)]
   new$tribe <- master$tribe[match(new$canonical_, master$canonical)]
 
+  # Match higher taxonomy rankes than species
+  if(match_higher){
+    if("genus" %!in% names(master)){
+      if(verbose){cat("\nSetting up for higher taxonomy searches\n")}
+      master <- melt_canonical(master,"canonical","genus","species","subspecies")
+    }
+    if("family" %!in% names(master)){
+      message("family column missing in master")
+    } else {
+      new_resolved <- new[which(!is.na(new$accepted_name)),]
+      new <- new[which(is.na(new$accepted_name)),]
+      new$id_<- master$id[match(new$canonical_, master$family)]
+      new$accid_<- master$accid[match(new$canonical_, master$family)]
+      new$newid_[which(new$accid_==0)] <- new$id_[which(new$accid_==0)]
+      new$newid_[which(new$accid_!=0)] <- new$accid_[which(new$accid_!=0)]
+      new$accepted_name <- master$family[match(new$newid_, master$id)]
+      new$source <- master$source[match(new$id_, master$id)]
+      new$method[which(is.na(new$method) & !is.na(new$accepted_name))] <- "family"
+      new$family <- master$family[match(new$newid_, master$id)]
+      new <- rbind(new_resolved,new)
+    }
+    new_resolved <- new[which(!is.na(new$accepted_name)),]
+    new <- new[which(is.na(new$accepted_name)),]
+    new$id_<- master$id[match(new$canonical_, master$genus)]
+    new$accid_<- master$accid[match(new$canonical_, master$genus)]
+    new$newid_[which(new$accid_==0)] <- new$id_[which(new$accid_==0)]
+    new$newid_[which(new$accid_!=0)] <- new$accid_[which(new$accid_!=0)]
+    new$accepted_name <- master$genus[match(new$newid_, master$id)]
+    new$source <- master$source[match(new$id_, master$id)]
+    new$method[which(is.na(new$method) & !is.na(new$accepted_name))] <- "genus"
+    new$family <- master$family[match(new$canonical_, master$genus)]
+    new$subfamily <- master$subfamily[match(new$canonical_, master$genus)]
+    new$tribe <- master$tribe[match(new$canonical_, master$genus)]
+    new <- rbind(new_resolved,new)
+  }
+
   # Cleanup and return data
-  new <- new[,-which(names(new) %in% c("id_","accid_","newid_"))]
-  new <- new[-nrow(new),]
+  new <- new[which(new$mysrno_!=nrow(new)),]
+  new <- new[order(new$mysrno_),]
+  new <- new[,-which(names(new) %in% c("id_","accid_","newid_","mysrno_"))]
   if(!is.na(canonical)){
     new <- rename_column(new,"canonical_",canonical)
   }
