@@ -32,6 +32,7 @@
 #' names and is accompanied by genus, Default: NA
 #' @param subspecies column containing species names to be resolved to accepted
 #' names and is accompanied by genus and species, Default: NA
+#' @param prefix to be added to all the return fields
 #' @param verbose display process messages, Default: TRUE
 #' @return data frame containing all the original columns with following
 #' additional columns:\itemize{
@@ -155,7 +156,8 @@
 #' @export
 get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
                                mastersource=NA, match_higher=FALSE, canonical=NA,
-                               genus=NA, species=NA, subspecies=NA, verbose=TRUE){
+                               genus=NA, species=NA, subspecies=NA, prefix="",
+                               verbose=TRUE){
   # Set the data
   names(master) <- tolower(names(master))
   if(!missing(mastersource)){
@@ -422,6 +424,19 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
   if(!is.na(canonical)){
     new <- rename_column(new,"canonical_",canonical)
   }
-  if(verbose){cat("\nDone")}
+  tab_stat <- plyr::count(new$method)
+  if(prefix!=""){
+    new <- rename_column(new,"accepted_name",paste(prefix,"accepted_name",sep = ""))
+    new <- rename_column(new,"orig_canonical",paste(prefix,"orig_canonical",sep = ""))
+    new <- rename_column(new,"source",paste(prefix,"source",sep = ""),silent=TRUE)
+    new <- rename_column(new,"method",paste(prefix,"method",sep = ""))
+    new <- rename_column(new,"family",paste(prefix,"family",sep = ""),silent=TRUE)
+    new <- rename_column(new,"subfamily",paste(prefix,"subfamily",sep = ""),silent=TRUE)
+    new <- rename_column(new,"tribe",paste(prefix,"tribe",sep = ""),silent=TRUE)
+  }
+  if(verbose){
+    cat("\nDone\n\nStat:\n")
+    print.data.frame(tab_stat)
+    }
   return(new)
 }

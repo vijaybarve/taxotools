@@ -15,6 +15,7 @@ get_accepted_names(
   genus = NA,
   species = NA,
   subspecies = NA,
+  prefix = "",
   verbose = TRUE
 )
 }
@@ -60,6 +61,8 @@ names and is accompanied by genus, Default: NA}
 \item{subspecies}{column containing species names to be resolved to accepted
 names and is accompanied by genus and species, Default: NA}
 
+\item{prefix}{to be added to all the return fields}
+
 \item{verbose}{display process messages, Default: TRUE}
 }
 \value{
@@ -100,6 +103,9 @@ master <- data.frame("id" = c(1,2,3,4,5,6,7),
                                     "Hypochlorosis ancharia tenebrosa",
                                     "Hypochlorosis ancharia obiana",
                                     "Hypochlorosis lorquinii"),
+                     "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae",
+                                  "Lycaenidae", "Lycaenidae", "Lycaenidae",
+                                  "Lycaenidae"),
                     "accid" = c(0,1,1,1,0,0,0),
                     "source" = c("itis","itis","wiki","wiki","itis",
                                  "itis","itis"),
@@ -165,6 +171,22 @@ res <- get_accepted_names(namelist = mylist_s,
                          genus = "genus",
                          species = "species",
                          subspecies = "subspecies")
+
+mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18),
+                    "scname" = c("Hypochlorosis ancharia",
+                                 "Hypochlorosis ancharii",
+                                 "Hypochlorosis",
+                                 "Pseudonotis",
+                                 "Lycaenidae",
+                                 "Pseudonotis humboldtii",
+                                 "Abrothrix longipilis",
+                                 "Myrinana anchariana"),
+                    stringsAsFactors = F)
+
+res <- get_accepted_names(namelist = mylist,
+                         master=master,
+                         match_higher = TRUE,
+                         canonical = "scname")
 }
 }
 \seealso{
