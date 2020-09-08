@@ -37,6 +37,7 @@ cast_cs_field(SynList,"Name","Syn")
 }
 \seealso{
 Other List functions: 
-\code{\link{melt_cs_field}()}
+\code{\link{melt_cs_field}()},
+\code{\link{merge_lists}()}
 }
 \concept{List functions}

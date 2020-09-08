@@ -32,3 +32,9 @@ merge_lists(master = NA,
             verbose = TRUE)
 }
 }
+\seealso{
+Other List functions: 
+\code{\link{cast_cs_field}()},
+\code{\link{melt_cs_field}()}
+}
+\concept{List functions}

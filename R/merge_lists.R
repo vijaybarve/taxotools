@@ -8,6 +8,7 @@
 #' the names that could not be matched and third the names that matched
 #' multiple names in master
 #' @details Matches names is checklist with names on master
+#' @family List functions
 #' @examples
 #' \dontrun{
 #' merge_lists(master = NA,

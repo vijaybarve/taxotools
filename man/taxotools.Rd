@@ -13,6 +13,7 @@ Some tools to work with lists taxonomic names.
 \item \link{cast_cs_field}
 \item \link{melt_cs_field}
 \item \link{match_lists}
+\item \link{merge_lists}
 }
 }
 

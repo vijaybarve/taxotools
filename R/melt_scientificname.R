@@ -142,6 +142,12 @@ melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus
   if(subspecies!=""){
     newdat <- rename_column(newdat,"subspecies_",subspecies)
   }
+  if(subgenus!=""){
+    newdat <- rename_column(newdat,"subgenus_",subgenus)
+  }
+  if(author!=""){
+    newdat <- rename_column(newdat,"author_",author)
+  }
   newdat <- rename_column(newdat,"sciname",sciname)
   return(newdat)
 }
