@@ -4,10 +4,12 @@
 \alias{synonymize_subspecies}
 \title{Convert all subspecies into synonyms of the species}
 \usage{
-synonymize_subspecies(master)
+synonymize_subspecies(master, verbose = FALSE)
 }
 \arguments{
 \item{master}{List of names with a field named canonical}
+
+\item{verbose}{display process messages, Default: FALSE}
 }
 \value{
 Same list of names with id and accid fields added (or data updated
@@ -22,6 +24,6 @@ used in generating master lists
 }
 \examples{
 \dontrun{
-newmaster <- synosynonymize_subspecies(master)
+newmaster <- synonymize_subspecies(master)
 }
 }
