@@ -4,10 +4,12 @@
 \alias{list_wiki_syn}
 \title{Get Wikipedia Synonyms for list of names}
 \usage{
-list_wiki_syn(namelist)
+list_wiki_syn(namelist, verbose = TRUE)
 }
 \arguments{
 \item{namelist}{list of scientific names}
+
+\item{verbose}{status output. Default TRUE}
 }
 \value{
 a data frame containing names, synonyms and Canonical synonyms matched

@@ -3,6 +3,7 @@
 #' Fetch Synonyms from Wikipedia and clean them for use
 #'
 #' @param namelist list of scientific names
+#' @param verbose status output. Default TRUE
 #' @family Wiki functions
 #' @return a data frame containing names, synonyms and Canonical synonyms matched
 #'    with GBIF backbone taxonomy  \itemize{ \item{Name}  {: Scientific name}
@@ -16,11 +17,11 @@
 #' #list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrocoma schistacea"))
 #'
 #' @export
-list_wiki_syn <- function(namelist){
+list_wiki_syn <- function(namelist,verbose = TRUE){
   res <- NULL
   for(i in 1:length(namelist)){
     accname <- namelist[i]
-    cat(paste("\n",i,accname," "))
+    if(verbose){cat(paste("\n",i,accname," "))}
     wikisyn <- wikitaxa::wt_wikipedia(accname)$synonyms
     wikiacn <- wikitaxa::wt_wikipedia(accname)$classification[which(wt_wikipedia(namelist[i])$classification$rank=="binomial"),]$name
     if(!is.null(wikiacn) & !identical(wikiacn, character(0)) ){
@@ -32,16 +33,22 @@ list_wiki_syn <- function(namelist){
       wikisyn <- expand_name(accname,wikisyn)
       synlst <- NULL
       for(j in 1:length(wikisyn)){
+        synrec <- data.frame("accname"=NA,"wikiacn"=NA,"syn_orig"=NA,"syn"=NA)
         rec <- taxize::gbif_parse(wikisyn[j])
-        syn <- check_scientific(rec$canonicalname)
-        if(is.null(syn)){
-          syn <- ''
+        synrec$syn <- check_scientific(rec$canonicalname)
+        if(is.null(synrec$syn)){
+          synrec$syn <- NA
         }
-        syn_orig <- wikisyn[j]
-        if(is.null(wikiacn) | identical(wikiacn,character(0))){wikiacn=""}
-        synrec <- cbind(accname,wikiacn,syn_orig,syn)
+        synrec$syn_orig <- as.character(wikisyn[j])
+        if(is.null(wikiacn) | identical(wikiacn,character(0))){
+          synrec$wikiacn <- NA
+        } else {
+          synrec$wikiacn <- wikiacn
+        }
+        synrec$accname <- accname
+        #synrec <- cbind(accname,wikiacn,syn_orig,syn)
         synlst <- rbind(synlst,synrec)
-        cat("+")
+        if(verbose){cat("+")}
       }
       recs <- synlst
     } else {
@@ -53,6 +60,6 @@ list_wiki_syn <- function(namelist){
     res <- as.data.frame(res)
     names(res) <- c("Name","WikiName","OrigSyn","Syn")
   }
-  cat("\n")
+  if(verbose){cat("\n")}
   return(res)
 }
