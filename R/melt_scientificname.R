@@ -27,8 +27,9 @@
 melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus",
                                 species="species",subspecies="subspecies",
                                 author="author", verbose=FALSE){
-  spvar <- c("sp","sp.","species")
-  authvar <- c("ex","ex.","van", "de", "von")
+  spvar <- c("sp","sp.","species", "verified")
+  authvar <- c("ex","ex.","van", "de", "von", "et", "et.", "al", "al.",
+               "da", "du", "la", "del", "der", "den", "y", "al.,")
   newdat <- as.data.frame(dat)
   if(genus==""){
     return(NULL)
