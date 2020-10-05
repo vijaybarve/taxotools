@@ -4,10 +4,17 @@
 \alias{DwC2taxo}
 \title{Darwin Core to Taxolist format}
 \usage{
-DwC2taxo(namelist)
+DwC2taxo(namelist, statuslist = NA, source = NA)
 }
 \arguments{
 \item{namelist}{names list in Darwin Core format}
+
+\item{statuslist}{vector listing taxonomicStatus to be considered in
+the namelist. If Default value is NA, automatically uses list of
+\itemize{\item{Accepted}\item{Synonym}\item{Valid}
+\item{heterotypicSynonym}#' \item{homotypicSynonym}}}
+
+\item{source}{source of the namelist. Default NA}
 }
 \value{
 names list is taxolist format

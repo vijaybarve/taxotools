@@ -1,6 +1,11 @@
 #' @title Darwin Core to Taxolist format
 #' @description Converts a Darwin Core name list to taxolist format
 #' @param namelist names list in Darwin Core format
+#' @param statuslist vector listing taxonomicStatus to be considered in
+#' the namelist. If Default value is NA, automatically uses list of
+#' \itemize{\item{Accepted}\item{Synonym}\item{Valid}
+#' \item{heterotypicSynonym}#' \item{homotypicSynonym}}
+#' @param source source of the namelist. Default NA
 #' @return names list is taxolist format
 #' @details The name lists downloaded for ITIS website in Darwin Core format has
 #' all the required fields. Just needs to be converted and quality checked in terms
@@ -15,7 +20,14 @@
 #' }
 #' @rdname DwC2taxo
 #' @export
-DwC2taxo <- function(namelist){
+DwC2taxo <- function(namelist,
+                     statuslist=NA,
+                     source=NA){
+  if(is.na(statuslist)){
+    statuslist <- c("Accepted","Synonym", "Valid",
+                 "heterotypicSynonym","homotypicSynonym")
+  }
+  statuslist <- toupper(statuslist)
   if("taxonRank" %in% names((namelist))){
     namelist <- namelist[which(toupper(namelist$taxonRank) == "SPECIES" |
                                  toupper(namelist$taxonRank) == "SUBSPECIES"),]
@@ -24,8 +36,7 @@ DwC2taxo <- function(namelist){
     return(NULL)
   }
   if("taxonomicStatus" %in% names((namelist))){
-    namelist <- namelist[which(toupper(namelist$taxonomicStatus) == "ACCEPTED" |
-                                 toupper(namelist$taxonomicStatus) == "SYNONYM"),]
+    namelist <- namelist[which(toupper(namelist$taxonomicStatus) %in% statuslist),]
   }
   if("taxonID" %in% names((namelist))){
     namelist <- rename(namelist,
@@ -54,5 +65,6 @@ DwC2taxo <- function(namelist){
   namelist <- cast_canonical(namelist,"canonical","genus","species","subspecies")
   namelist <- namelist[,c("id", "order", "family", "genus", "species",
                           "subspecies", "taxonlevel", "accid", "canonical")]
+  namelist$source <- source
   return(namelist)
 }
