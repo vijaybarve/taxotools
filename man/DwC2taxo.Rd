@@ -34,3 +34,9 @@ if(interactive()){
  }
 }
 }
+\seealso{
+Other list functions: 
+\code{\link{match_lists}()},
+\code{\link{synonymize_subspecies}()}
+}
+\concept{list functions}

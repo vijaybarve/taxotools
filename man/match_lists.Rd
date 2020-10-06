@@ -41,4 +41,9 @@ checklist <- data.frame("canonical" = c("Abrothrix longipilis",
 match_lists(master,checklist,"canonical","canonical")
 }
 }
+\seealso{
+Other list functions: 
+\code{\link{DwC2taxo}()},
+\code{\link{synonymize_subspecies}()}
+}
 \concept{list functions}

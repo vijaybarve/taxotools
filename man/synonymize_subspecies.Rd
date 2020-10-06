@@ -27,3 +27,9 @@ used in generating master lists
 newmaster <- synonymize_subspecies(master)
 }
 }
+\seealso{
+Other list functions: 
+\code{\link{DwC2taxo}()},
+\code{\link{match_lists}()}
+}
+\concept{list functions}

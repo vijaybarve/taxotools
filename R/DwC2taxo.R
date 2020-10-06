@@ -10,6 +10,7 @@
 #' @details The name lists downloaded for ITIS website in Darwin Core format has
 #' all the required fields. Just needs to be converted and quality checked in terms
 #'  of missing linkages
+#' @family list functions
 #' @importFrom plyr rename
 #' @importFrom stringr word
 #' @examples
@@ -65,6 +66,7 @@ DwC2taxo <- function(namelist,
   namelist <- cast_canonical(namelist,"canonical","genus","species","subspecies")
   namelist <- namelist[,c("id", "order", "family", "genus", "species",
                           "subspecies", "taxonlevel", "accid", "canonical")]
+  namelist$accid[which(is.na(namelist$accid))] <- 0
   namelist$source <- source
   return(namelist)
 }

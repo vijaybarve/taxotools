@@ -6,6 +6,7 @@
 #' the fields exists) with all subspecies linked to the species names as
 #' synonyms
 #' @details used in generating master lists
+#' @family list functions
 #' @examples
 #' \dontrun{
 #' newmaster <- synonymize_subspecies(master)
@@ -21,14 +22,18 @@ synonymize_subspecies <- function(master,
   if("accid" %!in% names(master)){
     master$accid <- 0
   }
-  for(i in 1:dim(master)[1]){
+  for(i in 1:nrow(master)){
     if(guess_taxo_rank(master$canonical[i])=="Subspecies"
        & master$accid[i]==0){
       spname <- paste(unlist(strsplit(master$canonical[i],
                                       split = "\\s+"))[1:2],collapse=" ")
       if(verbose){print(paste(i,master$canonical[i]))}
-      master$accid[i] <- master$id[which(master$canonical==spname)]
+      if(spname %in% master$canonical){
+        master$accid[i] <- master$id[which(master$canonical==spname)]
+      }
     }
   }
+  remrec <- master[which(master$taxonlevel=="SUBSPECIES" & master$accid==0),]
+  master <- master[which(master$id %!in% remrec$id),]
   return(master)
 }

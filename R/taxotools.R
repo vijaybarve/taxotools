@@ -8,6 +8,8 @@
 #'\item \link{melt_cs_field}
 #'\item \link{match_lists}
 #'\item \link{merge_lists}
+#'\item \link{synonymize_subspecies}
+#'\item \link{DwC2taxo}
 #'}
 #'
 #'@section Name functions:
