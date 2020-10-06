@@ -1,28 +1,29 @@
 #' taxotools: Tools to handle taxonomic data
 #'
-#' Some tools to work with lists taxonomic names.
+#' Some tools to work with lists of taxonomic names.
 #'
 #'@section List functions:
 #'\itemize{
 #'\item \link{cast_cs_field}
-#'\item \link{melt_cs_field}
+#'\item \link{DwC2taxo}
 #'\item \link{match_lists}
+#'\item \link{melt_cs_field}
 #'\item \link{merge_lists}
 #'\item \link{synonymize_subspecies}
-#'\item \link{DwC2taxo}
+#'\item \link{wiki2taxo}
 #'}
 #'
 #'@section Name functions:
 #'\itemize{
-#'\item \link{expand_name}
-#'\item \link{check_scientific}
-#'\item \link{guess_taxo_rank}
+#'\item \link{build_gen_syn}
 #'\item \link{cast_canonical}
+#'\item \link{check_scientific}
+#'\item \link{expand_name}
+#'\item \link{get_accepted_names}
+#'\item \link{guess_taxo_rank}
+#'\item \link{list_higher_taxo}
 #'\item \link{melt_canonical}
 #'\item \link{melt_scientificname}
-#'\item \link{list_higher_taxo}
-#'\item \link{get_accepted_names}
-#'\item \link{build_gen_syn}
 #'\item \link{taxo_fuzzy_match}
 #'}
 #'

@@ -17,7 +17,7 @@ match_lists(master, checklist, masterfld, checklistfld)
 }
 \value{
 a list with data frames containing matched records,
-records only in master and cheklist and statistics about the
+records only in master and checklist and statistics about the
 records including Jaccard index
 }
 \description{

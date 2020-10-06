@@ -8,7 +8,7 @@
 #' @param checklistfld field name for canonical name in match list
 #' @family list functions
 #' @return a list with data frames containing matched records,
-#' records only in master and cheklist and statistics about the
+#' records only in master and checklist and statistics about the
 #' records including Jaccard index
 #' @examples
 #' \dontrun{
@@ -53,7 +53,7 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
   retval$stat$match <- dim(retval$matchlist)[1]
   retval$stat$onlymaster <- dim(retval$onlymaster)[1]
   retval$stat$onlychecklist <- dim(retval$onlychecklist)[1]
-  retval$stat$jacard <- dim(retval$matchlist)[1] / ( dim(retval$matchlist)[1] +
+  retval$stat$jaccard <- dim(retval$matchlist)[1] / ( dim(retval$matchlist)[1] +
                                                        dim(retval$onlymaster)[1] +
                                                        dim(retval$onlychecklist)[1] )
   return(retval)
