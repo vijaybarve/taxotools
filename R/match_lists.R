@@ -42,19 +42,26 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
     checklist <- rename_column(checklist,checklistfld,"checklistfld")
     checklist$checklistfld <- as.character(checklist$checklistfld)
   }
-  retval$matchlist <- master[which(master$masterfld %in% checklist$checklistfld),]
-  retval$onlymaster <- master[which(master$masterfld %!in% checklist$checklistfld),]
-  retval$onlychecklist <-  checklist[which(checklist$checklistfld %!in% master$masterfld),]
-  retval$matchlist <- rename_column(retval$matchlist,"masterfld",masterfld)
-  retval$onlymaster <- rename_column(retval$onlymaster,"masterfld",masterfld)
-  retval$onlychecklist <- rename_column(retval$onlychecklist,"checklistfld",checklistfld)
-  retval$stat$masterrec <- dim(master)[1]
-  retval$stat$checkrec <- dim(checklist)[1]
-  retval$stat$match <- dim(retval$matchlist)[1]
-  retval$stat$onlymaster <- dim(retval$onlymaster)[1]
-  retval$stat$onlychecklist <- dim(retval$onlychecklist)[1]
-  retval$stat$jaccard <- dim(retval$matchlist)[1] / ( dim(retval$matchlist)[1] +
-                                                       dim(retval$onlymaster)[1] +
-                                                       dim(retval$onlychecklist)[1] )
+  retval$matchlist <- master[which(master$masterfld %in%
+                                     checklist$checklistfld),]
+  retval$onlymaster <- master[which(master$masterfld %!in%
+                                      checklist$checklistfld),]
+  retval$onlychecklist <-  checklist[which(checklist$checklistfld %!in%
+                                             master$masterfld),]
+  retval$matchlist <- rename_column(retval$matchlist,"masterfld",
+                                    masterfld,silent=TRUE)
+  retval$onlymaster <- rename_column(retval$onlymaster,"masterfld",
+                                     masterfld,silent=TRUE)
+  retval$onlychecklist <- rename_column(retval$onlychecklist,"checklistfld",
+                                        checklistfld,silent=TRUE)
+  retval$stat$masterrec <- nrow(master)
+  retval$stat$checkrec <- nrow(checklist)
+  retval$stat$match <- length(retval$matchlist)
+  retval$stat$onlymaster <- length(retval$onlymaster)
+  retval$stat$onlychecklist <- length(retval$onlychecklist)
+  retval$stat$jaccard <- length(retval$matchlist) /
+    ( length(retval$matchlist) +
+        length(retval$onlymaster) +
+        length(retval$onlychecklist) )
   return(retval)
 }
