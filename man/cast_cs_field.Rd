@@ -39,6 +39,7 @@ cast_cs_field(SynList,"Name","Syn")
 Other List functions: 
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
+\code{\link{syn2taxo}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}

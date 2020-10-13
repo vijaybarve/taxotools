@@ -29,7 +29,7 @@ wiki2taxo <- function(wikisyn){
   }
   # Synonyms
   id <- length(canonical) + 1
-  for(i in 1:dim(wikisyn)[1]){
+  for(i in 1:nrow(wikisyn)){
     canonical <- wikisyn$Syn[i]
     Id <-  id
     id <- id + 1

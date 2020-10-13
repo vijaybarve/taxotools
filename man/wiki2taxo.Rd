@@ -33,6 +33,7 @@ if(interactive()){
 Other List functions: 
 \code{\link{cast_cs_field}()},
 \code{\link{melt_cs_field}()},
-\code{\link{merge_lists}()}
+\code{\link{merge_lists}()},
+\code{\link{syn2taxo}()}
 }
 \concept{List functions}

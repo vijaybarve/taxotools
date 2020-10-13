@@ -20,7 +20,10 @@ synonyms
 used in generating master lists
 }
 \details{
-used in generating master lists
+While dealing with taxonomic names only at specific level,
+to take advantage of sub-specific names already available in the lists
+are sometimes treated as synonyms of the names at species rank. To
+convert all the subspecies names as synonyms this function is very handy.
 }
 \examples{
 \dontrun{

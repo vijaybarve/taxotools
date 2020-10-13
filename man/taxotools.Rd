@@ -15,6 +15,7 @@ Some tools to work with lists of taxonomic names.
 \item \link{match_lists}
 \item \link{melt_cs_field}
 \item \link{merge_lists}
+\item \link{syn2taxo}
 \item \link{synonymize_subspecies}
 \item \link{wiki2taxo}
 }

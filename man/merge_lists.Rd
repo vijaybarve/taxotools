@@ -36,6 +36,7 @@ merge_lists(master = NA,
 Other List functions: 
 \code{\link{cast_cs_field}()},
 \code{\link{melt_cs_field}()},
+\code{\link{syn2taxo}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}
