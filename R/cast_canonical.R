@@ -25,46 +25,46 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
   newdat <- as.data.frame(dat)
   newdat$canonical_ <- NA
   if(is.empty(canonical)){
-    print("Empty")
+    warning("Canonical Empty")
     canonical <- "canonical"
   }
   if(genus==""){
     return(NULL)
   } else {
-    newdat <- rename_column(newdat,genus,"genus")
+    newdat <- rename_column(newdat,genus,"genus_")
   }
   if(species==""){
     return(NULL)
   } else {
-    newdat <- rename_column(newdat,species,"species")
+    newdat <- rename_column(newdat,species,"species_")
   }
   if(subspecies!=""){
-    newdat <- rename_column(newdat,subspecies,"subspecies")
+    newdat <- rename_column(newdat,subspecies,"subspecies_")
   } else {
     newdat$subspecies <- NA
   }
   pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
   for(i in 1:nrow(newdat)){
-    if(!is.empty(newdat$genus[i])){
-    cano <- newdat$genus[i]
+    if(!is.empty(newdat$genus_[i])){
+      cano <- newdat$genus_[i]
     }
-    if(!is.empty(newdat$species[i])){
-      cano <- paste(cano,newdat$species[i])
+    if(!is.empty(newdat$species_[i])){
+      cano <- paste(cano,newdat$species_[i])
     }
     if(subspecies!=""){
-      if(!is.empty(newdat$subspecies[i])){
+      if(!is.empty(newdat$subspecies_[i])){
         cano <- paste(cano,newdat$subspecies[i])
       }
     }
     newdat$canonical_[i] <- toproper(cano)
     setTxtProgressBar(pb,i)
   }
-  newdat <- rename_column(newdat,"genus",genus)
-  newdat <- rename_column(newdat,"species",species)
+  newdat <- rename_column(newdat,"genus_",genus)
+  newdat <- rename_column(newdat,"species_",species)
   if(subspecies!=""){
-    newdat <- rename_column(newdat,"subspecies",subspecies)
+    newdat <- rename_column(newdat,"subspecies_",subspecies)
   } else {
-    newdat <- newdat[ , !(names(newdat) %in% c("subspecies"))]
+    newdat <- newdat[ , !(names(newdat) %in% c("subspecies_"))]
   }
   if((canonical == "canonical") & ("canonical" %in% names(newdat))){
     newdat$canonical <- newdat$canonical_
