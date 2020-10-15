@@ -53,7 +53,7 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
     }
     if(subspecies!=""){
       if(!is.empty(newdat$subspecies_[i])){
-        cano <- paste(cano,newdat$subspecies[i])
+        cano <- paste(cano,newdat$subspecies_[i])
       }
     }
     newdat$canonical_[i] <- toproper(cano)

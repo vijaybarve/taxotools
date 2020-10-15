@@ -26,7 +26,7 @@ DwC2taxo <- function(namelist,
                      source=NA){
   if(is.na(statuslist)){
     statuslist <- c("Accepted","Synonym", "Valid",
-                 "heterotypicSynonym","homotypicSynonym")
+                    "heterotypicSynonym","homotypicSynonym")
   }
   statuslist <- toupper(statuslist)
   if("taxonRank" %in% names((namelist))){
@@ -37,7 +37,8 @@ DwC2taxo <- function(namelist,
     return(NULL)
   }
   if("taxonomicStatus" %in% names((namelist))){
-    namelist <- namelist[which(toupper(namelist$taxonomicStatus) %in% statuslist),]
+    namelist <- namelist[which(toupper(namelist$taxonomicStatus) %in%
+                                 statuslist),]
   }
   if("taxonID" %in% names((namelist))){
     namelist <- rename(namelist,
@@ -46,27 +47,77 @@ DwC2taxo <- function(namelist,
                                    "specificEpithet" = "species",
                                    "infraspecificEpithet" = "subspecies",
                                    "taxonRank" = "taxonlevel"))
+    namelist <- cast_canonical(namelist,
+                               "canonical",
+                               "genus",
+                               "species",
+                               "subspecies")
+    namelist$accid[is.na(namelist$accid)] <- 0
+    namelist1 <- namelist[which(namelist$accid!=0 & namelist$accid %!in%
+                                  namelist$id),c("id", "order",
+                                                 "family", "genus",
+                                                 "species",
+                                                 "subspecies",
+                                                 "taxonlevel", "accid",
+                                                 "canonical")]
+
+    namelist <- namelist[which(namelist$accid==0 | namelist$accid %in%
+                                 namelist$id),c("id", "order",
+                                                "family", "genus",
+                                                "species",
+                                                "subspecies",
+                                                "taxonlevel", "accid",
+                                                "canonical")]
+    names(namelist) <- c("id", "order", "family", "genus", "species",
+                         "subspecies", "taxonlevel", "accid", "canonical")
+
   }
   if("taxonKey" %in% names((namelist))){
     namelist <- rename(namelist,
                        replace = c("taxonKey" = "id",
                                    "acceptedTaxonKey" = "accid",
                                    "taxonRank" = "taxonlevel"))
-    namelist$species <- word(namelist$species,2)
+    namelist <- melt_scientificname(namelist,
+                                    sciname = "acceptedScientificName",
+                                    genus = "genus_a",
+                                    species = "species_a",
+                                    subspecies = "subspecies_a")
+    namelist <- cast_canonical(namelist,
+                               "accepted",
+                               "genus_a",
+                               "species_a",
+                               "subspecies_a")
+    namelist1 <- namelist[,c("accid", "order",
+                             "family", "genus_a",
+                             "species_a",
+                             "subspecies_a",
+                             "taxonlevel", "id",
+                             "accepted")]
+    names(namelist1) <- c("id", "order", "family", "genus", "species",
+                          "subspecies", "taxonlevel", "accid", "canonical")
+    namelist1$accid <- 0
+    namelist1 <- namelist1[!duplicated(namelist1$id),]
     namelist$accid[which(namelist$accid==namelist$id)] <- 0
-    if("subspecies" %!in% names(namelist)){
-      namelist <- melt_scientificname(namelist,
-                                      sciname = "scientificName",
-                                      genus = "genus_",
-                                      species = "species_",
-                                      subspecies = "subspecies")
-    }
+    namelist2 <- namelist[which(namelist$accid!=0 &
+                                  !is.na(namelist$speciesKey)),]
+    namelist2 <- melt_scientificname(namelist2,
+                                     sciname = "scientificName",
+                                     genus = "genus_s",
+                                     species = "species_s",
+                                     subspecies = "subspecies_s")
+    namelist2 <- cast_canonical(namelist2,"synonym","genus_s",
+                                "species_s", "subspecies_s")
+    namelist2 <- namelist2[which(namelist2$accid %in%
+                                   namelist1$id),c("id", "order",
+                                                   "family", "genus_s",
+                                                   "species_s",
+                                                   "subspecies_s",
+                                                   "taxonlevel", "accid",
+                                                   "synonym")]
+    names(namelist2) <- c("id", "order", "family", "genus", "species",
+                          "subspecies", "taxonlevel", "accid", "canonical")
+    namelist <- rbind(namelist1,namelist2)
   }
-  namelist[which(namelist$accid %in% namelist$id),]
-  namelist <- cast_canonical(namelist,"canonical","genus","species","subspecies")
-  namelist <- namelist[,c("id", "order", "family", "genus", "species",
-                          "subspecies", "taxonlevel", "accid", "canonical")]
-  namelist$accid[which(is.na(namelist$accid))] <- 0
   namelist$source <- source
   return(namelist)
 }
