@@ -48,7 +48,7 @@ merge_lists <- function(master = NULL,
       for(j in 1:nrow(recset)){
         if(recset$canonical[j] %in% master$canonical) {
           found <- TRUE
-          set_accid <- get_accid(master,recset$canonical[j])
+          set_accid <- get_accid(master,recset$canonical[j],verbose)
           accid_set <- c(accid_set,set_accid)
           found_count <- found_count + 1
         }
@@ -93,8 +93,8 @@ get_id_recs <- function(checklist,id){
   }
 }
 
-get_accid <- function(master,name){
-  cat(".")
+get_accid <- function(master,name,verbose=FALSE){
+  if(verbose){cat(".")}
   id <- 0
   mset <- master[which(master$canonical==name),]
   if(dim(mset)[1]>0){

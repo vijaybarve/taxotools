@@ -17,7 +17,7 @@
 #' @rdname synonymize_subspecies
 #' @export
 synonymize_subspecies <- function(master,
-                                  verbose=FALSE){
+                                   verbose=FALSE){
   names(master) <- tolower(names(master))
   if("id" %!in% names(master)){
     master$id <- seq.int(nrow(master))
@@ -32,11 +32,14 @@ synonymize_subspecies <- function(master,
                                       split = "\\s+"))[1:2],collapse=" ")
       if(verbose){print(paste(i,master$canonical[i]))}
       if(spname %in% master$canonical){
-        master$accid[i] <- master$id[which(master$canonical==spname)]
+        master$accid[i] <- get_accid(master,spname)
+        if(nrow(master[which(master$accid==master$id[i]),])>0){
+          master$accid[which(master$accid==master$id[i])] <- master$accid[i]
+        }
       }
     }
   }
   remrec <- master[which(master$taxonlevel=="SUBSPECIES" & master$accid==0),]
-  master <- master[which(master$id %!in% remrec$id),]
+  if(verbose){print(paste("Orphan subspecies",nrow(remrec)))}
   return(master)
 }
