@@ -36,7 +36,7 @@ list_wiki_syn <- function(namelist,verbose = TRUE){
         synrec <- data.frame("accname"=NA,"wikiacn"=NA,"syn_orig"=NA,"syn"=NA)
         rec <- taxize::gbif_parse(wikisyn[j])
         synrec$syn <- check_scientific(rec$canonicalname)
-        if(is.null(synrec$syn)){
+        if(is.null(synrec$syn)| is.na(synrec$syn)){
           synrec$syn <- NA
         }
         synrec$syn_orig <- as.character(wikisyn[j])
