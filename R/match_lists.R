@@ -56,12 +56,12 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
                                         checklistfld,silent=TRUE)
   retval$stat$masterrec <- nrow(master)
   retval$stat$checkrec <- nrow(checklist)
-  retval$stat$match <- length(retval$matchlist)
-  retval$stat$onlymaster <- length(retval$onlymaster)
-  retval$stat$onlychecklist <- length(retval$onlychecklist)
-  retval$stat$jaccard <- length(retval$matchlist) /
-    ( length(retval$matchlist) +
-        length(retval$onlymaster) +
-        length(retval$onlychecklist) )
+  retval$stat$match <- nrow(retval$matchlist)
+  retval$stat$onlymaster <- nrow(retval$onlymaster)
+  retval$stat$onlychecklist <- nrow(retval$onlychecklist)
+  retval$stat$jaccard <- nrow(retval$matchlist) /
+    ( nrow(retval$matchlist) +
+        nrow(retval$onlymaster) +
+        nrow(retval$onlychecklist) )
   return(retval)
 }
