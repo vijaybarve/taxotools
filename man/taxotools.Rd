@@ -5,7 +5,9 @@
 \alias{taxotools}
 \title{taxotools: Tools to handle taxonomic data}
 \description{
-Some tools to work with lists of taxonomic names.
+Tools include matching and merging taxonomic lists, casting and melting 
+scientific names, managing taxonomic lists from GBIF and ITIS, harvesting 
+names from wikipedia and fuzzy matching.
 }
 \section{List functions}{
 
@@ -55,8 +57,8 @@ Some tools to work with lists of taxonomic names.
 \section{Citation}{
 
 \itemize{
-\item Barve, V., (2020). taxotools: Tools to handle
-taxonomic data (R package V 0.0.43). Retrieved from
+\item Barve, V., (2021). taxotools: Tools to handle
+taxonomic data (R package V 0.0.79). Retrieved from
 https://doi.org/10.5281/zenodo.3934939
 }
 }

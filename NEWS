@@ -1,3 +1,27 @@
+taxotools 0.0.79
+================
+* Function match_lists returns additional stats 
+* Function merge_lists, synonymize_subspecies, DwC2toxo, wiki2taxo,
+    syn2taxo added
+* Bug fixes in match_lists, list_wiki_syn, synonymize_subspecies,
+    melt_scientificaname, cast canonical 3
+
+taxotools 0.0.60
+================
+* Function build_gen_syn, melt_scientificname added
+* Function get_accepted_names made efficient by avioding duplicate
+* Function get_accepted_names has new param match_higher to match
+    genus and family too
+* Function get_accepted_names has new param prefix which adds a
+    prefix to all new columns
+* renamed fxn get_taxo_level to get_taxo_rank for clarity
+
+taxotools 0.0.51
+================
+* Function melt_cs_field has progress bar and cleans white spaces
+* Function get_accepted_names has mastersource param
+* Package added to Zenodo to get DOI
+
 taxotools 0.0.47
 ================
 * Function cast_canonical returns proper case names rather than oroginal
