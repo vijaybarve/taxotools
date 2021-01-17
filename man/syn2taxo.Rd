@@ -2,16 +2,16 @@
 % Please edit documentation in R/syn2taxo.R
 \name{syn2taxo}
 \alias{syn2taxo}
-\title{Synonyme list to taxolist}
+\title{Synonym list to taxolist}
 \usage{
 syn2taxo(synlist, canonical = "canonical", synonym = "synonym")
 }
 \arguments{
-\item{synlist}{Synonym list with Accepte name and Syninym columns}
+\item{synlist}{Synonym list with Accepted name and Synonym columns}
 
-\item{canonical}{Accepte names column name, Default: 'canonical'}
+\item{canonical}{Accepted names column name, Default: 'canonical'}
 
-\item{synonym}{Synonyme column name , Default: 'synonym'}
+\item{synonym}{Synonym column name , Default: 'synonym'}
 }
 \value{
 returns a taxolist format list will all the names in same column and

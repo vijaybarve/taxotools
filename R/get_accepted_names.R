@@ -49,7 +49,7 @@
 #' \item{lookup - }{Manual lookup in earlier processing}
 #' \item{sppdrop - }{subspecies was dropped}
 #' \item{sub2sp - }{subspecies elevated to species}
-#' \item{genus - }{genus was mateched}
+#' \item{genus - }{genus was matched}
 #' \item{family - }{family was matched}
 #' \item{NA - }{could not be resolved}
 #' }

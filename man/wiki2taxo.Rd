@@ -19,7 +19,7 @@ taxolist format of \link{taxotools} package
 \details{
 Output of \link{list_wiki_syn} function has different format
 than taxolist. This function converts it making sure to add additional
-fields and maitian the synonym linckages.
+fields and maintain the synonym linkages.
 }
 \examples{
 \dontrun{

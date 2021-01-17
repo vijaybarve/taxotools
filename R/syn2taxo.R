@@ -1,9 +1,9 @@
-#' @title Synonyme list to taxolist
+#' @title Synonym list to taxolist
 #' @description Converts a Synonym list with Accepted Names and Synonym columns
 #' to taxolist format
-#' @param synlist Synonym list with Accepte name and Syninym columns
-#' @param canonical Accepte names column name, Default: 'canonical'
-#' @param synonym Synonyme column name , Default: 'synonym'
+#' @param synlist Synonym list with Accepted name and Synonym columns
+#' @param canonical Accepted names column name, Default: 'canonical'
+#' @param synonym Synonym column name , Default: 'synonym'
 #' @return returns a taxolist format list will all the names in same column and
 #' accepted names linked to synonyms with id and accid fields
 #' @details Converts a synonyms list to taxolist format

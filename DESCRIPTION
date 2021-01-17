@@ -1,16 +1,18 @@
 Package: taxotools
 Type: Package
 Title: Tools to Handle Taxonomic Lists
-Version: 0.0.78
-Date: 2021-01-13
+Version: 0.0.79
+Date: 2021-01-16
 Authors@R: c(
     person("Vijay", "Barve", ,"vijay.barve@gmail.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-4852-2567")))
 Maintainer: Vijay Barve <vijay.barve@gmail.com>
-Description: Some tools to work with taxonomic name lists. 
+Description: Tools include matching and merging taxonomic lists, casting and 
+  melting scientific names, managing taxonomic lists from GBIF and ITIS, 
+  harvesting names from wikipedia and fuzzy matching.
 License: CC0
 Imports: taxize, wikitaxa, plyr, sqldf, stringr, stringdist
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 BugReports: https://github.com/vijaybarve/taxotools/issues
