@@ -1,8 +1,9 @@
 
 '%!in%' <- function(x,y)!('%in%'(x,y))
 
-toproper <- function(x) paste0(toupper(substr(x, 1, 1)),
-                             tolower(substring(x, 2)))
+toproper <- function(x) ifelse(!is.na(x),
+                               paste0(toupper(substr(x, 1, 1)),
+                                      tolower(substring(x, 2))),NA)
 isproper <- function(word){
   if(word == toproper(word)){
     return(TRUE)
