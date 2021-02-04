@@ -23,6 +23,8 @@
 #' priority
 #' @param match_higher match genus and family names present in canonical
 #' field
+#' @param fuzzymatch attempt fuzzy matching or not. Default: TRUE
+#' @param fuzzydist fuzzy distance while matching. Default : 2
 #' @param canonical column containing names to be resolved to accepted names
 #' , Default: NA when columns for genus and species are specified.
 #' @param genus column containing genus names to be resolved to accepted
@@ -155,7 +157,8 @@
 #' @rdname get_accepted_names
 #' @export
 get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
-                               mastersource=NA, match_higher=FALSE, canonical=NA,
+                               mastersource=NA, match_higher=FALSE, fuzzymatch=TRUE,
+                               fuzzydist=2, canonical=NA,
                                genus=NA, species=NA, subspecies=NA, prefix="",
                                verbose=TRUE){
   # Set the data
@@ -197,7 +200,7 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
   new$id_ <- 0
   new$accid_ <- 0
   new$mysrno_ <- seq(1:nrow(new))
-
+  
   # Get Name lookup table names replaced
   if(!missing(namelookup)){
     if(verbose){cat("\nUsing lookup table")}
@@ -209,7 +212,7 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
       }
     }
   }
-
+  
   # Remove repeating species and subspecies
   if(verbose){cat("\nRemoving repeating subspecies names")}
   for(i in 1:nrow(new)){
@@ -220,7 +223,7 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
       }
     }
   }
-
+  
   # Direct Matches
   if(verbose){cat("\nFetching accepted names")}
   new$id_<- master$id[match(new$canonical_, master$canonical)]
@@ -230,7 +233,7 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
   new$accepted_name <- master$canonical[match(new$newid_, master$id)]
   new$source <- master$source[match(new$id_, master$id)]
   new$method[which(is.na(new$method) & !is.na(new$accepted_name))] <- "direct"
-
+  
   # Genus swap
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
     if(!missing(gen_syn)){
@@ -266,10 +269,10 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
       }
     }
   }
-
+  
   # Subspecies to species
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
-    if(verbose){cat("\nTrying Subspecies to species")}
+    if(verbose){cat("\nTrying Subspecies to species ")}
     for(i in 1:nrow(new)){
       if(is.na(new$accepted_name[i]) &
          length(strsplit(new$canonical_[i],' ')[[1]])>2){
@@ -291,7 +294,7 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
       }
     }
   }
-
+  
   # Dropping subspecies
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
     if(verbose){cat("\nTrying dropping Subspecies")}
@@ -316,7 +319,7 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
       }
     }
   }
-
+  
   if(nrow(new[which(is.na(new$accepted_name)),])>0){
     if(!missing(mastersource)){
       if(verbose){cat("\nFetching accepted names from remaining names")}
@@ -333,54 +336,56 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
       new <- rbind(new_resolved,new)
     }
   }
-
+  
   # Fuzzy matches
-  if(nrow(new[which(is.na(new$accepted_name)),])>0){
-    if(verbose){cat("\nTrying Fuzzy Matches")}
-    names_matched <- NULL
-    for(i in 1:nrow(new)){
-      if(is.na(new$accepted_name[i]) & !is.na(new$canonical_[i])){
-        if(guess_taxo_rank(new$canonical_[i])!="Genus or above"){
-          if(verbose){cat(paste("\n ",new$canonical_[i],"- "))}
-          if(new$canonical_[i] %in% names_matched$sname){
-            fres <- names_matched[which(names_matched$sname==new$canonical_[i]),]
-          } else {
-            fres <- taxo_fuzzy_match(new$canonical_[i],master,dist=3)
-            names_matched <- rbind(names_matched,fres)
-          }
-          if(!is.null(fres)){
-            new$canonical_[i] <- fres$canonical
-            name_match <- master[which(master$canonical==fres$canonical),]
-            if(verbose){cat(name_match$source[1])}
-            if(dim(name_match)[1]==1){
-              if(name_match$accid[1]==0){
-                match_rec <- name_match
-                if(verbose){cat(" +")}
-              } else {
-                match_rec <- master[which(master$id==name_match$accid[1]),]
-                if(verbose){cat(" *")}
-              }
-              new$accepted_name[i] <- match_rec$canonical[1]
-              new$source[i] <- name_match$source[1]
-              new$method[i] <- "fuzzy"
+  if(fuzzymatch){
+    if(nrow(new[which(is.na(new$accepted_name)),])>0){
+      if(verbose){cat("\nTrying Fuzzy Matches")}
+      names_matched <- NULL
+      for(i in 1:nrow(new)){
+        if(is.na(new$accepted_name[i]) & !is.na(new$canonical_[i])){
+          if(guess_taxo_rank(new$canonical_[i])!="Genus or above"){
+            if(verbose){cat(paste("\n ",new$canonical_[i],"- "))}
+            if(new$canonical_[i] %in% names_matched$sname){
+              fres <- names_matched[which(names_matched$sname==new$canonical_[i]),]
+            } else {
+              fres <- taxo_fuzzy_match(new$canonical_[i],master,dist=fuzzydist)
+              names_matched <- rbind(names_matched,fres)
             }
-          } else {
-            fres <- data.frame("canonical"=NA,
-                               "dist"=NA,
-                               "sname"=new$canonical_[i],
-                               stringsAsFactors = F)
-            names_matched <- rbind(names_matched,fres)
+            if(!is.null(fres)){
+              new$canonical_[i] <- fres$canonical
+              name_match <- master[which(master$canonical==fres$canonical),]
+              if(verbose){cat(name_match$source[1])}
+              if(dim(name_match)[1]==1){
+                if(name_match$accid[1]==0){
+                  match_rec <- name_match
+                  if(verbose){cat(" +")}
+                } else {
+                  match_rec <- master[which(master$id==name_match$accid[1]),]
+                  if(verbose){cat(" *")}
+                }
+                new$accepted_name[i] <- match_rec$canonical[1]
+                new$source[i] <- name_match$source[1]
+                new$method[i] <- "fuzzy"
+              }
+            } else {
+              fres <- data.frame("canonical"=NA,
+                                 "dist"=NA,
+                                 "sname"=new$canonical_[i],
+                                 stringsAsFactors = F)
+              names_matched <- rbind(names_matched,fres)
+            }
           }
         }
       }
     }
   }
-
+  
   # Get higher taxonomy
   new$family <- master$family[match(new$canonical_, master$canonical)]
   new$subfamily <- master$subfamily[match(new$canonical_, master$canonical)]
   new$tribe <- master$tribe[match(new$canonical_, master$canonical)]
-
+  
   # Match higher taxonomy rankes than species
   if(match_higher){
     if("genus" %!in% names(master)){
@@ -416,7 +421,7 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
     new$tribe <- master$tribe[match(new$canonical_, master$genus)]
     new <- rbind(new_resolved,new)
   }
-
+  
   # Cleanup and return data
   new <- new[which(new$mysrno_!=nrow(new)),]
   new <- new[order(new$mysrno_),]
@@ -437,6 +442,6 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
   if(verbose){
     cat("\nDone\n\nStat:\n")
     print.data.frame(tab_stat)
-    }
+  }
   return(new)
 }

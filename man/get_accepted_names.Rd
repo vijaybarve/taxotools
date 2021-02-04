@@ -11,6 +11,8 @@ get_accepted_names(
   namelookup = NA,
   mastersource = NA,
   match_higher = FALSE,
+  fuzzymatch = TRUE,
+  fuzzydist = 2,
   canonical = NA,
   genus = NA,
   species = NA,
@@ -47,6 +49,10 @@ priority}
 
 \item{match_higher}{match genus and family names present in canonical
 field}
+
+\item{fuzzymatch}{attempt fuzzy matching or not. Default: TRUE}
+
+\item{fuzzydist}{fuzzy distance while matching. Default : 2}
 
 \item{canonical}{column containing names to be resolved to accepted names
 , Default: NA when columns for genus and species are specified.}

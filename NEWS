@@ -1,3 +1,9 @@
+taxotools 0.0.82
+================
+* Function get_accepted_names has fuzzymatch and fuzzydist parameters
+    to control fuzzy matching
+* Bug fixes
+
 taxotools 0.0.79
 ================
 * Function match_lists returns additional stats 
