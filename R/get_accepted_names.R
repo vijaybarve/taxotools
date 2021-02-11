@@ -158,9 +158,8 @@
 #' @export
 get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
                                mastersource=NA, match_higher=FALSE, fuzzymatch=TRUE,
-                               fuzzydist=2, canonical=NA,
-                               genus=NA, species=NA, subspecies=NA, prefix="",
-                               verbose=TRUE){
+                               fuzzydist=2, canonical=NA, genus=NA, species=NA, 
+                               subspecies=NA, prefix="", verbose=TRUE){
   # Set the data
   names(master) <- tolower(names(master))
   if(!missing(mastersource)){

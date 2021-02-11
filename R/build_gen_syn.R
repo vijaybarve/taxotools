@@ -1,4 +1,4 @@
-#' @title Build genetic level synonyms
+#' @title Build genus level synonyms
 #' @description Build a genus level synonym list from master list.
 #' @param dat master list
 #' @return data frame with genus level synonyms with two columns viz. Valid_genus

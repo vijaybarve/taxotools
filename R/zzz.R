@@ -46,7 +46,7 @@ rename_column <- function(dat,old,new,silent=FALSE){
     colnames(dat)[which(names(dat) == old)] <- new
   } else {
     if(!silent){
-      print(paste("Fieldname not found...",old))
+      cat(paste("\nFieldname not found...",old))
     }
   }
   return(dat)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_gen_syn.R
 \name{build_gen_syn}
 \alias{build_gen_syn}
-\title{Build genetic level synonyms}
+\title{Build genus level synonyms}
 \usage{
 build_gen_syn(dat)
 }

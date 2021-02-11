@@ -22,9 +22,11 @@
 #' @export
 cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
   tdata <- data
-  colnames(tdata)[which(colnames(tdata) == pri)] <- 'pri'
-  colnames(tdata)[which(colnames(tdata) == sec)] <- 'sec'
-  if(!is.null(tdata)){
+  tdata <- rename_column(tdata,pri,"pri")
+  tdata <- rename_column(tdata,sec,"sec")
+  if(!is.null(tdata) & 
+     c("pri") %in% names(tdata) & 
+     c("sec") %in% names(tdata)){
     tdata$pri <- as.character(tdata$pri)
     tdata$sec <- as.character(tdata$sec)
     tdata <- tdata[order(tdata$pri),]
@@ -53,8 +55,8 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
     rec$sec <- newsec
     retdat <- rbind(retdat,rec)
     retdat <- as.data.frame(retdat)
-    colnames(retdat)[which(colnames(retdat) == 'pri')] <- pri
-    colnames(retdat)[which(colnames(retdat) == 'sec')] <- sec
+    retdat <- rename_column(retdat,"pri",pri)
+    retdat <- rename_column(retdat,"sec",sec)
     rownames(retdat) <- NULL
     return(retdat)
   } else {
