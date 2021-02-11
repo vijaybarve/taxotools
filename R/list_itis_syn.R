@@ -4,7 +4,7 @@
 #'
 #' @param namelist list of scientific names
 #' @family ITIS functions
-#' @return a data frame containing names (passed) and synonyms
+#' @return a data frame containing canonical names (passed) and synonyms
 #' @examples
 #' \dontrun{
 #' list_itis_syn("Abrothrix longipilis")
@@ -21,6 +21,8 @@ list_itis_syn <- function(namelist){
     }
   }
   retset <- as.data.frame(retset)
-  names(retset) <- c("Name","Syn")
+  names(retset) <- c("canonical","synonym")
+  retset$canonical <- as.character(retset$canonical)
+  retset$synonym <- as.character(retset$synonym)
   return(retset)
 }

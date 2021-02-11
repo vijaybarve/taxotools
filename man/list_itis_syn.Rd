@@ -10,7 +10,7 @@ list_itis_syn(namelist)
 \item{namelist}{list of scientific names}
 }
 \value{
-a data frame containing names (passed) and synonyms
+a data frame containing canonical names (passed) and synonyms
 }
 \description{
 Fetch Synonyms from ITIS

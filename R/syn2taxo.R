@@ -52,6 +52,7 @@ syn2taxo <- function(synlist,
     }
     setTxtProgressBar(pb,i)
   }
+  cat("\n")
   taxo$order <- ""
   taxo$family <- ""
   taxo <- melt_canonical(taxo,"canonical","genus","species","subspecies")

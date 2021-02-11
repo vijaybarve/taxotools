@@ -138,6 +138,7 @@ melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus
     }
     setTxtProgressBar(pb,i)
   }
+  cat("\n")
   newdat <- rename_column(newdat,"genus_",genus)
   newdat <- rename_column(newdat,"species_",species)
   if(subspecies!=""){

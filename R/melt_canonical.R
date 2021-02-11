@@ -69,6 +69,7 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
     }
     setTxtProgressBar(pb,i)
   }
+  cat("\n")
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)
   if(subspecies!=""){

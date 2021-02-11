@@ -39,6 +39,7 @@ melt_cs_field <- function(data,melt,sepchar=","){
       }
       setTxtProgressBar(pb,i)
     }
+    cat("\n")
     retdat <- as.data.frame(retdat)
     retdat <- rename_column(retdat,'pri',melt)
     rownames(retdat) <- NULL

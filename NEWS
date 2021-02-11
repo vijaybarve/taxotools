@@ -1,8 +1,9 @@
-taxotools 0.0.82
+taxotools 0.0.84
 ================
 * Function get_accepted_names has fuzzymatch and fuzzydist parameters
     to control fuzzy matching
-* Bug fixes
+* Bug fixes in melt_canonical, toproper, cast_cs_field
+* list_itis_syn now returns consistant column names
 
 taxotools 0.0.79
 ================

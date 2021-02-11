@@ -59,6 +59,7 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
     newdat$canonical_[i] <- toproper(cano)
     setTxtProgressBar(pb,i)
   }
+  cat("\n")
   newdat <- rename_column(newdat,"genus_",genus)
   newdat <- rename_column(newdat,"species_",species)
   if(subspecies!=""){

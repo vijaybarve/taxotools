@@ -51,6 +51,7 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
       }
       setTxtProgressBar(pb,i)
     }
+    cat("\n")
     rec <- oldrec
     rec$sec <- newsec
     retdat <- rbind(retdat,rec)
