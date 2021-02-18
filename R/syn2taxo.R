@@ -1,18 +1,28 @@
 #' @title Synonym list to taxolist
 #' @description Converts a Synonym list with Accepted Names and Synonym columns
 #' to taxolist format
-#' @param synlist Synonym list with Accepted name and Synonym columns
+#' @param synlist Synonym list with Accepted name (canonical) and Synonym columns
 #' @param canonical Accepted names column name, Default: 'canonical'
 #' @param synonym Synonym column name , Default: 'synonym'
-#' @return returns a taxolist format list will all the names in same column and
-#' accepted names linked to synonyms with id and accid fields
+#' @return returns a data frame in taxolist format  with all the names in 
+#' same columns and accepted names linked to synonyms using id and accid fields
 #' @details Converts a synonyms list to taxolist format
 #' @family List functions
 #' @examples
 #' \dontrun{
-#' if(interactive()){
-#'  taxolist <- syn2taxo(synlist)
-#'  }
+#'  synlist <- data.frame("id" = c(1,2,3),
+#'                        "canonical" = c("Hypochlorosis ancharia",
+#'                                        "Hypochlorosis ancharia",
+#'                                        "Hypochlorosis ancharia"),
+#'                        "synonym" = c( "Hypochlorosis tenebrosa",
+#'                                       "Pseudonotis humboldti",
+#'                                       "Myrina ancharia"),
+#'                        "family" = c("Lycaenidae", "Lycaenidae", 
+#'                                     "Lycaenidae"),
+#'                        "source" = c("itis","wiki","wiki"),
+#'                        stringsAsFactors = F)
+#'                        
+#'  mytaxo <- syn2taxo(synlist)
 #' }
 #' @rdname syn2taxo
 #' @export
@@ -40,6 +50,9 @@ syn2taxo <- function(synlist,
   pb = txtProgressBar(min = 0, max = nrow(synlist), initial = 0)
   for(i in 1:nrow(synlist)){
     canonical <- synlist$Syn_[i]
+    if("source" %in% names(synlist)){
+      source <- synlist$source[i]
+    }
     Id <-  id
     id <- id + 1
     AccId <- taxo[which(taxo$canonical==as.character(synlist$Name_[i])),c("Id")]

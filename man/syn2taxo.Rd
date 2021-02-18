@@ -7,15 +7,15 @@
 syn2taxo(synlist, canonical = "canonical", synonym = "synonym")
 }
 \arguments{
-\item{synlist}{Synonym list with Accepted name and Synonym columns}
+\item{synlist}{Synonym list with Accepted name (canonical) and Synonym columns}
 
 \item{canonical}{Accepted names column name, Default: 'canonical'}
 
 \item{synonym}{Synonym column name , Default: 'synonym'}
 }
 \value{
-returns a taxolist format list will all the names in same column and
-accepted names linked to synonyms with id and accid fields
+returns a data frame in taxolist format  with all the names in 
+same columns and accepted names linked to synonyms using id and accid fields
 }
 \description{
 Converts a Synonym list with Accepted Names and Synonym columns
@@ -26,9 +26,19 @@ Converts a synonyms list to taxolist format
 }
 \examples{
 \dontrun{
-if(interactive()){
- taxolist <- syn2taxo(synlist)
- }
+ synlist <- data.frame("id" = c(1,2,3),
+                       "canonical" = c("Hypochlorosis ancharia",
+                                       "Hypochlorosis ancharia",
+                                       "Hypochlorosis ancharia"),
+                       "synonym" = c( "Hypochlorosis tenebrosa",
+                                      "Pseudonotis humboldti",
+                                      "Myrina ancharia"),
+                       "family" = c("Lycaenidae", "Lycaenidae", 
+                                    "Lycaenidae"),
+                       "source" = c("itis","wiki","wiki"),
+                       stringsAsFactors = F)
+                       
+ mytaxo <- syn2taxo(synlist)
 }
 }
 \seealso{
