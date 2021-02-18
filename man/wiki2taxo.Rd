@@ -31,9 +31,12 @@ if(interactive()){
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
-\code{\link{syn2taxo}()}
+\code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()}
 }
 \concept{List functions}

@@ -32,9 +32,12 @@ syn_list_new <- melt_cs_field(cs_syn_list,"Syn")
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{match_lists}()},
 \code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}

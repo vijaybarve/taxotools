@@ -34,9 +34,12 @@ merge_lists(master = NA,
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}

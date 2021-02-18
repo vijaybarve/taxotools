@@ -31,8 +31,13 @@ newmaster <- synonymize_subspecies(master)
 }
 }
 \seealso{
-Other list functions: 
+Other List functions: 
 \code{\link{DwC2taxo}()},
-\code{\link{match_lists}()}
+\code{\link{cast_cs_field}()},
+\code{\link{match_lists}()},
+\code{\link{melt_cs_field}()},
+\code{\link{merge_lists}()},
+\code{\link{syn2taxo}()},
+\code{\link{wiki2taxo}()}
 }
-\concept{list functions}
+\concept{List functions}

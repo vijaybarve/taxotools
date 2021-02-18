@@ -45,6 +45,7 @@ Other Name functions:
 \code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_rank}()},
 \code{\link{list_higher_taxo}()},
-\code{\link{melt_scientificname}()}
+\code{\link{melt_scientificname}()},
+\code{\link{taxo_fuzzy_match}()}
 }
 \concept{Name functions}

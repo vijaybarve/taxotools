@@ -43,9 +43,12 @@ Converts a synonyms list to taxolist format
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
+\code{\link{synonymize_subspecies}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}

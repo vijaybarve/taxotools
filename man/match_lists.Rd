@@ -42,8 +42,13 @@ match_lists(master,checklist,"canonical","canonical")
 }
 }
 \seealso{
-Other list functions: 
+Other List functions: 
 \code{\link{DwC2taxo}()},
-\code{\link{synonymize_subspecies}()}
+\code{\link{cast_cs_field}()},
+\code{\link{melt_cs_field}()},
+\code{\link{merge_lists}()},
+\code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
+\code{\link{wiki2taxo}()}
 }
-\concept{list functions}
+\concept{List functions}

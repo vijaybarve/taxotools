@@ -6,6 +6,7 @@
 #' @return Matched name, string distance and original name. Null if not found.
 #' @details Fuzzy matching with names in the master list and return best match.
 #' @importFrom stringdist stringdist
+#' @family Name functions
 #' @examples
 #' \dontrun{
 #'master <- data.frame("canonical" = c("Abrothrix longipilis",

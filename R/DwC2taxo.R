@@ -3,14 +3,14 @@
 #' @param namelist names list in Darwin Core format
 #' @param statuslist vector listing taxonomicStatus to be considered in
 #' the namelist. If Default value is NA, automatically uses list of
-#' \itemize{\item{Accepted}\item{Synonym}\item{Valid}
-#' \item{heterotypicSynonym}#' \item{homotypicSynonym}}
-#' @param source source of the namelist. Default NA
+#' \itemize{\item{Accepted} \item{Synonym} \item{Valid}
+#' \item{heterotypicSynonym} \item{homotypicSynonym}}
+#' @param source source of the namelist i.e. GBIF or ITIS. Default NA
 #' @return names list is taxolist format
-#' @details The name lists downloaded for ITIS website in Darwin Core format has
-#' all the required fields. Just needs to be converted and quality checked in terms
-#'  of missing linkages
-#' @family list functions
+#' @details The name lists downloaded from ITIS or GBIF website in Darwin Core
+#'  format has all the required fields for taxolist. Just needs to be 
+#'  converted and quality checked in terms of missing linkages at times
+#' @family List functions
 #' @importFrom plyr rename
 #' @importFrom stringr word
 #' @examples

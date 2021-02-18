@@ -37,9 +37,12 @@ cast_cs_field(SynList,"Name","Syn")
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
+\code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}

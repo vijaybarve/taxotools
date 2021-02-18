@@ -11,10 +11,10 @@ DwC2taxo(namelist, statuslist = NA, source = NA)
 
 \item{statuslist}{vector listing taxonomicStatus to be considered in
 the namelist. If Default value is NA, automatically uses list of
-\itemize{\item{Accepted}\item{Synonym}\item{Valid}
-\item{heterotypicSynonym}#' \item{homotypicSynonym}}}
+\itemize{\item{Accepted} \item{Synonym} \item{Valid}
+\item{heterotypicSynonym} \item{homotypicSynonym}}}
 
-\item{source}{source of the namelist. Default NA}
+\item{source}{source of the namelist i.e. GBIF or ITIS. Default NA}
 }
 \value{
 names list is taxolist format
@@ -23,9 +23,9 @@ names list is taxolist format
 Converts a Darwin Core name list to taxolist format
 }
 \details{
-The name lists downloaded for ITIS website in Darwin Core format has
-all the required fields. Just needs to be converted and quality checked in terms
- of missing linkages
+The name lists downloaded from ITIS or GBIF website in Darwin Core
+ format has all the required fields for taxolist. Just needs to be 
+ converted and quality checked in terms of missing linkages at times
 }
 \examples{
 \dontrun{
@@ -35,8 +35,13 @@ if(interactive()){
 }
 }
 \seealso{
-Other list functions: 
+Other List functions: 
+\code{\link{cast_cs_field}()},
 \code{\link{match_lists}()},
-\code{\link{synonymize_subspecies}()}
+\code{\link{melt_cs_field}()},
+\code{\link{merge_lists}()},
+\code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
+\code{\link{wiki2taxo}()}
 }
-\concept{list functions}
+\concept{List functions}
