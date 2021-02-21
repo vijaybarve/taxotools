@@ -29,9 +29,21 @@ The name lists downloaded from ITIS or GBIF website in Darwin Core
 }
 \examples{
 \dontrun{
-if(interactive()){
- taxolist <- DwC2taxo(namelist)
- }
+dwclist <- data.frame("taxonKey" = c("5129025","6224429","1896957"),
+                      "scientificName" =  c("Charaxes solon Fabricius, 1793",
+                                            "Papilio jason Linnaeus, 1767",
+                                            "Charaxes jasius (Linnaeus, 1767)"),
+                     "acceptedTaxonKey" = c("5129025","1896957","1896957"),
+                     "acceptedScientificName" = c("Charaxes solon Fabricius, 1793",
+                                                  "Charaxes jasius (Linnaeus, 1767)",
+                                                  "Charaxes jasius (Linnaeus, 1767)"),
+                     "taxonRank" = c("SPECIES","SPECIES","SPECIES"),
+                     "taxonomicStatus" = c("ACCEPTED","SYNONYM","ACCEPTED"),
+                     "family" = c("Nymphalidae","Nymphalidae","Nymphalidae"),
+                     "order" = c("Lepidoptera","Lepidoptera","Lepidoptera"),
+                     stringsAsFactors = F)
+                     
+mytaxo <- DwC2taxo(dwclist)
 }
 }
 \seealso{

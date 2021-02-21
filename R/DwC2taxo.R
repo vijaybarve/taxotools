@@ -15,9 +15,21 @@
 #' @importFrom stringr word
 #' @examples
 #' \dontrun{
-#' if(interactive()){
-#'  taxolist <- DwC2taxo(namelist)
-#'  }
+#' dwclist <- data.frame("taxonKey" = c("5129025","6224429","1896957"),
+#'                       "scientificName" =  c("Charaxes solon Fabricius, 1793",
+#'                                             "Papilio jason Linnaeus, 1767",
+#'                                             "Charaxes jasius (Linnaeus, 1767)"),
+#'                      "acceptedTaxonKey" = c("5129025","1896957","1896957"),
+#'                      "acceptedScientificName" = c("Charaxes solon Fabricius, 1793",
+#'                                                   "Charaxes jasius (Linnaeus, 1767)",
+#'                                                   "Charaxes jasius (Linnaeus, 1767)"),
+#'                      "taxonRank" = c("SPECIES","SPECIES","SPECIES"),
+#'                      "taxonomicStatus" = c("ACCEPTED","SYNONYM","ACCEPTED"),
+#'                      "family" = c("Nymphalidae","Nymphalidae","Nymphalidae"),
+#'                      "order" = c("Lepidoptera","Lepidoptera","Lepidoptera"),
+#'                      stringsAsFactors = F)
+#'                      
+#' mytaxo <- DwC2taxo(dwclist)
 #' }
 #' @rdname DwC2taxo
 #' @export
@@ -60,7 +72,6 @@ DwC2taxo <- function(namelist,
                                                  "subspecies",
                                                  "taxonlevel", "accid",
                                                  "canonical")]
-
     namelist <- namelist[which(namelist$accid==0 | namelist$accid %in%
                                  namelist$id),c("id", "order",
                                                 "family", "genus",
@@ -70,7 +81,6 @@ DwC2taxo <- function(namelist,
                                                 "canonical")]
     names(namelist) <- c("id", "order", "family", "genus", "species",
                          "subspecies", "taxonlevel", "accid", "canonical")
-
   }
   if("taxonKey" %in% names((namelist))){
     namelist <- rename(namelist,
@@ -114,9 +124,13 @@ DwC2taxo <- function(namelist,
                                                    "subspecies_s",
                                                    "taxonlevel", "accid",
                                                    "synonym")]
-    names(namelist2) <- c("id", "order", "family", "genus", "species",
-                          "subspecies", "taxonlevel", "accid", "canonical")
-    namelist <- rbind(namelist1,namelist2)
+    if(!is.null(namelist2)){
+      names(namelist2) <- c("id", "order", "family", "genus", "species",
+                            "subspecies", "taxonlevel", "accid", "canonical")
+      namelist <- rbind(namelist1,namelist2)
+    } else {
+      namelist <- namelist1
+    }
   }
   namelist$source <- source
   return(namelist)

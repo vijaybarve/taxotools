@@ -22,6 +22,9 @@
 #' @export
 cast_canonical <- function(dat,canonical="canonical",genus="",
                            species="",subspecies=""){
+  if(is.null(dat) ){
+    return(NULL)  
+  }
   newdat <- as.data.frame(dat)
   newdat$canonical_ <- NA
   if(is.empty(canonical)){
