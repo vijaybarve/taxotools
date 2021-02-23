@@ -37,6 +37,7 @@ Other List functions:
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
-\code{\link{synonymize_subspecies}()}
+\code{\link{synonymize_subspecies}()},
+\code{\link{taxo2syn}()}
 }
 \concept{List functions}

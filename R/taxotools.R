@@ -13,6 +13,7 @@
 #'\item \link{merge_lists}
 #'\item \link{syn2taxo}
 #'\item \link{synonymize_subspecies}
+#'\item \link{taxo2syn}
 #'\item \link{wiki2taxo}
 #'}
 #'
