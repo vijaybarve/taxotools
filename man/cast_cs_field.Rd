@@ -31,7 +31,7 @@ character separated in the same field (secondary)
 \dontrun{
 scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
 SynList <- list_itis_syn(scnames)
-cast_cs_field(SynList,"Name","Syn")
+cast_cs_field(SynList,"canonical","synonym")
 }
 
 }

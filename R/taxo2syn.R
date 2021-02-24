@@ -33,10 +33,10 @@
 #' @export
 #' 
 taxo2syn <- function(taxolist,
-                     canonical="canonical",
-                     synonym="synonym",
-                     duplicate=FALSE,
-                     sepchar=","){
+                     canonical = "canonical",
+                     synonym = "synonym",
+                     duplicate = FALSE,
+                     sepchar = ","){
   if(is.null(taxolist)){
     return(NULL)
   }
@@ -44,14 +44,15 @@ taxo2syn <- function(taxolist,
     return(NULL)
   }
   synlist <- taxolist[which(taxolist$accid==0),]
-  synlist$synonym <- ""
+  synlist$synonym <- NA
   synlist1 <- taxolist[which(taxolist$accid!=0),]
   if(nrow(synlist1)>0){
     synlist1$name__ <- synlist$canonical[match(synlist1$accid,synlist$id)]
     synlist1 <- rename_column(synlist1,"canonical","synonym")
     synlist1 <- rename_column(synlist1,"name__","canonical")
     synlist <- rbind(synlist,synlist1)
-    synlist <- cast_cs_field(synlist,"canonical","synonym",duplicate,sepcahr)
+    synlist <- cast_cs_field(synlist,"canonical","synonym",
+                             duplicate=duplicate,sepchar=sepchar)
   }
   return(synlist)
 }
