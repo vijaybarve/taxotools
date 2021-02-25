@@ -8,7 +8,7 @@
 #' @param sepchar Character separator between the data items. Default is comma
 #' @return returns a synonym list  all the names in same column and
 #' accepted names linked to synonyms with id and accid fields
-#' @details Converts a synonyms list to taxolist format
+#' @details Converts a taxolist to synonyms list 
 #' @family List functions
 #' @examples
 #' \dontrun{

@@ -40,6 +40,7 @@ Other List functions:
 \code{\link{melt_cs_field}()},
 \code{\link{syn2taxo}()},
 \code{\link{synonymize_subspecies}()},
+\code{\link{taxo2DwC}()},
 \code{\link{taxo2syn}()},
 \code{\link{wiki2taxo}()}
 }
