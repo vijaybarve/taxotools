@@ -15,7 +15,7 @@ cast_canonical(
 \arguments{
 \item{dat}{data frame containing taxonomic list}
 
-\item{canonical}{field name for canonical names}
+\item{canonical}{field name for canonical names. Deafault 'canonical'}
 
 \item{genus}{field name for Genus field}
 

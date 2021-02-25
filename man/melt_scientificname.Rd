@@ -36,7 +36,7 @@ melt_scientificname(
 data frame with additional columns for taxonomic fields
 }
 \description{
-Parse scientific names into Genus, species, Subspecies,
+Parse scientific names into Genus, Species, Subspecies,
  Author etc.
 }
 \details{

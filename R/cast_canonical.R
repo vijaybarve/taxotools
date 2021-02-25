@@ -5,7 +5,7 @@
 #' canonical names.
 #'
 #' @param dat data frame containing taxonomic list
-#' @param canonical field name for canonical names
+#' @param canonical field name for canonical names. Deafault 'canonical'
 #' @param genus field name for Genus field
 #' @param species field name for Species field
 #' @param subspecies field name for Subspecies field
@@ -32,11 +32,13 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
     canonical <- "canonical"
   }
   if(genus==""){
+    warning("genus field not specified")
     return(NULL)
   } else {
     newdat <- rename_column(newdat,genus,"genus_")
   }
   if(species==""){
+    warning("species field not specified")
     return(NULL)
   } else {
     newdat <- rename_column(newdat,species,"species_")
@@ -44,7 +46,8 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
   if(subspecies!=""){
     newdat <- rename_column(newdat,subspecies,"subspecies_")
   } else {
-    newdat$subspecies <- NA
+    warning("subspecies field not specified. Assuming empty")
+    newdat$subspecies_ <- NA
   }
   pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
   for(i in 1:nrow(newdat)){
