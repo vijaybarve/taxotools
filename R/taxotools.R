@@ -22,6 +22,7 @@
 #'\itemize{
 #'\item \link{build_gen_syn}
 #'\item \link{cast_canonical}
+#'\item \link{cast_scientificname}
 #'\item \link{check_scientific}
 #'\item \link{expand_name}
 #'\item \link{get_accepted_names}

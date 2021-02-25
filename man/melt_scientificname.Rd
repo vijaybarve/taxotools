@@ -67,6 +67,7 @@ melt_scientificname(mylist, sciname="scname", genus="genus",
 Other Name functions: 
 \code{\link{build_gen_syn}()},
 \code{\link{cast_canonical}()},
+\code{\link{cast_scientificname}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
 \code{\link{get_accepted_names}()},

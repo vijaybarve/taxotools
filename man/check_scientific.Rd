@@ -26,6 +26,7 @@ check_scientific("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
 Other Name functions: 
 \code{\link{build_gen_syn}()},
 \code{\link{cast_canonical}()},
+\code{\link{cast_scientificname}()},
 \code{\link{expand_name}()},
 \code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_rank}()},
