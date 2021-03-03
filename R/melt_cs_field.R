@@ -27,7 +27,7 @@ melt_cs_field <- function(data,melt,sepchar=","){
     for(i in 1:nrow(tdata)){
       crec <- tdata[i,]
       if(tdata$pri[i]!="" & !is.na(tdata$pri[i])){
-        items <- strsplit(tdata$pri[i],sepchar)[[1]]
+        items <- strsplit(tdata$pri[i],sepchar,fixed = TRUE)[[1]]
         for (j in 1:length(items)){
           addrec <- crec
           addrec$pri <- trimws(items[j])
