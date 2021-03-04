@@ -38,7 +38,6 @@
 #'                     species = "species", subspecies = "subspecies",
 #'                     author = "author")
 #' }
-#' @rdname melt_scientificname
 #' @export
 cast_scientificname <- function(dat=NULL,sciname="scientificname", genus="", 
                                 subgenus="", species="",

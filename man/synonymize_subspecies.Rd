@@ -4,12 +4,15 @@
 \alias{synonymize_subspecies}
 \title{Convert all subspecies into synonyms of the species}
 \usage{
-synonymize_subspecies(master, verbose = FALSE)
+synonymize_subspecies(master, return_unmatched = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{master}{List of names with a field named canonical}
 
-\item{verbose}{display process messages, Default: FALSE}
+\item{return_unmatched}{If the return values should be unmatched (orphan)
+subspecies records. Default: FALSE}
+
+\item{verbose}{display process messages, Default: TRUE}
 }
 \value{
 Same list of names with id and accid fields added (or data updated
@@ -20,14 +23,33 @@ synonyms
 used in generating master lists
 }
 \details{
-While dealing with taxonomic names only at specific level,
+While dealing with taxonomic names only at species level,
 to take advantage of sub-specific names already available in the lists
 are sometimes treated as synonyms of the names at species rank. To
 convert all the subspecies names as synonyms this function is very handy.
+This function will add id, accid and taxonrank columns ro return data if
+missing from original data.
 }
 \examples{
 \dontrun{
-newmaster <- synonymize_subspecies(master)
+master <- data.frame("id" = c(1,2,3,4,5,6,7),
+                    "canonical" = c("Hypochlorosis ancharia",
+                                     "Hypochlorosis tenebrosa",
+                                     "Pseudonotis humboldti",
+                                     "Myrina ancharia ancharia",
+                                     "Hypochlorosis ancharia tenebrosa",
+                                     "Hypochlorosis ancharia obiana",
+                                     "Hypochlorosis lorquinii"),
+                     "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae",
+                                  "Lycaenidae", "Lycaenidae", "Lycaenidae",
+                                  "Lycaenidae"),
+                     "accid" = c(0,1,1,0,0,0,0),
+                     "source" = c("itis","itis","wiki","wiki","itis",
+                                  "itis","itis"),
+                     stringsAsFactors = F)
+
+synonymize_subspecies(master)
+synonymize_subspecies(master,return_unmatched = TRUE)
 }
 }
 \seealso{
