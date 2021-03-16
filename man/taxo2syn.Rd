@@ -64,6 +64,7 @@ Other List functions:
 \code{\link{syn2taxo}()},
 \code{\link{synonymize_subspecies}()},
 \code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}

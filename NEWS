@@ -8,8 +8,8 @@ taxotools 0.0.95
 * Function list_itis_syn now returns consistant column names
 * Function synonymize_subspecies has return_unmatched parameter
     to control returning good data verses orphan records
-* Added function taxo2syn, taxo2DwC, cast_scientificname,
-    resolve_names
+* Added functions taxo2syn, taxo2DwC, cast_scientificname,
+    resolve_names, taxo2doc
 
 taxotools 0.0.79
 ================

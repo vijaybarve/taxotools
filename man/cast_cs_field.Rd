@@ -44,6 +44,7 @@ Other List functions:
 \code{\link{syn2taxo}()},
 \code{\link{synonymize_subspecies}()},
 \code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
 \code{\link{taxo2syn}()},
 \code{\link{wiki2taxo}()}
 }

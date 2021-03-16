@@ -50,6 +50,7 @@ Other List functions:
 \code{\link{merge_lists}()},
 \code{\link{synonymize_subspecies}()},
 \code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
 \code{\link{taxo2syn}()},
 \code{\link{wiki2taxo}()}
 }

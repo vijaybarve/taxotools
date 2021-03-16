@@ -1,3 +1,4 @@
+#' @importFrom stringi stri_trans_general
 
 '%!in%' <- function(x,y)!('%in%'(x,y))
 
@@ -50,4 +51,10 @@ rename_column <- function(dat,old,new,silent=FALSE){
     }
   }
   return(dat)
+}
+
+utf2ascii <- function(x){
+  x <- ifelse(!is.na(x) & Encoding(x)=="UTF-8",
+              stringi::stri_trans_general(x,id="Latin-ASCII"),x)
+  return(x)
 }
