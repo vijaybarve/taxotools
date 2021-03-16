@@ -38,6 +38,7 @@ names from wikipedia and fuzzy matching.
 \item \link{list_higher_taxo}
 \item \link{melt_canonical}
 \item \link{melt_scientificname}
+\item \link{resolve_names}
 \item \link{taxo_fuzzy_match}
 }
 }

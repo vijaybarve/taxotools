@@ -79,6 +79,7 @@ Other Name functions:
 \code{\link{list_higher_taxo}()},
 \code{\link{melt_canonical}()},
 \code{\link{melt_scientificname}()},
+\code{\link{resolve_names}()},
 \code{\link{taxo_fuzzy_match}()}
 }
 \concept{Name functions}

@@ -1,4 +1,4 @@
-taxotools 0.0.94
+taxotools 0.0.95
 ================
 * Function get_accepted_names has fuzzymatch and fuzzydist parameters
     to control fuzzy matching
@@ -8,7 +8,8 @@ taxotools 0.0.94
 * Function list_itis_syn now returns consistant column names
 * Function synonymize_subspecies has return_unmatched parameter
     to control returning good data verses orphan records
-* Added function taxo2syn, taxo2DwC, cast_scientificname
+* Added function taxo2syn, taxo2DwC, cast_scientificname,
+    resolve_names
 
 taxotools 0.0.79
 ================
