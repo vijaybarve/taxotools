@@ -9,6 +9,7 @@
 #' @param genus field name for Genus field
 #' @param species field name for Species field
 #' @param subspecies field name for Subspecies field
+#' @param verbose verbose output, Default: FALSE
 #' @family Name functions
 #' @return a data frame containing Canonical names field added or repopulated using
 #'     filed names for Genus, Species and Subspecies specified in parameters
@@ -21,7 +22,7 @@
 #' }
 #' @export
 cast_canonical <- function(dat,canonical="canonical",genus="",
-                           species="",subspecies=""){
+                           species="",subspecies="",verbose=FALSE){
   if(is.null(dat) ){
     return(NULL)  
   }
@@ -49,7 +50,7 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
     warning("subspecies field not specified. Assuming empty")
     newdat$subspecies_ <- NA
   }
-  pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
+  if(verbose){pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)}
   for(i in 1:nrow(newdat)){
     if(!is.empty(newdat$genus_[i])){
       cano <- newdat$genus_[i]
@@ -63,9 +64,9 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
       }
     }
     newdat$canonical_[i] <- toproper(cano)
-    setTxtProgressBar(pb,i)
+    if(verbose){setTxtProgressBar(pb,i)}
   }
-  cat("\n")
+  if(verbose){cat("\n")}
   newdat <- rename_column(newdat,"genus_",genus)
   newdat <- rename_column(newdat,"species_",species)
   if(subspecies!=""){

@@ -10,6 +10,7 @@
 #' comma separated)
 #' @param duplicate If true, duplicate entries are allowed in secondary field
 #' @param sepchar Character separator between the data items. Default is comma
+#' @param verbose verbose output, Default: FALSE
 #' @return a data frame with two fields Primary and secondary (comma
 #' separated list)
 #' @examples \dontrun{
@@ -20,7 +21,8 @@
 #'
 #' @family List functions
 #' @export
-cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
+cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=",",
+                          verbose=FALSE){
   if(missing(data)){
     stop("Data needs to be passed for processing")
   }
@@ -43,7 +45,7 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
     oldrec <- tdata[1,]
     retdat <- NULL
     newsec <- tdata$sec[1]
-    pb = txtProgressBar(min = 0, max = nrow(tdata), initial = 0)
+    if(verbose){pb = txtProgressBar(min = 0, max = nrow(tdata), initial = 0)}
     for(i in 2:nrow(tdata)){
       if(tdata$pri[i]==oldpri){
         if(!is.empty(newsec) & !is.empty(tdata$sec[i])){
@@ -62,9 +64,9 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
       if(!duplicate){
         newsec <- dedup_csl(newsec,sepchar)
       }
-      setTxtProgressBar(pb,i)
+      if(verbose){setTxtProgressBar(pb,i)}
     }
-    cat("\n")
+    if(verbose){cat("\n")}
     rec <- oldrec
     rec$sec <- newsec
     retdat <- rbind(retdat,rec)

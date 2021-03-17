@@ -1,4 +1,4 @@
-taxotools 0.0.95
+taxotools 0.0.97
 ================
 * Function get_accepted_names has fuzzymatch and fuzzydist parameters
     to control fuzzy matching
@@ -10,6 +10,7 @@ taxotools 0.0.95
     to control returning good data verses orphan records
 * Added functions taxo2syn, taxo2DwC, cast_scientificname,
     resolve_names, taxo2doc
+* Several functions have verbose param 
 
 taxotools 0.0.79
 ================

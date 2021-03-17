@@ -4,7 +4,14 @@
 \alias{melt_canonical}
 \title{Deconstruct canonical names}
 \usage{
-melt_canonical(dat, canonical = "", genus = "", species = "", subspecies = "")
+melt_canonical(
+  dat,
+  canonical = "",
+  genus = "",
+  species = "",
+  subspecies = "",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{dat}{data frame containing taxonomic list}
@@ -16,6 +23,8 @@ melt_canonical(dat, canonical = "", genus = "", species = "", subspecies = "")
 \item{species}{field name for Species}
 
 \item{subspecies}{field name for Subspecies}
+
+\item{verbose}{verbose output, Default: FALSE}
 }
 \value{
 a data frame containing Genus, Species and Subspecies fields

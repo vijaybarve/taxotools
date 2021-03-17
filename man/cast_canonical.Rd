@@ -9,7 +9,8 @@ cast_canonical(
   canonical = "canonical",
   genus = "",
   species = "",
-  subspecies = ""
+  subspecies = "",
+  verbose = FALSE
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ cast_canonical(
 \item{species}{field name for Species field}
 
 \item{subspecies}{field name for Subspecies field}
+
+\item{verbose}{verbose output, Default: FALSE}
 }
 \value{
 a data frame containing Canonical names field added or repopulated using

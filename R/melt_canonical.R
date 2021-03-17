@@ -7,6 +7,7 @@
 #' @param genus field name for Genus
 #' @param species field name for Species
 #' @param subspecies field name for Subspecies
+#' @param verbose verbose output, Default: FALSE
 #' @family Name functions
 #' @importFrom stringr str_count
 #' @return a data frame containing Genus, Species and Subspecies fields
@@ -23,7 +24,8 @@
 #' melt_canonical(mylist,"canonical","genus","species","subspecies")
 #' }
 #' @export
-melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
+melt_canonical <- function(dat,canonical="",genus="",species="",
+                           subspecies="",verbose=FALSE){
   newdat <- as.data.frame(dat)
   if(genus==""){
     return(NULL)
@@ -44,7 +46,7 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
   if(canonical!=""){
     newdat <- rename_column(newdat,canonical,"canonical")
   }
-  pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
+  if(verbose){pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)}
   for(i in 1:nrow(newdat)){
     if(!is.empty(newdat$canonical[i])){
       pname <- newdat$canonical[i]
@@ -67,9 +69,9 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
         newdat$subspecies[i] <- tolower(strsplit(pname," ")[[1]][3])
       }
     }
-    setTxtProgressBar(pb,i)
+    if(verbose){setTxtProgressBar(pb,i)}
   }
-  cat("\n")
+  if(verbose){cat("\n")}
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)
   if(subspecies!=""){

@@ -7,6 +7,7 @@
 #' @param data data frame containing a data columns with character(comma) separated values
 #' @param melt Field name with character(comma) separated values
 #' @param sepchar Character separator between the data items. Default is comma
+#' @param verbose verbose output, Default: FALSE
 #' @return a data frame with separate records for each value in field specified
 #' @examples \dontrun{
 #'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
@@ -17,13 +18,13 @@
 #'
 #' @family List functions
 #' @export
-melt_cs_field <- function(data,melt,sepchar=","){
+melt_cs_field <- function(data,melt,sepchar=",",verbose=FALSE){
   tdata <- data
   tdata <- rename_column(tdata,melt,'pri')
   if(!is.null(tdata)){
     tdata$pri <- as.character(tdata$pri)
     retdat <- NULL
-    pb = txtProgressBar(min = 0, max = nrow(tdata), initial = 0)
+    if(verbose){pb = txtProgressBar(min = 0, max = nrow(tdata), initial = 0)}
     for(i in 1:nrow(tdata)){
       crec <- tdata[i,]
       if(tdata$pri[i]!="" & !is.na(tdata$pri[i])){
@@ -37,9 +38,9 @@ melt_cs_field <- function(data,melt,sepchar=","){
         addrec <- crec
         retdat <- rbind(retdat,addrec)
       }
-      setTxtProgressBar(pb,i)
+      if(verbose){setTxtProgressBar(pb,i)}
     }
-    cat("\n")
+    if(verbose){cat("\n")}
     retdat <- as.data.frame(retdat)
     retdat <- rename_column(retdat,'pri',melt)
     rownames(retdat) <- NULL

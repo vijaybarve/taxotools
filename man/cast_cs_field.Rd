@@ -4,7 +4,14 @@
 \alias{cast_cs_field}
 \title{Build a character (comma) separated List within field}
 \usage{
-cast_cs_field(data, pri, sec, duplicate = FALSE, sepchar = ",")
+cast_cs_field(
+  data,
+  pri,
+  sec,
+  duplicate = FALSE,
+  sepchar = ",",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{data}{data frame containing primary and secondary data columns}
@@ -17,6 +24,8 @@ comma separated)}
 \item{duplicate}{If true, duplicate entries are allowed in secondary field}
 
 \item{sepchar}{Character separator between the data items. Default is comma}
+
+\item{verbose}{verbose output, Default: FALSE}
 }
 \value{
 a data frame with two fields Primary and secondary (comma

@@ -5,7 +5,7 @@
 \title{Generate a list melting character (comma) separated field values into multiple
 records}
 \usage{
-melt_cs_field(data, melt, sepchar = ",")
+melt_cs_field(data, melt, sepchar = ",", verbose = FALSE)
 }
 \arguments{
 \item{data}{data frame containing a data columns with character(comma) separated values}
@@ -13,6 +13,8 @@ melt_cs_field(data, melt, sepchar = ",")
 \item{melt}{Field name with character(comma) separated values}
 
 \item{sepchar}{Character separator between the data items. Default is comma}
+
+\item{verbose}{verbose output, Default: FALSE}
 }
 \value{
 a data frame with separate records for each value in field specified

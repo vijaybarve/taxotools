@@ -83,7 +83,7 @@ cast_scientificname <- function(dat=NULL,sciname="scientificname", genus="",
     warning("author field not specified. Assuming empty")
     newdat$author_ <- NA
   }
-  pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
+  if(verbose){pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)}
   for(i in 1:nrow(newdat)){
     if(!is.empty(newdat$genus_[i])){
       scn <- toproper(newdat$genus_[i])
@@ -101,9 +101,9 @@ cast_scientificname <- function(dat=NULL,sciname="scientificname", genus="",
       scn <- paste(scn,trimws(newdat$author_[i]))
     }
     newdat$sciname_[i] <- scn
-    setTxtProgressBar(pb,i)
+    if(verbose){setTxtProgressBar(pb,i)}
   }
-  cat("\n")
+  if(verbose){cat("\n")}
   newdat <- rename_column(newdat,"genus_",genus)
   newdat <- rename_column(newdat,"species_",species)
   if(subgenus!=""){
