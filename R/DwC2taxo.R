@@ -13,7 +13,7 @@
 #'  terms of missing synonym to accepted name linkages at times.
 #' @family List functions
 #' @importFrom plyr rename
-#' @importFrom stringr word
+#' @importFrom stringr word str_remove
 #' @examples
 #' \dontrun{
 #' dwclist <- data.frame("taxonKey" = c("5129025","6224429","1896957"),
@@ -53,7 +53,7 @@ DwC2taxo <- function(namelist,
     namelist <- namelist[which(toupper(namelist$taxonomicStatus) %in%
                                  statuslist),]
   }
-  if("taxonID" %in% names((namelist))){
+  if("taxonID" %in% names(namelist)){
     namelist <- rename(namelist,
                        replace = c("taxonID" = "id",
                                    "acceptedNameUsageID" = "accid",
@@ -83,7 +83,7 @@ DwC2taxo <- function(namelist,
                          "subspecies", "author","taxonlevel", "accid",
                          "canonical")
   }
-  if("taxonKey" %in% names((namelist))){
+  if("taxonKey" %in% names(namelist)){
     namelist <- rename(namelist,
                        replace = c("taxonKey" = "id",
                                    "acceptedTaxonKey" = "accid",
@@ -99,6 +99,9 @@ DwC2taxo <- function(namelist,
                                "genus_a",
                                "species_a",
                                "subspecies_a")
+    namelist$author_a <- trimws(str_remove(namelist$acceptedScientificName,
+                                           namelist$accepted))
+    
     namelist1 <- namelist[,c("accid", "order","family", "genus_a",
                              "species_a", "subspecies_a", "author_a",
                              "taxonlevel", "id", "accepted")]
@@ -108,23 +111,34 @@ DwC2taxo <- function(namelist,
     namelist1$accid <- 0
     namelist1 <- namelist1[!duplicated(namelist1$id),]
     namelist$accid[which(namelist$accid==namelist$id)] <- 0
-    namelist2 <- namelist[which(namelist$accid!=0 &
-                                  !is.na(namelist$speciesKey)),]
-    namelist2 <- melt_scientificname(namelist2,
-                                     sciname = "scientificName",
-                                     genus = "genus_s",
-                                     species = "species_s",
-                                     subspecies = "subspecies_s",
-                                     author = "author_s")
-    namelist2 <- cast_canonical(namelist2,"synonym","genus_s",
-                                "species_s", "subspecies_s")
-    namelist2 <- namelist2[which(namelist2$accid %in%
-                                   namelist1$id),c("id", "order",
-                                                   "family", "genus_s",
-                                                   "species_s",
-                                                   "subspecies_s", "author_s",
-                                                   "taxonlevel", "accid",
-                                                   "synonym")]
+    if("speciesKey" %in% names(namelist)){
+      namelist2 <- namelist[which(namelist$accid!=0 &
+                                    !is.na(namelist$speciesKey)),]
+    } else {
+      namelist2 <- namelist[which(namelist$accid!=0),]
+    }
+    if(nrow(namelist2)>0){
+      namelist2 <- melt_scientificname(namelist2,
+                                       sciname = "scientificName",
+                                       genus = "genus_s",
+                                       species = "species_s",
+                                       subspecies = "subspecies_s",
+                                       author = "author_s")
+      namelist2 <- cast_canonical(namelist2,"synonym","genus_s",
+                                  "species_s", "subspecies_s")
+      namelist2$author_s <- trimws(str_remove(namelist2$scientificName,
+                                              namelist2$synonym))
+      
+      namelist2 <- namelist2[which(namelist2$accid %in%
+                                     namelist1$id),c("id", "order",
+                                                     "family", "genus_s",
+                                                     "species_s",
+                                                     "subspecies_s", "author_s",
+                                                     "taxonlevel", "accid",
+                                                     "synonym")]
+    } else {
+      namelist2 <- NULL
+    }
     if(!is.null(namelist2)){
       names(namelist2) <- c("id", "order", "family", "genus", "species",
                             "subspecies", "author", "taxonlevel", "accid",
