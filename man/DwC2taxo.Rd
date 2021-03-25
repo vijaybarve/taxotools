@@ -24,8 +24,9 @@ Converts a Darwin Core name list to taxolist format
 }
 \details{
 The name lists downloaded from ITIS or GBIF website in Darwin Core
- format has all the required fields for taxolist. Just needs to be 
- converted and quality checked in terms of missing linkages at times
+ format has all the required fields for taxolist. The list just needs to be 
+ converted to taxolist by renaming column names and and quality checked in 
+ terms of missing synonym to accepted name linkages at times.
 }
 \examples{
 \dontrun{

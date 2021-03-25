@@ -8,8 +8,9 @@
 #' @param source source of the namelist i.e. GBIF or ITIS. Default NA
 #' @return names list is taxolist format
 #' @details The name lists downloaded from ITIS or GBIF website in Darwin Core
-#'  format has all the required fields for taxolist. Just needs to be 
-#'  converted and quality checked in terms of missing linkages at times
+#'  format has all the required fields for taxolist. The list just needs to be 
+#'  converted to taxolist by renaming column names and and quality checked in 
+#'  terms of missing synonym to accepted name linkages at times.
 #' @family List functions
 #' @importFrom plyr rename
 #' @importFrom stringr word
@@ -58,6 +59,7 @@ DwC2taxo <- function(namelist,
                                    "acceptedNameUsageID" = "accid",
                                    "specificEpithet" = "species",
                                    "infraspecificEpithet" = "subspecies",
+                                   "scientificNameAuthorship" = "author",
                                    "taxonRank" = "taxonlevel"))
     namelist <- cast_canonical(namelist,
                                "canonical",
@@ -68,19 +70,18 @@ DwC2taxo <- function(namelist,
     namelist1 <- namelist[which(namelist$accid!=0 & namelist$accid %!in%
                                   namelist$id),c("id", "order",
                                                  "family", "genus",
-                                                 "species",
-                                                 "subspecies",
-                                                 "taxonlevel", "accid",
-                                                 "canonical")]
+                                                 "species", "subspecies",
+                                                 "author", "taxonlevel",
+                                                 "accid", "canonical")]
     namelist <- namelist[which(namelist$accid==0 | namelist$accid %in%
                                  namelist$id),c("id", "order",
                                                 "family", "genus",
-                                                "species",
-                                                "subspecies",
-                                                "taxonlevel", "accid",
-                                                "canonical")]
+                                                "species", "subspecies",
+                                                "author", "taxonlevel",
+                                                "accid", "canonical")]
     names(namelist) <- c("id", "order", "family", "genus", "species",
-                         "subspecies", "taxonlevel", "accid", "canonical")
+                         "subspecies", "author","taxonlevel", "accid",
+                         "canonical")
   }
   if("taxonKey" %in% names((namelist))){
     namelist <- rename(namelist,
@@ -91,20 +92,19 @@ DwC2taxo <- function(namelist,
                                     sciname = "acceptedScientificName",
                                     genus = "genus_a",
                                     species = "species_a",
-                                    subspecies = "subspecies_a")
+                                    subspecies = "subspecies_a",
+                                    author = "author_a")
     namelist <- cast_canonical(namelist,
                                "accepted",
                                "genus_a",
                                "species_a",
                                "subspecies_a")
-    namelist1 <- namelist[,c("accid", "order",
-                             "family", "genus_a",
-                             "species_a",
-                             "subspecies_a",
-                             "taxonlevel", "id",
-                             "accepted")]
+    namelist1 <- namelist[,c("accid", "order","family", "genus_a",
+                             "species_a", "subspecies_a", "author_a",
+                             "taxonlevel", "id", "accepted")]
     names(namelist1) <- c("id", "order", "family", "genus", "species",
-                          "subspecies", "taxonlevel", "accid", "canonical")
+                          "subspecies", "author", "taxonlevel", "accid",
+                          "canonical")
     namelist1$accid <- 0
     namelist1 <- namelist1[!duplicated(namelist1$id),]
     namelist$accid[which(namelist$accid==namelist$id)] <- 0
@@ -114,19 +114,21 @@ DwC2taxo <- function(namelist,
                                      sciname = "scientificName",
                                      genus = "genus_s",
                                      species = "species_s",
-                                     subspecies = "subspecies_s")
+                                     subspecies = "subspecies_s",
+                                     author = "author_s")
     namelist2 <- cast_canonical(namelist2,"synonym","genus_s",
                                 "species_s", "subspecies_s")
     namelist2 <- namelist2[which(namelist2$accid %in%
                                    namelist1$id),c("id", "order",
                                                    "family", "genus_s",
                                                    "species_s",
-                                                   "subspecies_s",
+                                                   "subspecies_s", "author_s",
                                                    "taxonlevel", "accid",
                                                    "synonym")]
     if(!is.null(namelist2)){
       names(namelist2) <- c("id", "order", "family", "genus", "species",
-                            "subspecies", "taxonlevel", "accid", "canonical")
+                            "subspecies", "author", "taxonlevel", "accid",
+                            "canonical")
       namelist <- rbind(namelist1,namelist2)
     } else {
       namelist <- namelist1
