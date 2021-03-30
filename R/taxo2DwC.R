@@ -34,13 +34,15 @@ taxo2DwC <- function(taxolist){
     return(NULL)
   }
   if("taxonlevel" %!in% names(taxolist)){
-    taxolist$taxonlevel <- lapply(taxolist$canonical, guess_taxo_rank)
+    taxolist$taxonlevel <- as.character(lapply(taxolist$canonical, 
+                                               guess_taxo_rank))
   }
   taxolist <- rename_column(taxolist,"id","taxonKey")
   taxolist <- rename_column(taxolist,"canonical","scientificName")
   taxolist <- rename_column(taxolist,"taxonlevel","taxonRank")
   taxolist <- rename_column(taxolist,"species","specificEpithet")
-  taxolist <- rename_column(taxolist,"subspecies","infraspecificEpithetProperty")
+  taxolist <- rename_column(taxolist,"subspecies",
+                            "infraspecificEpithetProperty")
   # Accepted names
   taxo_ac <- taxolist[which(taxolist$accid==0),]
   taxo_ac$acceptedTaxonKey <- taxo_ac$taxonKey
