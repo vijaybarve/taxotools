@@ -1,18 +1,20 @@
-taxotools 0.0.102
-================
+taxotools 0.0.103
+=================
+* Added functions taxo2syn, taxo2DwC, cast_scientificname,
+    resolve_names, taxo2doc
 * Function get_accepted_names has fuzzymatch and fuzzydist parameters
     to control fuzzy matching
+* Function list_itis_syn now returns consistant column names
+* Function synonymize_subspecies has return_unmatched parameter
+    to control returning good data verses orphan records
+* Function DwC2taxo now deals with author column too
+* Function expand_name can handle trinomials too
+* Function guess_taxo_rank manages extra white spaces
+* Several functions have verbose param 
 * Bug fixes in melt_canonical, toproper, cast_cs_field, syn2taxo,
     melt_cs_field, melt_scientificname, DwC2taxo, taxo2DwC, 
     guess_taxo_level
 * Improved documentation for syn2taxo, DwC2taxo, melt_scientificname
-* Function list_itis_syn now returns consistant column names
-* Function synonymize_subspecies has return_unmatched parameter
-    to control returning good data verses orphan records
-* Added functions taxo2syn, taxo2DwC, cast_scientificname,
-    resolve_names, taxo2doc
-* Function DwC2taxo now deals with author column too
-* Several functions have verbose param 
 
 taxotools 0.0.79
 ================
