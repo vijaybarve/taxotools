@@ -4,10 +4,12 @@
 \alias{taxo2DwC}
 \title{Taxolist to Darwin Core (DwC)}
 \usage{
-taxo2DwC(taxolist)
+taxo2DwC(taxolist, verbose = TRUE)
 }
 \arguments{
 \item{taxolist}{taxolist}
+
+\item{verbose}{verbose output, Default: TRUE}
 }
 \value{
 returns a taxonomic list in DwC format
