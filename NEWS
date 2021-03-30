@@ -1,9 +1,10 @@
-taxotools 0.0.99
+taxotools 0.0.102
 ================
 * Function get_accepted_names has fuzzymatch and fuzzydist parameters
     to control fuzzy matching
 * Bug fixes in melt_canonical, toproper, cast_cs_field, syn2taxo,
-    melt_cs_field, melt_scientificname, DwC2taxo
+    melt_cs_field, melt_scientificname, DwC2taxo, taxo2DwC, 
+    guess_taxo_level
 * Improved documentation for syn2taxo, DwC2taxo, melt_scientificname
 * Function list_itis_syn now returns consistant column names
 * Function synonymize_subspecies has return_unmatched parameter

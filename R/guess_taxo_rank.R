@@ -12,16 +12,14 @@
 #'
 #' @export
 guess_taxo_rank <- function(name){
-  level <- ""
-  if(!(is.na(name) | is.null(name) | name =="")){
+  level <- "Unknown"
+  if(!is.empty(name)){
+    name <- gsub("\\s+", " ", trimws(name))
     wordcount <- length(strsplit(name," ")[[1]])
     level <- switch(wordcount,
                     "Genus or above",
                     "Species",
                     "Subspecies")
-  }
-  if(is.null(level)){
-    level <- "Unknown"
   }
   return(level)
 }
