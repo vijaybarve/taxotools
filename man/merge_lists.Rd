@@ -27,9 +27,29 @@ Matches names is checklist with names on master
 }
 \examples{
 \dontrun{
-merge_lists(master = NA,
-            checklist = NA,
-            verbose = TRUE)
+master <- data.frame("id" = c(1,2,3),
+                     "canonical" = c("Hypochlorosis ancharia",
+                                     "Hypochlorosis tenebrosa",
+                                     "Hypochlorosis ancharia tenebrosa"),
+                     "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
+                     "accid" = c(0,1,0),
+                     "source" = c("itis","itis","itis"),
+                     stringsAsFactors = F)
+
+checklist <- data.frame("id" = c(1,2,3,4,5),
+                        "canonical" = c("Hypochlorosis ancharia",
+                                        "Pseudonotis humboldti",
+                                        "Myrina ancharia",
+                                        "Hypochlorosis ancharia obiana",
+                                        "Hypochlorosis lorquinii"),
+                        "family" = c("Lycaenidae", "Lycaenidae", 
+                                     "Lycaenidae", "Lycaenidae",
+                                      "Lycaenidae"),
+                        "accid" = c(0,1,1,0,0),
+                        "source" = c("itis","wiki","wiki","itis",
+                                     "itis"),
+                        stringsAsFactors = F)
+merged <- merge_lists(master,checklist)
 }
 }
 \seealso{

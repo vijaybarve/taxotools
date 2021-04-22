@@ -11,9 +11,29 @@
 #' @family List functions
 #' @examples
 #' \dontrun{
-#' merge_lists(master = NA,
-#'             checklist = NA,
-#'             verbose = TRUE)
+#' master <- data.frame("id" = c(1,2,3),
+#'                      "canonical" = c("Hypochlorosis ancharia",
+#'                                      "Hypochlorosis tenebrosa",
+#'                                      "Hypochlorosis ancharia tenebrosa"),
+#'                      "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
+#'                      "accid" = c(0,1,0),
+#'                      "source" = c("itis","itis","itis"),
+#'                      stringsAsFactors = F)
+#' 
+#' checklist <- data.frame("id" = c(1,2,3,4,5),
+#'                         "canonical" = c("Hypochlorosis ancharia",
+#'                                         "Pseudonotis humboldti",
+#'                                         "Myrina ancharia",
+#'                                         "Hypochlorosis ancharia obiana",
+#'                                         "Hypochlorosis lorquinii"),
+#'                         "family" = c("Lycaenidae", "Lycaenidae", 
+#'                                      "Lycaenidae", "Lycaenidae",
+#'                                       "Lycaenidae"),
+#'                         "accid" = c(0,1,1,0,0),
+#'                         "source" = c("itis","wiki","wiki","itis",
+#'                                      "itis"),
+#'                         stringsAsFactors = F)
+#' merged <- merge_lists(master,checklist)
 #' }
 #' @rdname merge_lists
 #' @export
@@ -48,7 +68,8 @@ merge_lists <- function(master = NULL,
       for(j in 1:nrow(recset)){
         if(recset$canonical[j] %in% master$canonical) {
           found <- TRUE
-          set_accid <- get_accid(master,recset$canonical[j],verbose)
+          set_accid <- get_accid(master,as.character(recset$canonical[j]),
+                                 verbose)
           accid_set <- c(accid_set,set_accid)
           found_count <- found_count + 1
         }

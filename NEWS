@@ -1,4 +1,4 @@
-taxotools 0.0.103
+taxotools 0.0.104
 =================
 * Added functions taxo2syn, taxo2DwC, cast_scientificname,
     resolve_names, taxo2doc
@@ -13,8 +13,9 @@ taxotools 0.0.103
 * Several functions have verbose param 
 * Bug fixes in melt_canonical, toproper, cast_cs_field, syn2taxo,
     melt_cs_field, melt_scientificname, DwC2taxo, taxo2DwC, 
-    guess_taxo_level
-* Improved documentation for syn2taxo, DwC2taxo, melt_scientificname
+    guess_taxo_level, merge_lists
+* Improved documentation for syn2taxo, DwC2taxo, melt_scientificname,
+    merge_lists
 
 taxotools 0.0.79
 ================
