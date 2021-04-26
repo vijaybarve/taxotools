@@ -1,4 +1,4 @@
-taxotools 0.0.104
+taxotools 0.0.105
 =================
 * Added functions taxo2syn, taxo2DwC, cast_scientificname,
     resolve_names, taxo2doc

@@ -32,6 +32,9 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=",",
   if(missing(sec)){
     stop("Secondary data field (sec) needs to be specified")
   }
+  if(nrow(data)<2){
+    return(data)
+  }
   tdata <- data
   tdata <- rename_column(tdata,pri,"pri")
   tdata <- rename_column(tdata,sec,"sec")
