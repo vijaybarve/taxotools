@@ -53,14 +53,18 @@ DwC2taxo <- function(namelist,
     namelist <- namelist[which(toupper(namelist$taxonomicStatus) %in%
                                  statuslist),]
   }
+  if(nrow(namelist)==0){
+    message("taxonomicStatus does not have usable values")
+    return(NULL)
+  }
   if("taxonID" %in% names(namelist)){
-    namelist <- rename(namelist,
-                       replace = c("taxonID" = "id",
-                                   "acceptedNameUsageID" = "accid",
-                                   "specificEpithet" = "species",
-                                   "infraspecificEpithet" = "subspecies",
-                                   "scientificNameAuthorship" = "author",
-                                   "taxonRank" = "taxonlevel"))
+    namelist <- plyr::rename(namelist,
+                             replace = c("taxonID" = "id",
+                                         "acceptedNameUsageID" = "accid",
+                                         "specificEpithet" = "species",
+                                         "infraspecificEpithet" = "subspecies",
+                                         "scientificNameAuthorship" = "author",
+                                         "taxonRank" = "taxonlevel"))
     namelist <- cast_canonical(namelist,
                                "canonical",
                                "genus",

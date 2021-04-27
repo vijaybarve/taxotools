@@ -23,7 +23,7 @@
 #' @export
 cast_canonical <- function(dat,canonical="canonical",genus="",
                            species="",subspecies="",verbose=FALSE){
-  if(is.null(dat) ){
+  if(is.null(dat) | nrow(dat)==0 ){
     return(NULL)  
   }
   newdat <- as.data.frame(dat)
