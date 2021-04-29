@@ -56,7 +56,11 @@ merge_lists <- function(master = NULL,
   multilist <- NULL
   names(master) <- tolower(names(master))
   names(checklist) <- tolower(names(checklist))
-  idcount <- max(master$id) + 1
+  if(is.numeric(max(master$id))){
+    idcount <- max(master$id) + 1
+  } else {
+    stop("id column in master is not numeric")
+  }
   check_acc <- checklist[which(checklist$accid==0),]
   for(i in 1:nrow(check_acc)){
     if(verbose){cat(paste("\n",i))}

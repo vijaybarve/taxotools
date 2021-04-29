@@ -12,7 +12,8 @@ DwC2taxo(namelist, statuslist = NA, source = NA)
 \item{statuslist}{vector listing taxonomicStatus to be considered in
 the namelist. If Default value is NA, automatically uses list of
 \itemize{\item{Accepted} \item{Synonym} \item{Valid}
-\item{heterotypicSynonym} \item{homotypicSynonym}}}
+\item{heterotypic Synonym} \item{homotypic Synonym} \item{doubtful},
+\item{proparte synonym}}}
 
 \item{source}{source of the namelist i.e. GBIF or ITIS. Default NA}
 }

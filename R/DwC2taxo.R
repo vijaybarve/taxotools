@@ -4,7 +4,8 @@
 #' @param statuslist vector listing taxonomicStatus to be considered in
 #' the namelist. If Default value is NA, automatically uses list of
 #' \itemize{\item{Accepted} \item{Synonym} \item{Valid}
-#' \item{heterotypicSynonym} \item{homotypicSynonym}}
+#' \item{heterotypic Synonym} \item{homotypic Synonym} \item{doubtful},
+#' \item{proparte synonym}}
 #' @param source source of the namelist i.e. GBIF or ITIS. Default NA
 #' @return names list is taxolist format
 #' @details The name lists downloaded from ITIS or GBIF website in Darwin Core
@@ -38,8 +39,8 @@ DwC2taxo <- function(namelist,
                      statuslist=NA,
                      source=NA){
   if(is.na(statuslist)){
-    statuslist <- c("Accepted","Synonym", "Valid",
-                    "heterotypicSynonym","homotypicSynonym")
+    statuslist <- c("Accepted", "Synonym", "Valid", "heterotypicSynonym",
+                    "homotypicSynonym", "doubtful", "proparte synonym")
   }
   statuslist <- toupper(statuslist)
   if("taxonRank" %in% names((namelist))){
