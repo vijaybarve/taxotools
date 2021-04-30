@@ -7,6 +7,7 @@
 #'@section List functions:
 #'\itemize{
 #'\item \link{cast_cs_field}
+#'\item \link{compact_ids}
 #'\item \link{DwC2taxo}
 #'\item \link{match_lists}
 #'\item \link{melt_cs_field}

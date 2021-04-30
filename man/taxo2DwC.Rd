@@ -44,6 +44,7 @@ mysynlst <- taxo2DwC(mytaxo)
 Other List functions: 
 \code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
 \code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},

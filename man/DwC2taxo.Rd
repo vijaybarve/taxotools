@@ -51,6 +51,7 @@ mytaxo <- DwC2taxo(dwclist)
 \seealso{
 Other List functions: 
 \code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
 \code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},

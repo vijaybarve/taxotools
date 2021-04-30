@@ -45,6 +45,7 @@ match_lists(master,checklist,"canonical","canonical")
 Other List functions: 
 \code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},

@@ -36,6 +36,7 @@ syn_list_new <- melt_cs_field(cs_syn_list,"Syn")
 Other List functions: 
 \code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
 \code{\link{match_lists}()},
 \code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
