@@ -1,5 +1,5 @@
 #' @title merge two lists of names
-#' @description Useful in generating a master list of names form multiple
+#' @description Useful in generating a master list of names from multiple
 #' sources
 #' @param master master list of names
 #' @param checklist list to be merged
@@ -56,11 +56,9 @@ merge_lists <- function(master = NULL,
   multilist <- NULL
   names(master) <- tolower(names(master))
   names(checklist) <- tolower(names(checklist))
-  if(is.numeric(max(master$id))){
-    idcount <- max(master$id) + 1
-  } else {
-    stop("id column in master is not numeric")
-  }
+  master <- compact_ids(master,"id","accid",verbose)
+  checklist <- compact_ids(checklist,"id","accid",verbose)
+  idcount <- max(master$id) + 1
   check_acc <- checklist[which(checklist$accid==0),]
   for(i in 1:nrow(check_acc)){
     if(verbose){cat(paste("\n",i))}

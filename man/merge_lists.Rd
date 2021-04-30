@@ -19,7 +19,7 @@ the names that could not be matched and third the names that matched
 multiple names in master
 }
 \description{
-Useful in generating a master list of names form multiple
+Useful in generating a master list of names from multiple
 sources
 }
 \details{
