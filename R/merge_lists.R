@@ -4,9 +4,12 @@
 #' @param master master list of names
 #' @param checklist list to be merged
 #' @param verbose verbose output on the console
-#' @return returns three components. First the names to be added, second
-#' the names that could not be matched and third the names that matched
-#' multiple names in master
+#' @return Data frame with addition column merge_tag. The merge_tag contains 
+#' four possible values. \itemize{\item{orig - }{names in the master}\item{add
+#' - }{checklist names that matched using synonym linkages including direct 
+#'  matches} \item{new - }{checklist names that did NOT match with master.
+#'  Potentially new taxa} \item{multi - }{taxon from checklist for which two
+#'  synonyms matched with two different accepted names in master}}
 #' @details Matches names is checklist with names on master
 #' @family List functions
 #' @examples
@@ -101,7 +104,21 @@ merge_lists <- function(master = NULL,
   retval$addlist <- addlist
   retval$noaddlist <- noaddlist
   retval$multilist <- multilist
-  return(retval)
+  retdf <- master
+  retdf$merge_tag <- "orig"
+  if(!is.null(retval$addlis)){
+    retval$addlist$merge_tag <- "add"
+    retdf <- plyr::rbind.fill(retdf,retval$addlist)
+  }
+  if(!is.null(retval$noaddlist)){
+    retval$noaddlist$merge_tag <- "new"
+    retdf <- plyr::rbind.fill(retdf,retval$noaddlist)
+  }
+  if(!is.null(retval$multilist)){
+    retval$multilist$merge_tag <- "multi"
+    retdf <- plyr::rbind.fill(retdf,retval$multilist)
+  }
+  return(retdf)
 }
 
 get_id_recs <- function(checklist,id){

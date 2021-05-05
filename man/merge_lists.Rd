@@ -14,9 +14,12 @@ merge_lists(master = NULL, checklist = NULL, verbose = TRUE)
 \item{verbose}{verbose output on the console}
 }
 \value{
-returns three components. First the names to be added, second
-the names that could not be matched and third the names that matched
-multiple names in master
+Data frame with addition column merge_tag. The merge_tag contains 
+four possible values. \itemize{\item{orig - }{names in the master}\item{add
+- }{checklist names that matched using synonym linkages including direct 
+ matches} \item{new - }{checklist names that did NOT match with master.
+ Potentially new taxa} \item{multi - }{taxon from checklist for which two
+ synonyms matched with two different accepted names in master}}
 }
 \description{
 Useful in generating a master list of names from multiple
