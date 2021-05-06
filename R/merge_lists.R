@@ -71,9 +71,9 @@ merge_lists <- function(master = NULL,
   multilist <- NULL
   names(master) <- tolower(names(master))
   names(checklist) <- tolower(names(checklist))
-  master <- compact_ids(master,"id","accid",verbose)
-  checklist <- compact_ids(checklist,"id","accid",verbose)
+  master <- compact_ids(master,"id","accid",1,verbose)
   idcount <- max(master$id) + 1
+  checklist <- compact_ids(checklist,"id","accid",idcount,verbose)
   check_acc <- checklist[which(checklist$accid==0),]
   for(i in 1:nrow(check_acc)){
     if(verbose){cat(paste("\n",i))}

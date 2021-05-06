@@ -1,4 +1,4 @@
-taxotools 0.0.110
+taxotools 0.0.112
 =================
 * Added functions taxo2syn, taxo2DwC, cast_scientificname,
     resolve_names, taxo2doc, compact_ids
@@ -12,6 +12,8 @@ taxotools 0.0.110
 * Function guess_taxo_rank manages extra white spaces
 * Function merge_lists now compacts the ids and returns single data 
     frame with output based on output param
+* Function compact_ids has startid param to control starting id for 
+    the data set
 * Several functions have verbose param 
 * Bug fixes in melt_canonical, toproper, cast_cs_field, syn2taxo,
     melt_cs_field, melt_scientificname, DwC2taxo, taxo2DwC, 

@@ -4,7 +4,7 @@
 \alias{compact_ids}
 \title{compact id numbers}
 \usage{
-compact_ids(dat, id = "id", accid = "accid", verbose = TRUE)
+compact_ids(dat, id = "id", accid = "accid", startid = 1, verbose = TRUE)
 }
 \arguments{
 \item{dat}{taxonomic list in a data frame with id and accid columns}
@@ -12,6 +12,8 @@ compact_ids(dat, id = "id", accid = "accid", verbose = TRUE)
 \item{id}{column name for 'id'. Default 'id'}
 
 \item{accid}{column name for 'accid'. Default 'accid'}
+
+\item{startid}{starting id number for the list. Default 1}
 
 \item{verbose}{verbose output on the console}
 }
@@ -44,6 +46,8 @@ mylist <- data.frame("id" = c("1","2","3","4","5"),
 
 mylist_c <- compact_ids(mylist)
 
+mylist_c <- compact_ids(mylist,startid=1001)
+
 mylist <- data.frame("id" = c(11,12,13,14,15),
                      "canonical" = c("Hypochlorosis ancharia",
                                      "Pseudonotis humboldti",
@@ -57,6 +61,8 @@ mylist <- data.frame("id" = c(11,12,13,14,15),
                      "source" = c("itis","wiki","wiki","itis",
                                   "itis"),
                      stringsAsFactors = F)
+                     
+mylist_c <- compact_ids(mylist)
 }
 }
 \seealso{

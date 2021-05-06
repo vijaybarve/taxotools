@@ -4,6 +4,7 @@
 #' @param dat taxonomic list in a data frame with id and accid columns
 #' @param id column name for 'id'. Default 'id' 
 #' @param accid column name for 'accid'. Default 'accid'
+#' @param startid starting id number for the list. Default 1
 #' @param verbose verbose output on the console
 #' @return returns data frame 
 #' @details Helper function to make sure values for ids are in right format and
@@ -27,6 +28,8 @@
 #' 
 #' mylist_c <- compact_ids(mylist)
 #' 
+#' mylist_c <- compact_ids(mylist,startid=1001)
+#' 
 #' mylist <- data.frame("id" = c(11,12,13,14,15),
 #'                      "canonical" = c("Hypochlorosis ancharia",
 #'                                      "Pseudonotis humboldti",
@@ -40,11 +43,13 @@
 #'                      "source" = c("itis","wiki","wiki","itis",
 #'                                   "itis"),
 #'                      stringsAsFactors = F)
+#'                      
+#' mylist_c <- compact_ids(mylist)
 #' }
 #' @rdname compact_ids
 #' @export
-
-compact_ids <- function(dat,id="id",accid="accid",verbose=TRUE){
+compact_ids <- function(dat,id="id",accid="accid",
+                        startid=1,verbose=TRUE){
   if(is.null(dat)){
     return(NULL)
   }
@@ -58,7 +63,7 @@ compact_ids <- function(dat,id="id",accid="accid",verbose=TRUE){
   }
   dat <- rename_column(dat,id,"id_")
   dat <- rename_column(dat,accid,"accid_")
-  dat$id <- seq(1:nrow(dat))
+  dat$id <- seq(startid,(nrow(dat)+startid-1))
   dat$accid <- 0
   if(verbose){pb = txtProgressBar(min = 0, max = nrow(dat), initial = 0)}
   for(i in 1:nrow(dat)){
