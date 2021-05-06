@@ -4,21 +4,24 @@
 \alias{merge_lists}
 \title{merge two lists of names}
 \usage{
-merge_lists(master = NULL, checklist = NULL, verbose = TRUE)
+merge_lists(master = NULL, checklist = NULL, output = "all", verbose = TRUE)
 }
 \arguments{
 \item{master}{master list of names}
 
 \item{checklist}{list to be merged}
 
+\item{output}{data returned by the function, one of the five options all, 
+onlyadd, add, merged, new or multi. Default all}
+
 \item{verbose}{verbose output on the console}
 }
 \value{
 Data frame with addition column merge_tag. The merge_tag contains 
-four possible values. \itemize{\item{orig - }{names in the master}\item{add
-- }{checklist names that matched using synonym linkages including direct 
+four possible values. \itemize{\item{orig - }{names in the master}\item{add -
+ }{ checklist names that matched using synonym linkages including direct 
  matches} \item{new - }{checklist names that did NOT match with master.
- Potentially new taxa} \item{multi - }{taxon from checklist for which two
+ Potentially new taxa} \item{multi -}{taxon from checklist for which two
  synonyms matched with two different accepted names in master}}
 }
 \description{
@@ -26,7 +29,16 @@ Useful in generating a master list of names from multiple
 sources
 }
 \details{
-Matches names is checklist with names on master
+Matches names is checklist with names on master and returns 
+following data:
+\itemize{\item{all }{= orig + add + new + multi: all the data} \item{onlyadd
+ }{= add : returns records from checklist that match with master}
+\item{add }{= orig + add : returns all records from master + matched records
+ from checklist} \item{merged }{= orig + add + new : returns all records from
+ master + matched records from checklist + new taxon from checklist}
+ \item{new }{= returns only new taxon entities that did not match with 
+ master} \item{multi }{= taxon from checklist for which two synonyms matched
+  with two different accepted names in master}}
 }
 \examples{
 \dontrun{

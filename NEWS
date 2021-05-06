@@ -10,7 +10,8 @@ taxotools 0.0.110
 * Function DwC2taxo now deals with author column too
 * Function expand_name can handle trinomials too
 * Function guess_taxo_rank manages extra white spaces
-* Function merge_lists now compacts the ids and returns single data frame
+* Function merge_lists now compacts the ids and returns single data 
+    frame with output based on output param
 * Several functions have verbose param 
 * Bug fixes in melt_canonical, toproper, cast_cs_field, syn2taxo,
     melt_cs_field, melt_scientificname, DwC2taxo, taxo2DwC, 

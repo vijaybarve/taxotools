@@ -3,14 +3,25 @@
 #' sources
 #' @param master master list of names
 #' @param checklist list to be merged
+#' @param output data returned by the function, one of the five options all, 
+#' onlyadd, add, merged, new or multi. Default all
 #' @param verbose verbose output on the console
 #' @return Data frame with addition column merge_tag. The merge_tag contains 
-#' four possible values. \itemize{\item{orig - }{names in the master}\item{add
-#' - }{checklist names that matched using synonym linkages including direct 
+#' four possible values. \itemize{\item{orig - }{names in the master}\item{add -
+#'  }{ checklist names that matched using synonym linkages including direct 
 #'  matches} \item{new - }{checklist names that did NOT match with master.
-#'  Potentially new taxa} \item{multi - }{taxon from checklist for which two
+#'  Potentially new taxa} \item{multi -}{taxon from checklist for which two
 #'  synonyms matched with two different accepted names in master}}
-#' @details Matches names is checklist with names on master
+#' @details Matches names is checklist with names on master and returns 
+#' following data:
+#' \itemize{\item{all }{= orig + add + new + multi: all the data} \item{onlyadd
+#'  }{= add : returns records from checklist that match with master}
+#' \item{add }{= orig + add : returns all records from master + matched records
+#'  from checklist} \item{merged }{= orig + add + new : returns all records from
+#'  master + matched records from checklist + new taxon from checklist}
+#'  \item{new }{= returns only new taxon entities that did not match with 
+#'  master} \item{multi }{= taxon from checklist for which two synonyms matched
+#'   with two different accepted names in master}}
 #' @family List functions
 #' @examples
 #' \dontrun{
@@ -42,6 +53,7 @@
 #' @export
 merge_lists <- function(master = NULL,
                         checklist = NULL,
+                        output="all",
                         verbose = TRUE){
   if(is.null(master)){
     warning("master data missing")
@@ -101,6 +113,7 @@ merge_lists <- function(master = NULL,
       }
     }
   }
+  if(verbose){cat("\n")}
   retval$addlist <- addlist
   retval$noaddlist <- noaddlist
   retval$multilist <- multilist
@@ -117,6 +130,32 @@ merge_lists <- function(master = NULL,
   if(!is.null(retval$multilist)){
     retval$multilist$merge_tag <- "multi"
     retdf <- plyr::rbind.fill(retdf,retval$multilist)
+  }
+  switch(output, 
+         all={
+         },
+         add={
+           retdf <- retdf[which(retdf$merge_tag %in% c("orig","add")),]
+         },
+         onlyadd={
+           retdf <- retdf[which(retdf$merge_tag %in% c("add")),]
+         },
+         merged={
+           retdf <- retdf[which(retdf$merge_tag %in% c("orig","add","new")),]
+         },
+         new={
+           retdf <- retdf[which(retdf$merge_tag == "new"),]
+         },
+         multi={
+           retdf <- retdf[which(retdf$merge_tag == "multi"),]
+         },
+         {
+           message(paste("Could not resolve 'output =",output,
+                         "'Returning all data"))
+         }
+  )
+  if(nrow(retdf)<1){
+    retdf <- NULL
   }
   return(retdf)
 }
