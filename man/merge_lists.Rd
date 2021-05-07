@@ -64,7 +64,11 @@ checklist <- data.frame("id" = c(1,2,3,4,5),
                         "source" = c("itis","wiki","wiki","itis",
                                      "itis"),
                         stringsAsFactors = F)
-merged <- merge_lists(master,checklist)
+merged_all <- merge_lists(master,checklist,output="all")
+new_taxa <- merge_lists(master,checklist,output="new")
+merged_with_new <- merge_lists(master,checklist,output="merged")
+merged_add <- merge_lists(master,checklist,output="add")
+multi_linked <- merge_lists(master,checklist,output="multi")
 }
 }
 \seealso{

@@ -47,7 +47,11 @@
 #'                         "source" = c("itis","wiki","wiki","itis",
 #'                                      "itis"),
 #'                         stringsAsFactors = F)
-#' merged <- merge_lists(master,checklist)
+#' merged_all <- merge_lists(master,checklist,output="all")
+#' new_taxa <- merge_lists(master,checklist,output="new")
+#' merged_with_new <- merge_lists(master,checklist,output="merged")
+#' merged_add <- merge_lists(master,checklist,output="add")
+#' multi_linked <- merge_lists(master,checklist,output="multi")
 #' }
 #' @rdname merge_lists
 #' @export
@@ -65,7 +69,6 @@ merge_lists <- function(master = NULL,
   }
   master <- as.data.frame(master)
   checklist <- as.data.frame(checklist)
-  retval <- NULL
   addlist <- NULL
   noaddlist <- NULL
   multilist <- NULL
@@ -114,22 +117,21 @@ merge_lists <- function(master = NULL,
     }
   }
   if(verbose){cat("\n")}
-  retval$addlist <- addlist
-  retval$noaddlist <- noaddlist
-  retval$multilist <- multilist
+  startnew <- max(addlist$id)+1
+  noaddlist <- compact_ids(noaddlist,id="id",accid = "accid",                                  startid=startnew,verbose)
   retdf <- master
   retdf$merge_tag <- "orig"
-  if(!is.null(retval$addlis)){
-    retval$addlist$merge_tag <- "add"
-    retdf <- plyr::rbind.fill(retdf,retval$addlist)
+  if(!is.null(addlist)){
+    addlist$merge_tag <- "add"
+    retdf <- plyr::rbind.fill(retdf,addlist)
   }
-  if(!is.null(retval$noaddlist)){
-    retval$noaddlist$merge_tag <- "new"
-    retdf <- plyr::rbind.fill(retdf,retval$noaddlist)
+  if(!is.null(noaddlist)){
+    noaddlist$merge_tag <- "new"
+    retdf <- plyr::rbind.fill(retdf,noaddlist)
   }
-  if(!is.null(retval$multilist)){
-    retval$multilist$merge_tag <- "multi"
-    retdf <- plyr::rbind.fill(retdf,retval$multilist)
+  if(!is.null(multilist)){
+    multilist$merge_tag <- "multi"
+    retdf <- plyr::rbind.fill(retdf,multilist)
   }
   switch(output, 
          all={
