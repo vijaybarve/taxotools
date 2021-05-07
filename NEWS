@@ -1,4 +1,4 @@
-taxotools 0.0.113
+taxotools 0.0.115
 =================
 * Added functions taxo2syn, taxo2DwC, cast_scientificname,
     resolve_names, taxo2doc, compact_ids
@@ -19,7 +19,7 @@ taxotools 0.0.113
     melt_cs_field, melt_scientificname, DwC2taxo, taxo2DwC, 
     guess_taxo_level, merge_lists, cast_canonocal
 * Improved documentation for syn2taxo, DwC2taxo, melt_scientificname,
-    merge_lists
+    merge_lists, taxo2doc
 
 taxotools 0.0.79
 ================

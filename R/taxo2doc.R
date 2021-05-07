@@ -17,6 +17,7 @@
 #' @param outdir output directory for the document. Default (".")
 #' @param outfile output file name. Dedfaout ("taxolist.html")
 #' @importFrom rmarkdown render
+#' @importFrom stringr str_split
 #' @return NULL Saves a document file
 #' @details Converts a taxolist to a formatted document in html, pdf or
 #' word document making it easy for taxonomist to read through the data
