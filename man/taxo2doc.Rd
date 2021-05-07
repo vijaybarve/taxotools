@@ -7,7 +7,12 @@
 taxo2doc(
   taxolist = NULL,
   genus = NA,
-  source = "",
+  family = NA,
+  title = "",
+  addsource = TRUE,
+  mastersource = "",
+  duplicatesyn = TRUE,
+  sourcecol = c("black", "blue"),
   outformat = "html_document",
   outdir = ".",
   outfile = "taxolist.html"
@@ -16,10 +21,22 @@ taxo2doc(
 \arguments{
 \item{taxolist}{taxolist}
 
-\item{genus}{only process for speciec genus. Default("") implying process 
+\item{genus}{only process for specific genus. Default("") implying process 
 all}
 
-\item{source}{data source you want to print in output header}
+\item{family}{only process for specific family. Default("") implying process 
+all}
+
+\item{title}{List title you want to print in output header}
+
+\item{addsource}{boolean If the source tag should be displayed. Default TRUE}
+
+\item{mastersource}{source string for the master list}
+
+\item{duplicatesyn}{boolean if synonyms should to displayed in their 
+alphabetical sorted position too. Dafault TRUE}
+
+\item{sourcecol}{vector of text color values for each source value}
 
 \item{outformat}{output format one of "html_document", "word_document",
 "odt_document", "rtf_document", "pdf_document". Default ("html_document")}
@@ -57,7 +74,7 @@ mytaxo <- data.frame("id" = c(1,2,3,4,5,6,7),
                                  "itis","itis"),
                     stringsAsFactors = F)
 taxo2doc(mytaxo)
-taxo2doc(mytaxo,sourse="My list")
+taxo2doc(mytaxo,source="My list")
 }
 }
 \seealso{
