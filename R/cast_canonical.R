@@ -52,14 +52,17 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
   }
   if(verbose){pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)}
   for(i in 1:nrow(newdat)){
+    cano <- NA
     if(!is.empty(newdat$genus_[i])){
       cano <- newdat$genus_[i]
     }
-    if(!is.empty(newdat$species_[i])){
+    if(!is.empty(newdat$species_[i]) &
+       !is.empty(cano)){
       cano <- paste(cano,newdat$species_[i])
     }
     if(subspecies!=""){
-      if(!is.empty(newdat$subspecies_[i])){
+      if(!is.empty(newdat$subspecies_[i])&
+         !is.empty(cano)){
         cano <- paste(cano,newdat$subspecies_[i])
       }
     }
