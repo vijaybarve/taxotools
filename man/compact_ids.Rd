@@ -69,9 +69,9 @@ mylist_c <- compact_ids(mylist)
 Other List functions: 
 \code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{get_synonyms}()},
 \code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
-\code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
 \code{\link{synonymize_subspecies}()},
 \code{\link{taxo2DwC}()},

@@ -52,9 +52,9 @@ mytaxo <- DwC2taxo(dwclist)
 Other List functions: 
 \code{\link{cast_cs_field}()},
 \code{\link{compact_ids}()},
+\code{\link{get_synonyms}()},
 \code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
-\code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
 \code{\link{synonymize_subspecies}()},
 \code{\link{taxo2DwC}()},
