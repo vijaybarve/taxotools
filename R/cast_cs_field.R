@@ -43,6 +43,7 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=",",
      c("sec") %in% names(tdata)){
     tdata$pri <- as.character(tdata$pri)
     tdata$sec <- as.character(tdata$sec)
+    tdata <- tdata[which(!is.na(tdata$pri)),]
     tdata <- tdata[order(tdata$pri),]
     oldpri <- tdata$pri[1]
     oldrec <- tdata[1,]
