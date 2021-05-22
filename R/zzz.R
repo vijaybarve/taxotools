@@ -58,3 +58,9 @@ utf2ascii <- function(x){
               stringi::stri_trans_general(x,id="Latin-ASCII"),x)
   return(x)
 }
+
+str2ascii <- function(x){
+  x <- ifelse(!is.na(x) ,
+              stringi::stri_trans_general(x,id="Latin-ASCII"),x)
+  return(x)
+}

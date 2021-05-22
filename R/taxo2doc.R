@@ -116,7 +116,7 @@ taxo2doc <- function(taxolist=NULL,genus=NA,family=NA,
       cat(paste("### Family: _",mytaxo_ac$family[i],"_  \n",sep=''))
       fam <- mytaxo_ac$family[i]
     }
-    mytaxo_ac$author[i] <- utf2ascii(mytaxo_ac$author[i])
+    mytaxo_ac$author[i] <- str2ascii(mytaxo_ac$author[i])
     if(!is.empty(mastersource)){
       pcol <- set_pcol(mytaxo_ac$source[i],mastersource,sourcecol)
     } 
@@ -136,7 +136,7 @@ taxo2doc <- function(taxolist=NULL,genus=NA,family=NA,
     if(nrow(mytaxo[which(mytaxo$accid==mytaxo_ac$id[i]),])>0){
       synlst <- mytaxo[which(mytaxo$accid==mytaxo_ac$id[i]),]
       for(j in 1:nrow(synlst)){
-        synlst$author[j] <- utf2ascii(synlst$author[j])
+        synlst$author[j] <- str2ascii(synlst$author[j])
         if(!is.empty(mastersource)){
           pcol <- set_pcol(synlst$source[j],mastersource,sourcecol)
         } 
@@ -145,6 +145,7 @@ taxo2doc <- function(taxolist=NULL,genus=NA,family=NA,
     }
   }
   sink() 
+  
   rmarkdown::render(input=tfile,
                     output_format=outformat,
                     output_dir = outdir,
@@ -172,6 +173,7 @@ printf_taxo <- function(rec=NULL,index=0,
     }
   }
   if(!is.empty(rec$author)){
+    rec$author <- str2ascii(rec$author)
     pstr <- paste(pstr,rec$author,sep = '')
   }
   if(addsource){
