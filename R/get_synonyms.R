@@ -1,10 +1,10 @@
 #' @title get synonyms 
-#' @description get all the synonyms from the master list for all the names
+#' @description get all the synonyms from the master list for the names
 #' in the checklist
-#' @param master master list of names
-#' @param checklist list of names to be processed
-#' @param commasep return list should be comma seperated list or each synonym on
-#' its own row. Default false to
+#' @param master master list of names (taxolist)
+#' @param checklist list of names to be processed (taxolist)
+#' @param commasep return list should be comma separated list or each synonym on
+#' its own row. Default false
 #' @param verbose verbose output on the console
 #' @return Data frame with names from the checklist and their synonyms present
 #' in the master list
@@ -56,7 +56,6 @@ get_synonyms <- function(master = NULL,
   addlist <- NULL
   names(master) <- tolower(names(master))
   names(checklist) <- tolower(names(checklist))
-  # master <- compact_ids(master,"id","accid",1,verbose)
   idcount <- max(master$id) + 1
   checklist <- compact_ids(checklist,"id","accid",idcount,verbose)
   check_acc <- checklist[which(checklist$accid==0),]
@@ -64,26 +63,21 @@ get_synonyms <- function(master = NULL,
     if(verbose){cat(paste("\n",i))}
     recset <- get_id_recs(checklist,check_acc$id[i])
     if(!is.null(recset)){
-      found <- FALSE
-      found_count <- 0
       accid_set <- c()
       for(j in 1:nrow(recset)){
         if(recset$canonical[j] %in% master$canonical) {
-          found <- TRUE
           set_accid <- get_accid(master,as.character(recset$canonical[j]),
                                  verbose)
           accid_set <- c(accid_set,set_accid)
-          found_count <- found_count + 1
         }
       }
-      if(length(unique(accid_set))==1){
-        for(k in 1:dim(recset)[1]){
+      accid_set <- unique(accid_set)
+      if(length(accid_set)==1){
+        for(k in 1:length(accid_set)){
           if(verbose){cat("|")}
-          addrec <- recset[k,]
-          addrec$id <- idcount
-          idcount <- idcount + 1
-          addrec$accid <- set_accid
-          addlist <- rbind(addlist,addrec)
+          addrec <- master[which(accid_set[k] == master$accid),]
+          addrecm <- master[which(accid_set[k] == master$id),]
+          addlist <- rbind(addlist,addrec,addrecm)
           if(verbose){cat("+")}
         }
       }
@@ -94,8 +88,18 @@ get_synonyms <- function(master = NULL,
   addlist <- rbind.fill(addlist,addmast)
   retval <- taxo2syn(addlist)
   retval <- retval[,c("canonical","synonym")]
-  if(!commasep){
+  
+  if(!commasep & nrow(retval)>0){
     retval <- melt_cs_field(retval,"synonym")
+  }
+  if(nrow(retval)>0){
+    retval <- retval[which(!is.na(retval$synonym)),]
+  }
+  if(nrow(retval)>0){
+    retval <- retval[which(retval$synonym!="NA"),]
+  }
+  if(nrow(retval)<1){
+    retval <- NULL
   }
   return(retval)
 }

@@ -7,12 +7,12 @@
 get_synonyms(master = NULL, checklist = NULL, commasep = FALSE, verbose = TRUE)
 }
 \arguments{
-\item{master}{master list of names}
+\item{master}{master list of names (taxolist)}
 
-\item{checklist}{list of names to be processed}
+\item{checklist}{list of names to be processed (taxolist)}
 
-\item{commasep}{return list should be comma seperated list or each synonym on
-its own row. Default false to}
+\item{commasep}{return list should be comma separated list or each synonym on
+its own row. Default false}
 
 \item{verbose}{verbose output on the console}
 }
@@ -21,7 +21,7 @@ Data frame with names from the checklist and their synonyms present
 in the master list
 }
 \description{
-get all the synonyms from the master list for all the names
+get all the synonyms from the master list for the names
 in the checklist
 }
 \examples{
