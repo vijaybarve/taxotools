@@ -48,6 +48,7 @@ Other List functions:
 \code{\link{compact_ids}()},
 \code{\link{get_synonyms}()},
 \code{\link{melt_cs_field}()},
+\code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
 \code{\link{synonymize_subspecies}()},
 \code{\link{taxo2DwC}()},

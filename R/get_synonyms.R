@@ -3,11 +3,12 @@
 #' in the checklist
 #' @param master master list of names
 #' @param checklist list of names to be processed
-#' @param commasep retuen list should be comma seperated list or each synonym on
+#' @param commasep return list should be comma seperated list or each synonym on
 #' its own row. Default false to
 #' @param verbose verbose output on the console
 #' @return Data frame with names from the checklist and their synonyms present
-#' in the masster list
+#' in the master list
+#' @importFrom plyr rbind.fill
 #' @family List functions
 #' @examples
 #' \dontrun{
@@ -36,7 +37,7 @@
 #' get_synonyms(master,checklist,commasep=FALSE)
 #' get_synonyms(master,checklist,commasep=TRUE)
 #' }
-#' @rdname merge_lists
+#' @rdname get_synonyms
 #' @export
 get_synonyms <- function(master = NULL,
                          checklist = NULL,
@@ -55,7 +56,7 @@ get_synonyms <- function(master = NULL,
   addlist <- NULL
   names(master) <- tolower(names(master))
   names(checklist) <- tolower(names(checklist))
-  master <- compact_ids(master,"id","accid",1,verbose)
+  # master <- compact_ids(master,"id","accid",1,verbose)
   idcount <- max(master$id) + 1
   checklist <- compact_ids(checklist,"id","accid",idcount,verbose)
   check_acc <- checklist[which(checklist$accid==0),]
@@ -90,7 +91,7 @@ get_synonyms <- function(master = NULL,
   }
   if(verbose){cat("\n")}
   addmast <- master[which(master$id %in% addlist$accid),]
-  addlist <- rbind(addlist,addmast)
+  addlist <- rbind.fill(addlist,addmast)
   retval <- taxo2syn(addlist)
   retval <- retval[,c("canonical","synonym")]
   if(!commasep){

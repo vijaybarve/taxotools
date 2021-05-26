@@ -89,7 +89,7 @@ taxo2doc <- function(taxolist=NULL,genus=NA,family=NA,
   } else {
     mytaxo$author <- ""
   }
-  mytaxo <- mytaxo[with(mytaxo, order(canonical)),]
+  mytaxo <- mytaxo[with(mytaxo, order(family,canonical)),]
   if(!is.na(genus)){
     mytaxo <-mytaxo[which(mytaxo$genus %in% genus),]
   }
