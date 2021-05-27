@@ -95,9 +95,6 @@ get_synonyms <- function(master = NULL,
   if(nrow(retval)>0){
     retval <- retval[which(!is.na(retval$synonym)),]
   }
-  if(nrow(retval)>0){
-    retval <- retval[which(retval$synonym!="NA"),]
-  }
   if(nrow(retval)<1){
     retval <- NULL
   }

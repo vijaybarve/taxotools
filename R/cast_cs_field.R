@@ -86,6 +86,9 @@ cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=",",
 
 
 dedup_csl <- function(vec,sepchar){
+  if(is.na(vec)){
+    return(NA)
+  }
   tmp <- strsplit(vec,sepchar)[[1]]
   tmp <- trimws(tmp)
   tmp <- unique(tmp)
