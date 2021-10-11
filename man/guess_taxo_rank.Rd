@@ -9,15 +9,21 @@ guess_taxo_rank(name)
 \arguments{
 \item{name}{scientific name string to be checked}
 }
+\value{
+\itemize{\item{"Genus or above"}{ = single word} \item{"Species"}{ = 
+two words}  \item{"Subspecies"}{ = three words} \item{"Unknown"}{ = zero or 
+more than three words}}
+}
 \description{
 Guesses the taxonomic rank i.e. Genus, Species or Subspecies based on
 number of words
 }
 \examples{
+guess_taxo_rank("")
 guess_taxo_rank("Akodon longipilis")
 guess_taxo_rank("Akodon")
 guess_taxo_rank("Abrocoma cinerea shistacea")
-
+guess_taxo_rank("Abrocoma cinerea shistacea shistacea")
 }
 \seealso{
 Other Name functions: 

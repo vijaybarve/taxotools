@@ -28,7 +28,8 @@ melt_canonical(
 }
 \value{
 a data frame containing Genus, Species and Subspecies fields
- added or repopulated using data in canonical name field.
+ added or repopulated using data in canonical name field. If unable to parse
+ the name Genus, Species and Subspecies fields will have NA.
 }
 \description{
 Deconstruct canonical names into Genus, Species and Subspecies fields

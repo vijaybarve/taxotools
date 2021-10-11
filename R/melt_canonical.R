@@ -11,7 +11,8 @@
 #' @family Name functions
 #' @importFrom stringr str_count
 #' @return a data frame containing Genus, Species and Subspecies fields
-#'  added or repopulated using data in canonical name field.
+#'  added or repopulated using data in canonical name field. If unable to parse
+#'  the name Genus, Species and Subspecies fields will have NA.
 #' @examples
 #' \dontrun{
 #'mylist <- data.frame("canonical" = c("Abrothrix longipilis",
@@ -67,6 +68,9 @@ melt_canonical <- function(dat,canonical="",genus="",species="",
       }
       if(tl=="Subspecies" & subspecies!=""){
         newdat$subspecies[i] <- tolower(strsplit(pname," ")[[1]][3])
+      }
+      if(tl=="Unknown"){
+        newdat$genus[i] <- NA
       }
     }
     if(verbose){setTxtProgressBar(pb,i)}
