@@ -30,22 +30,24 @@ expand_name <- function(fullname,shortname){
       }
     }
     species <- strsplit(shortname[i]," ")[[1]][2]
-    if(substr(species,2,2)=='.'){
-      fspecies <- strsplit(fullname," ")[[1]][2]
-      if(substr(species,1,1)==substr(fspecies,1,1)){
-        dotpos <- unlist(lapply(strsplit(shortname[i], ''), 
-                                function(x) which(x == '.')))[1]        
-        shortname[i] <- paste(strsplit(fullname," ")[[1]][1], fspecies,
-                              substr(shortname[i],dotpos+2,
-                                     nchar(shortname[i])))
-      } else {
-        if(i > 1) {
-          if( substr(shortname[i],1,1)==substr(shortname[i-1],1,1)){
-            dotpos <- unlist(lapply(strsplit(shortname[i], ''), 
-                                    function(x) which(x == '.')))[1]        
-            shortname[i] <- paste(strsplit(shortname[i-1]," ")[[1]][1], 
-                                  fspecies, substr(shortname[i],dotpos+2,
-                                                   nchar(shortname[i])))
+    if(!is.na(species)){
+      if(substr(species,2,2)=='.'){
+        fspecies <- strsplit(fullname," ")[[1]][2]
+        if(substr(species,1,1)==substr(fspecies,1,1)){
+          dotpos <- unlist(lapply(strsplit(shortname[i], ''), 
+                                  function(x) which(x == '.')))[1]        
+          shortname[i] <- paste(strsplit(fullname," ")[[1]][1], fspecies,
+                                substr(shortname[i],dotpos+2,
+                                       nchar(shortname[i])))
+        } else {
+          if(i > 1) {
+            if( substr(shortname[i],1,1)==substr(shortname[i-1],1,1)){
+              dotpos <- unlist(lapply(strsplit(shortname[i], ''), 
+                                      function(x) which(x == '.')))[1]        
+              shortname[i] <- paste(strsplit(shortname[i-1]," ")[[1]][1], 
+                                    fspecies, substr(shortname[i],dotpos+2,
+                                                     nchar(shortname[i])))
+            }
           }
         }
       }
