@@ -18,7 +18,7 @@ taxotools 0.0.124
 * Bug fixes in melt_canonical, toproper, cast_cs_field, syn2taxo,
     melt_cs_field, melt_scientificname, DwC2taxo, taxo2DwC, 
     guess_taxo_level, merge_lists, cast_canonocal, get_synonyms,
-    expand_name
+    expand_name, list_wiki_syn
 * Improved documentation for syn2taxo, DwC2taxo, melt_scientificname,
     merge_lists, taxo2doc
 

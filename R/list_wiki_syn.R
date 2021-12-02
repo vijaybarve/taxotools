@@ -26,7 +26,11 @@ list_wiki_syn <- function(namelist,verbose = TRUE){
     wikiacn <- wikitaxa::wt_wikipedia(accname)$classification[which(wt_wikipedia(namelist[i])$classification$rank=="binomial"),]$name
     if(!is.null(wikiacn) & !identical(wikiacn, character(0)) ){
       if(accname!= wikiacn){
-        wikisyn <- c(wikisyn,wikiacn)
+        if(length(wikisyn)>0){
+          wikisyn <- c(wikisyn,wikiacn)
+        } else {
+          wikisyn <- wikiacn
+        }
       }
     }
     if(length(wikisyn)>0){
@@ -46,7 +50,6 @@ list_wiki_syn <- function(namelist,verbose = TRUE){
           synrec$wikiacn <- wikiacn
         }
         synrec$accname <- accname
-        #synrec <- cbind(accname,wikiacn,syn_orig,syn)
         synlst <- rbind(synlst,synrec)
         if(verbose){cat("+")}
       }
