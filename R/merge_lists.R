@@ -117,7 +117,11 @@ merge_lists <- function(master = NULL,
     }
   }
   if(verbose){cat("\n")}
-  startnew <- max(addlist$id)+1
+  if(!is.null(addlist)){
+    startnew <- max(addlist$id)+1
+  } else {
+    startnew <- max(master$id)+1
+  }
   noaddlist <- compact_ids(noaddlist,id="id",accid = "accid",                                  startid=startnew,verbose)
   retdf <- master
   retdf$merge_tag <- "orig"
