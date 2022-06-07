@@ -16,8 +16,11 @@
 #' }
 #' @export
 check_scientific <- function(name){
-  res <- gnr_resolve(name)
-  if(dim(res)[1]>0){
+  res <- tryCatch({gnr_resolve(name)},
+           error=function(cond) {
+             message("There was an error")
+             return(NULL)})  
+  if(!is.null(res)){
     res1 <- tryCatch({gbif_parse(res$matched_name[1])},
                      error=function(cond) {
                        message("There was an error")

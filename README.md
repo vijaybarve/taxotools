@@ -1,5 +1,4 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/taxotools)](https://cran.r-project.org/package=taxotools)
-[![Rdoc](https://www.rdocumentation.org/badges/version/taxotools/)](https://www.rdocumentation.org/badges/version/taxotools/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3934939.svg)](https://doi.org/10.5281/zenodo.3934939)
 
 # taxotools
