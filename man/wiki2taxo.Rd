@@ -22,11 +22,9 @@ than taxolist. This function converts it making sure to add additional
 fields and maintain the synonym linkages.
 }
 \examples{
-\dontrun{
-if(interactive()){
+\donttest{
  wikilist <- list_wiki_syn("Abrothrix illutea")
  wiki2taxo(wikilist)
- }
 }
 }
 \seealso{

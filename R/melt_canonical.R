@@ -14,14 +14,14 @@
 #'  added or repopulated using data in canonical name field. If unable to parse
 #'  the name Genus, Species and Subspecies fields will have NA.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'mylist <- data.frame("canonical" = c("Abrothrix longipilis",
 #'                                     "Acodon hirtus",
 #'                                     "Akodon longipilis apta",
 #'                                     "AKODON LONGIPILIS CASTANEUS",
 #'                                     "Chroeomys jelskii",
 #'                                     "Acodon jelskii pyrrhotis"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #' melt_canonical(mylist,"canonical","genus","species","subspecies")
 #' }
 #' @export

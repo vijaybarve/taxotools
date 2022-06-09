@@ -16,7 +16,7 @@
 #' @importFrom plyr rename
 #' @importFrom stringr word str_remove
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' dwclist <- data.frame("taxonKey" = c("5129025","6224429","1896957"),
 #'                       "scientificName" =  c("Charaxes solon Fabricius, 1793",
 #'                                             "Papilio jason Linnaeus, 1767",
@@ -29,7 +29,7 @@
 #'                      "taxonomicStatus" = c("ACCEPTED","SYNONYM","ACCEPTED"),
 #'                      "family" = c("Nymphalidae","Nymphalidae","Nymphalidae"),
 #'                      "order" = c("Lepidoptera","Lepidoptera","Lepidoptera"),
-#'                      stringsAsFactors = F)
+#'                      stringsAsFactors = FALSE)
 #'                      
 #' mytaxo <- DwC2taxo(dwclist)
 #' }

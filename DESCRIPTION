@@ -1,8 +1,8 @@
 Package: taxotools
 Type: Package
 Title: Tools to Handle Taxonomic Lists
-Version: 0.0.128
-Date: 2022-06-07
+Version: 0.0.129
+Date: 2022-06-09
 Authors@R: c(
     person("Vijay", "Barve", ,"vijay.barve@gmail.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-4852-2567")))

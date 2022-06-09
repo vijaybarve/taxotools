@@ -8,11 +8,9 @@
 #' fields and maintain the synonym linkages.
 #' @family List functions
 #' @examples
-#' \dontrun{
-#' if(interactive()){
+#' \donttest{
 #'  wikilist <- list_wiki_syn("Abrothrix illutea")
 #'  wiki2taxo(wikilist)
-#'  }
 #' }
 #' @rdname wiki2taxo
 #' @export

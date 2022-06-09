@@ -17,7 +17,7 @@ Parse the name using GNR and GBIF parse API to make sure the name
 is scientific name
 }
 \examples{
-\dontrun{
+\donttest{
 check_scientific("Akodon longipilis (Waterhouse, 1837)")
 check_scientific("Mus longipilis Waterhouse, 1837")
 check_scientific("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")

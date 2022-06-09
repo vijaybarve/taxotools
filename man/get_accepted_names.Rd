@@ -100,7 +100,7 @@ Note: Make sure all the data frames have same character encoding to prevent
  errors.
 }
 \examples{
-\dontrun{
+\donttest{
 master <- data.frame("id" = c(1,2,3,4,5,6,7),
                     "canonical" = c("Hypochlorosis ancharia",
                                     "Hypochlorosis tenebrosa",
@@ -115,7 +115,7 @@ master <- data.frame("id" = c(1,2,3,4,5,6,7),
                     "accid" = c(0,1,1,1,0,0,0),
                     "source" = c("itis","itis","wiki","wiki","itis",
                                  "itis","itis"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 
 mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
                     "scname" = c("Hypochlorosis ancharia",
@@ -127,7 +127,7 @@ mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
                                  "Hypochlorosis ancharia ancharia",
                                  "Myrina lorquinii",
                                  "Sithon lorquinii"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 
 res <- get_accepted_names(namelist = mylist,
                          master=master,
@@ -137,7 +137,7 @@ gen_syn_list <- data.frame("Original_Genus"=c("Pseudonotis",
                                              "Myrina"),
                           "Valid_Genus"=c("Hypochlorosis",
                                           "Hypochlorosis"),
-                          stringsAsFactors = F)
+                          stringsAsFactors = FALSE)
 
 res <- get_accepted_names(namelist = mylist,
                          master=master,
@@ -148,7 +148,7 @@ lookup_list <- data.frame("binomial"=c("Sithon lorquinii",
                                       "Hypochlorosis humboldti"),
                          "validname"=c("Hypochlorosis lorquinii",
                                        "Hypochlorosis lorquinii"),
-                         stringsAsFactors = F)
+                         stringsAsFactors = FALSE)
 
 res <- get_accepted_names(namelist = mylist,
                          master=master,
@@ -187,7 +187,7 @@ mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18),
                                  "Pseudonotis humboldtii",
                                  "Abrothrix longipilis",
                                  "Myrinana anchariana"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 
 res <- get_accepted_names(namelist = mylist,
                          master=master,

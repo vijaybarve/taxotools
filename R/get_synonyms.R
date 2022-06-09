@@ -11,7 +11,7 @@
 #' @importFrom plyr rbind.fill
 #' @family List functions
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' master <- data.frame("id" = c(1,2,3),
 #'                      "canonical" = c("Hypochlorosis ancharia",
 #'                                      "Hypochlorosis tenebrosa",
@@ -19,7 +19,7 @@
 #'                      "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
 #'                      "accid" = c(0,1,0),
 #'                      "source" = c("itis","itis","itis"),
-#'                      stringsAsFactors = F)
+#'                      stringsAsFactors = FALSE)
 #' 
 #' checklist <- data.frame("id" = c(1,2,3,4,5),
 #'                         "canonical" = c("Hypochlorosis ancharia",
@@ -33,7 +33,7 @@
 #'                         "accid" = c(0,1,1,0,0),
 #'                         "source" = c("itis","wiki","wiki","itis",
 #'                                      "itis"),
-#'                         stringsAsFactors = F)
+#'                         stringsAsFactors = FALSE)
 #' get_synonyms(master,checklist,commasep=FALSE)
 #' get_synonyms(master,checklist,commasep=TRUE)
 #' }

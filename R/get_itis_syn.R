@@ -7,7 +7,7 @@
 #' @importFrom taxize get_tsn synonyms
 #' @family ITIS functions
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' get_itis_syn("Abrothrix longipilis")
 #' get_itis_syn("Abditomys latidens")
 #' }

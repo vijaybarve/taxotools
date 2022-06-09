@@ -60,7 +60,7 @@
 #' @importFrom stringr word
 #' @family Name functions
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'master <- data.frame("id" = c(1,2,3,4,5,6,7),
 #'                     "canonical" = c("Hypochlorosis ancharia",
 #'                                     "Hypochlorosis tenebrosa",
@@ -75,7 +75,7 @@
 #'                     "accid" = c(0,1,1,1,0,0,0),
 #'                     "source" = c("itis","itis","wiki","wiki","itis",
 #'                                  "itis","itis"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #'
 #'mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
 #'                     "scname" = c("Hypochlorosis ancharia",
@@ -87,7 +87,7 @@
 #'                                  "Hypochlorosis ancharia ancharia",
 #'                                  "Myrina lorquinii",
 #'                                  "Sithon lorquinii"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #'
 #'res <- get_accepted_names(namelist = mylist,
 #'                          master=master,
@@ -97,7 +97,7 @@
 #'                                              "Myrina"),
 #'                           "Valid_Genus"=c("Hypochlorosis",
 #'                                           "Hypochlorosis"),
-#'                           stringsAsFactors = F)
+#'                           stringsAsFactors = FALSE)
 #'
 #'res <- get_accepted_names(namelist = mylist,
 #'                          master=master,
@@ -108,7 +108,7 @@
 #'                                       "Hypochlorosis humboldti"),
 #'                          "validname"=c("Hypochlorosis lorquinii",
 #'                                        "Hypochlorosis lorquinii"),
-#'                          stringsAsFactors = F)
+#'                          stringsAsFactors = FALSE)
 #'
 #'res <- get_accepted_names(namelist = mylist,
 #'                          master=master,
@@ -147,7 +147,7 @@
 #'                                  "Pseudonotis humboldtii",
 #'                                  "Abrothrix longipilis",
 #'                                  "Myrinana anchariana"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #'
 #'res <- get_accepted_names(namelist = mylist,
 #'                          master=master,

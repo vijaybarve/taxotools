@@ -16,7 +16,7 @@
 #' @family Name functions
 #' @rdname cast_scientificname
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' mylist <- data.frame("id" = c(11,12,13,14,15,16,17,18,19),
 #'                      "genus" = c("Hypochlorosis","Hypochlorosis","Hypochlorosis",
 #'                                  "Myrina","Hypochlorosis","Hypochlorosis",
@@ -32,7 +32,7 @@
 #'                                   "C. & R. Felder, 1865","Rothschild, 1915",
 #'                                   "Rothschild, 1915","Fruhstorfer, 1908",
 #'                                   "(Domning et al., 1986)",""),
-#'                      stringsAsFactors = F)
+#'                      stringsAsFactors = FALSE)
 #' 
 #' cast_scientificname(mylist,genus = "genus", subgenus = "subgenus",
 #'                     species = "species", subspecies = "subspecies",

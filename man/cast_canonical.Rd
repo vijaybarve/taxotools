@@ -36,7 +36,7 @@ due to spaces or NAs in the data fields, it makes it tricky to generate
 canonical names.
 }
 \examples{
-\dontrun{
+\donttest{
 mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
                      "species" = c("jelskii","longipilis","longipilis", "sevia"),
                      "subspecies" = c("pyrrhotis","castaneus","", NA))

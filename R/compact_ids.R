@@ -11,7 +11,7 @@
 #' are compact
 #' @family List functions
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' mylist <- data.frame("id" = c("1","2","3","4","5"),
 #'                      "canonical" = c("Hypochlorosis ancharia",
 #'                                      "Pseudonotis humboldti",
@@ -24,7 +24,7 @@
 #'                      "accid" = c("0","1","1","0","0"),
 #'                      "source" = c("itis","wiki","wiki","itis",
 #'                                   "itis"),
-#'                      stringsAsFactors = F)
+#'                      stringsAsFactors = FALSE)
 #' 
 #' mylist_c <- compact_ids(mylist)
 #' 
@@ -42,7 +42,7 @@
 #'                      "accid" = c(0,11,11,0,0),
 #'                      "source" = c("itis","wiki","wiki","itis",
 #'                                   "itis"),
-#'                      stringsAsFactors = F)
+#'                      stringsAsFactors = FALSE)
 #'                      
 #' mylist_c <- compact_ids(mylist)
 #' }

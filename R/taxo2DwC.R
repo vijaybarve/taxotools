@@ -6,7 +6,7 @@
 #' @details Converts a taxolist to Darwin Core format
 #' @family List functions
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'mytaxo <- data.frame("id" = c(1,2,3,4,5,6,7),
 #'                     "canonical" = c("Hypochlorosis ancharia",
 #'                                     "Hypochlorosis tenebrosa",
@@ -21,7 +21,7 @@
 #'                     "accid" = c(0,1,1,1,0,0,0),
 #'                     "source" = c("itis","itis","wiki","wiki","itis",
 #'                                  "itis","itis"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #' mysynlst <- taxo2DwC(mytaxo)
 #'}
 #' @rdname taxo2DwC

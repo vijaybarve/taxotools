@@ -23,14 +23,14 @@ Fuzzy matching with names
 Fuzzy matching with names in the master list and return best match.
 }
 \examples{
-\dontrun{
+\donttest{
 master <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Acodon hirtus",
                                     "Akodon longipilis apta",
                                     "Akodon longipilis castaneus",
                                     "Chroeomys jelskii",
                                     "Acodon jelskii pyrrhotis"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
  taxo_fuzzy_match("Acodon hirta",master)
 }
 }

@@ -31,7 +31,7 @@ This function will add id, accid and taxonrank columns ro return data if
 missing from original data.
 }
 \examples{
-\dontrun{
+\donttest{
 master <- data.frame("id" = c(1,2,3,4,5,6,7),
                     "canonical" = c("Hypochlorosis ancharia",
                                      "Hypochlorosis tenebrosa",
@@ -46,7 +46,7 @@ master <- data.frame("id" = c(1,2,3,4,5,6,7),
                      "accid" = c(0,1,1,0,0,0,0),
                      "source" = c("itis","itis","wiki","wiki","itis",
                                   "itis","itis"),
-                     stringsAsFactors = F)
+                     stringsAsFactors = FALSE)
 
 synonymize_subspecies(master)
 synonymize_subspecies(master,return_unmatched = TRUE)

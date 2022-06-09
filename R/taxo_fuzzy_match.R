@@ -8,14 +8,14 @@
 #' @importFrom stringdist stringdist
 #' @family Name functions
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'master <- data.frame("canonical" = c("Abrothrix longipilis",
 #'                                     "Acodon hirtus",
 #'                                     "Akodon longipilis apta",
 #'                                     "Akodon longipilis castaneus",
 #'                                     "Chroeomys jelskii",
 #'                                     "Acodon jelskii pyrrhotis"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #'  taxo_fuzzy_match("Acodon hirta",master)
 #' }
 #' @rdname taxo_fuzzy_match

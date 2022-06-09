@@ -13,10 +13,10 @@
 #' @param verbose verbose output, Default: FALSE
 #' @return a data frame with two fields Primary and secondary (comma
 #' separated list)
-#' @examples \dontrun{
-#'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-#'SynList <- list_itis_syn(scnames)
-#'cast_cs_field(SynList,"canonical","synonym")
+#' @examples \donttest{
+#'   scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
+#'   SynList <- list_itis_syn(scnames)
+#'   cast_cs_field(SynList,"canonical","synonym")
 #'}
 #'
 #' @family List functions

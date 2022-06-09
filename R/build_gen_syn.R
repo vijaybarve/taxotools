@@ -7,10 +7,23 @@
 #'  as a parameter
 #' @family Name functions
 #' @examples
-#' \dontrun{
-#' if(interactive()){
+#' \donttest{
+#' master <- data.frame("id" = c(1,2,3,4,5,6,7),
+#'                     "canonical" = c("Hypochlorosis ancharia",
+#'                                      "Hypochlorosis tenebrosa",
+#'                                      "Pseudonotis humboldti",
+#'                                      "Myrina ancharia ancharia",
+#'                                      "Hypochlorosis ancharia tenebrosa",
+#'                                      "Hypochlorosis ancharia obiana",
+#'                                      "Hypochlorosis lorquinii"),
+#'                      "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae",
+#'                                   "Lycaenidae", "Lycaenidae", "Lycaenidae",
+#'                                   "Lycaenidae"),
+#'                      "accid" = c(0,1,1,0,0,0,0),
+#'                      "source" = c("itis","itis","wiki","wiki","itis",
+#'                                   "itis","itis"),
+#'                      stringsAsFactors = FALSE)
 #'  gen_syn <- build_gen_syn(master)
-#'  }
 #' }
 #' @rdname build_gen_syn
 #' @export

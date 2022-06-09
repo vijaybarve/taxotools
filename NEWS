@@ -1,4 +1,4 @@
-taxotools 0.0.128
+taxotools 0.0.129
 =================
 * Added functions taxo2syn, taxo2DwC, cast_scientificname,
     resolve_names, taxo2doc, compact_ids, get_synonyms
@@ -22,6 +22,7 @@ taxotools 0.0.128
 * Improved documentation for syn2taxo, DwC2taxo, melt_scientificname,
     merge_lists, taxo2doc
 * 'internet resources should fail gracefully'
+* Incorporated CRAN suggestions
 
 taxotools 0.0.79
 ================

@@ -38,7 +38,7 @@
 #'                     "accid" = c(0,1,1,1,0,0,0),
 #'                     "source" = c("itis","itis","wiki","wiki","itis",
 #'                                  "itis","itis"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #' taxo2doc(mytaxo)
 #' taxo2doc(mytaxo,source="My list")
 #'}

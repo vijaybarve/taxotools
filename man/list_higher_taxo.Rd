@@ -49,7 +49,7 @@ mylist <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Abrothrix jelskii",
                                     "Cardinalis cardinalis",
                                     "Danaus plexippus"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 
 my_taxo_list <- list_higher_taxo(mylist,"canonical")
 }

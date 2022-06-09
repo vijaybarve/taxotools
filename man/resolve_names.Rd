@@ -39,14 +39,14 @@ Resolve names against Global Names Archtitecture (GNA) to make sure the name
 esixts
 }
 \examples{
-\dontrun{
+\donttest{
 mylist <- data.frame("canonical" = c("Abrothrix longipilis",
                                      "Acodon hirtus",
                                      "Akodon longipilis apta",
                                      "AKODON LONGIPILIS CASTANEUS",
                                      "Chroeomys jelskii",
                                      "Acodon jelskii pyrrhotis"),
-                     stringsAsFactors = F)
+                     stringsAsFactors = FALSE)
 test <- resolve_names(mylist)
 test1 <- resolve_names(mylist,add_fields = "minimal")
 test2 <- resolve_names(mylist,best_match_only = FALSE,add_fields = "minimal")

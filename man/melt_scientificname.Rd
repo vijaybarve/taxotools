@@ -45,7 +45,7 @@ species, Subspecies, Author so that the names can be constructed into canonical
  names for matching
 }
 \examples{
-\dontrun{
+\donttest{
 mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
                      "scname" = c("Hypochlorosis ancharia (Hewitson, 1869)",
                                   "Hypochlorosis ancharia ssp. ancharia (Hewitson, 1869)",
@@ -56,7 +56,7 @@ mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
                                   "Hypochlorosis (Pseudonotis) metilia Fruhstorfer, 1908",
                                   "Seuku emlongi (Domning et al., 1986)",
                                   "Sithon lorquinii"),
-                     stringsAsFactors = F)
+                     stringsAsFactors = FALSE)
 
 melt_scientificname(mylist, sciname="scname", genus="genus",
                     subgenus="subgenus", species="species",subspecies="subspecies",

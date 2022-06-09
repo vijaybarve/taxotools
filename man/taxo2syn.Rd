@@ -35,7 +35,7 @@ Converts a taxolist to Synonym list with Accepted Names and
 Converts a taxolist to synonyms list
 }
 \examples{
-\dontrun{
+\donttest{
 mytaxo <- data.frame("id" = c(1,2,3,4,5,6,7),
                     "canonical" = c("Hypochlorosis ancharia",
                                     "Hypochlorosis tenebrosa",
@@ -50,7 +50,7 @@ mytaxo <- data.frame("id" = c(1,2,3,4,5,6,7),
                     "accid" = c(0,1,1,1,0,0,0),
                     "source" = c("itis","itis","wiki","wiki","itis",
                                  "itis","itis"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 mysynlst <- taxo2syn(mytaxo)
 }
 }

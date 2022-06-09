@@ -37,10 +37,10 @@ with primary field repeating values and secondary field with values to be
 character separated in the same field (secondary)
 }
 \examples{
-\dontrun{
-scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-SynList <- list_itis_syn(scnames)
-cast_cs_field(SynList,"canonical","synonym")
+\donttest{
+  scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
+  SynList <- list_itis_syn(scnames)
+  cast_cs_field(SynList,"canonical","synonym")
 }
 
 }

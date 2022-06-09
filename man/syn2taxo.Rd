@@ -25,7 +25,7 @@ to taxolist format
 Converts a synonyms list to taxolist format
 }
 \examples{
-\dontrun{
+\donttest{
  synlist <- data.frame("id" = c(1,2,3),
                        "canonical" = c("Hypochlorosis ancharia",
                                        "Hypochlorosis ancharia",
@@ -36,7 +36,7 @@ Converts a synonyms list to taxolist format
                        "family" = c("Lycaenidae", "Lycaenidae", 
                                     "Lycaenidae"),
                        "source" = c("itis","wiki","wiki"),
-                       stringsAsFactors = F)
+                       stringsAsFactors = FALSE)
                        
  mytaxo <- syn2taxo(synlist)
 }

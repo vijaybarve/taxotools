@@ -6,7 +6,7 @@
 #' @family ITIS functions
 #' @return a data frame containing canonical names (passed) and synonyms
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' list_itis_syn("Abrothrix longipilis")
 #' #list_itis_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
 #' }

@@ -31,13 +31,13 @@ master <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Akodon longipilis castaneus",
                                     "Chroeomys jelskii",
                                     "Acodon jelskii pyrrhotis"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 checklist <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Akodon longipilis apta",
                                     "Akodon longipilis castaneus",
                                     "Abrothrix jelskii",
                                     "Acodon jelskii pyrrhotis"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 match_lists(master,checklist,"canonical","canonical")
 }
 }

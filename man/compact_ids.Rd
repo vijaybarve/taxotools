@@ -29,7 +29,7 @@ Helper function to make sure values for ids are in right format and
 are compact
 }
 \examples{
-\dontrun{
+\donttest{
 mylist <- data.frame("id" = c("1","2","3","4","5"),
                      "canonical" = c("Hypochlorosis ancharia",
                                      "Pseudonotis humboldti",
@@ -42,7 +42,7 @@ mylist <- data.frame("id" = c("1","2","3","4","5"),
                      "accid" = c("0","1","1","0","0"),
                      "source" = c("itis","wiki","wiki","itis",
                                   "itis"),
-                     stringsAsFactors = F)
+                     stringsAsFactors = FALSE)
 
 mylist_c <- compact_ids(mylist)
 
@@ -60,7 +60,7 @@ mylist <- data.frame("id" = c(11,12,13,14,15),
                      "accid" = c(0,11,11,0,0),
                      "source" = c("itis","wiki","wiki","itis",
                                   "itis"),
-                     stringsAsFactors = F)
+                     stringsAsFactors = FALSE)
                      
 mylist_c <- compact_ids(mylist)
 }

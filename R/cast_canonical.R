@@ -14,7 +14,7 @@
 #' @return a data frame containing Canonical names field added or repopulated using
 #'     filed names for Genus, Species and Subspecies specified in parameters
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
 #'                      "species" = c("jelskii","longipilis","longipilis", "sevia"),
 #'                      "subspecies" = c("pyrrhotis","castaneus","", NA))

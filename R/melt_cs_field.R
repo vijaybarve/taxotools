@@ -9,11 +9,11 @@
 #' @param sepchar Character separator between the data items. Default is comma
 #' @param verbose verbose output, Default: FALSE
 #' @return a data frame with separate records for each value in field specified
-#' @examples \dontrun{
-#'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-#'syn_list <- list_itis_syn(scnames)
-#'cs_syn_list <- cast_cs_field(syn_list ,"Name","Syn")
-#'syn_list_new <- melt_cs_field(cs_syn_list,"Syn")
+#' @examples \donttest{
+#'   scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
+#'   syn_list <- list_itis_syn(scnames)
+#'   cs_syn_list <- cast_cs_field(syn_list ,"Name","Syn")
+#'   syn_list_new <- melt_cs_field(cs_syn_list,"Syn")
 #'}
 #'
 #' @family List functions

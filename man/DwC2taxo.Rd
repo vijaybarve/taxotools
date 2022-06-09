@@ -30,7 +30,7 @@ The name lists downloaded from ITIS or GBIF website in Darwin Core
  terms of missing synonym to accepted name linkages at times.
 }
 \examples{
-\dontrun{
+\donttest{
 dwclist <- data.frame("taxonKey" = c("5129025","6224429","1896957"),
                       "scientificName" =  c("Charaxes solon Fabricius, 1793",
                                             "Papilio jason Linnaeus, 1767",
@@ -43,7 +43,7 @@ dwclist <- data.frame("taxonKey" = c("5129025","6224429","1896957"),
                      "taxonomicStatus" = c("ACCEPTED","SYNONYM","ACCEPTED"),
                      "family" = c("Nymphalidae","Nymphalidae","Nymphalidae"),
                      "order" = c("Lepidoptera","Lepidoptera","Lepidoptera"),
-                     stringsAsFactors = F)
+                     stringsAsFactors = FALSE)
                      
 mytaxo <- DwC2taxo(dwclist)
 }

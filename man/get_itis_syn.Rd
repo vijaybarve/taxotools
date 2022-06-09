@@ -16,7 +16,7 @@ a list containing synonyms
 Fetch Synonyms using ITIS web service
 }
 \examples{
-\dontrun{
+\donttest{
 get_itis_syn("Abrothrix longipilis")
 get_itis_syn("Abditomys latidens")
 }

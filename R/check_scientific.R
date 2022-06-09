@@ -9,7 +9,7 @@
 #' @family Name functions
 #' @importFrom taxize gbif_parse gnr_resolve
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' check_scientific("Akodon longipilis (Waterhouse, 1837)")
 #' check_scientific("Mus longipilis Waterhouse, 1837")
 #' check_scientific("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
