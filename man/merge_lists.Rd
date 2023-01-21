@@ -49,7 +49,7 @@ master <- data.frame("id" = c(1,2,3),
                      "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
                      "accid" = c(0,1,0),
                      "source" = c("itis","itis","itis"),
-                     stringsAsFactors = F)
+                     stringsAsFactors = FALSE)
 
 checklist <- data.frame("id" = c(1,2,3,4,5),
                         "canonical" = c("Hypochlorosis ancharia",
@@ -63,7 +63,7 @@ checklist <- data.frame("id" = c(1,2,3,4,5),
                         "accid" = c(0,1,1,0,0),
                         "source" = c("itis","wiki","wiki","itis",
                                      "itis"),
-                        stringsAsFactors = F)
+                        stringsAsFactors = FALSE)
 merged_all <- merge_lists(master,checklist,output="all")
 new_taxa <- merge_lists(master,checklist,output="new")
 merged_with_new <- merge_lists(master,checklist,output="merged")
