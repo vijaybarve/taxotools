@@ -11,7 +11,7 @@
 #' records only in master and checklist and statistics about the
 #' records including Jaccard index
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'master <- data.frame("canonical" = c("Abrothrix longipilis",
 #'                                     "Acodon hirtus",
 #'                                     "Akodon longipilis apta",

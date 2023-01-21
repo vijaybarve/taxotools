@@ -57,7 +57,7 @@ Converts a taxolist to a formatted document in html, pdf or
 word document making it easy for taxonomist to read through the data
 }
 \examples{
-\dontrun{
+\donttest{
 mytaxo <- data.frame("id" = c(1,2,3,4,5,6,7),
                     "canonical" = c("Hypochlorosis ancharia",
                                     "Hypochlorosis tenebrosa",

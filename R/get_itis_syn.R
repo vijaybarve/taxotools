@@ -1,6 +1,8 @@
-#' Get ITIS Synonyms for a Scientific Name
+#' Get Integrated Taxonomic Information System 'ITIS' Synonyms for a Scientific
+#'  Name
 #'
-#' Fetch Synonyms using ITIS web service
+#' Fetch Synonyms using Integrated Taxonomic Information System 'ITIS' web
+#'  service
 #'
 #' @param scname Scientific Name
 #' @return a list containing synonyms

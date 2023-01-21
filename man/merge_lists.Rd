@@ -41,7 +41,7 @@ following data:
   with two different accepted names in master}}
 }
 \examples{
-\dontrun{
+\donttest{
 master <- data.frame("id" = c(1,2,3),
                      "canonical" = c("Hypochlorosis ancharia",
                                      "Hypochlorosis tenebrosa",

@@ -24,7 +24,7 @@ records including Jaccard index
 match two taxonomic lists using canonical names
 }
 \examples{
-\dontrun{
+\donttest{
 master <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Acodon hirtus",
                                     "Akodon longipilis apta",

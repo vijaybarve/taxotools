@@ -1,10 +1,10 @@
 #' @title Build genus level synonyms
 #' @description Build a genus level synonym list from master list.
 #' @param dat master list
-#' @return data frame with genus level synonyms with two columns viz. Valid_genus
-#' and Original_Genus
-#' @details This is to #'  be passed on to get_accepted_names function
-#'  as a parameter
+#' @return data frame with genus level synonyms with two columns viz. 
+#'  Valid_genus and Original_Genus
+#' @details This genus level synonym list is generated for passing on to
+#'  get_accepted_names function as a parameter
 #' @family Name functions
 #' @examples
 #' \donttest{

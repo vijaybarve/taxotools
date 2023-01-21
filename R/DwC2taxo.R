@@ -6,12 +6,14 @@
 #' \itemize{\item{Accepted} \item{Synonym} \item{Valid}
 #' \item{heterotypic Synonym} \item{homotypic Synonym} \item{doubtful},
 #' \item{proparte synonym}}
-#' @param source source of the namelist i.e. GBIF or ITIS. Default NA
+#' @param source source of the namelist i.e. Global Biodiversity Information
+#'  Facility 'GBIF' or Integrated Taxonomic Information System 'ITIS'. 
+#'  Default NA
 #' @return names list is taxolist format
-#' @details The name lists downloaded from ITIS or GBIF website in Darwin Core
-#'  format has all the required fields for taxolist. The list just needs to be 
-#'  converted to taxolist by renaming column names and and quality checked in 
-#'  terms of missing synonym to accepted name linkages at times.
+#' @details The name lists downloaded from 'GBIF' or 'ITIS' website in Darwin
+#'  Core (DwC) format has all the required fields for taxolist. The list just
+#'  needs to be converted to taxolist by renaming column names and and quality
+#'  checked in terms of missing synonym to accepted name linkages at times.
 #' @family List functions
 #' @importFrom plyr rename
 #' @importFrom stringr word str_remove

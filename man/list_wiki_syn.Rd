@@ -13,7 +13,8 @@ list_wiki_syn(namelist, verbose = TRUE)
 }
 \value{
 a data frame containing names, synonyms and Canonical synonyms matched
-   with GBIF backbone taxonomy  \itemize{ \item{Name}  {: Scientific name}
+   with is scientific name backbone taxonomy  
+   \itemize{ \item{Name}  {: Scientific name}
    \item{WikiName}  {: Wikipedia page name}
    \item{OrigSyn}  {: Original synonym returned by Wikipedia}
  \item{Syn}  {: Synonym in canonical form, matched with GBIF}}
@@ -22,7 +23,7 @@ a data frame containing names, synonyms and Canonical synonyms matched
 Fetch Synonyms from Wikipedia and clean them for use
 }
 \examples{
-\dontrun{
+\donttest{
  list_wiki_syn("Abrothrix illutea")
  list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
                  "Abrocoma schistacea"))

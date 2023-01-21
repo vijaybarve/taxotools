@@ -2,7 +2,8 @@
 % Please edit documentation in R/get_itis_syn.R
 \name{get_itis_syn}
 \alias{get_itis_syn}
-\title{Get ITIS Synonyms for a Scientific Name}
+\title{Get Integrated Taxonomic Information System 'ITIS' Synonyms for a Scientific
+ Name}
 \usage{
 get_itis_syn(scname)
 }
@@ -13,7 +14,8 @@ get_itis_syn(scname)
 a list containing synonyms
 }
 \description{
-Fetch Synonyms using ITIS web service
+Fetch Synonyms using Integrated Taxonomic Information System 'ITIS' web
+ service
 }
 \examples{
 \donttest{

@@ -1,9 +1,10 @@
 #' Expands Scientific name
 #'
-#' At times the genus is specified with first character and '.' rather then repeating
-#' genus names every time. These are either synonyms or species of the same genus listed
-#' one bellow another. To convert these names to canonical names, we need to expand the
-#' genus name (typically) using previous entry in the list.
+#' At times the genus is specified with first character and '.' rather then
+#' repeating genus names every time. These are either synonyms or species of the
+#' same genus listed one bellow another. To convert these names to canonical
+#' names, we need to expand the genus name (typically) using previous entry in
+#' the list.
 #'
 #' @param fullname full scientific name
 #' @param shortname scientific name with short form genus name to expand the Genus

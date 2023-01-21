@@ -1,8 +1,9 @@
-#' taxotools: Tools to handle taxonomic data
+#' taxotools: Taxonomic List processing
 #'
-#' Tools include matching and merging taxonomic lists, casting and melting 
-#' scientific names, managing taxonomic lists from GBIF and ITIS, harvesting 
-#' names from wikipedia and fuzzy matching.
+#' Taxonomic lists matching and merging, casting and melting 
+#' scientific names, managing taxonomic lists from  Global Biodiversity 
+#' Information Facility 'GBIF' or Integrated Taxonomic Information System 
+#' 'ITIS', harvesting names from Wikipedia and fuzzy matching.
 #'
 #'@section List functions:
 #'\itemize{

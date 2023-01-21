@@ -1,11 +1,11 @@
 #' Construct canonical names
 #'
-#' Construct canonical names using Genus, Species and Subspecies fields. At times
-#' due to spaces or NAs in the data fields, it makes it tricky to generate
+#' Construct canonical names using Genus, Species and Subspecies fields. At 
+#' times due to spaces or NAs in the data fields, it makes it tricky to generate
 #' canonical names.
 #'
 #' @param dat data frame containing taxonomic list
-#' @param canonical field name for canonical names. Deafault 'canonical'
+#' @param canonical field name for canonical names. Default 'canonical'
 #' @param genus field name for Genus field
 #' @param species field name for Species field
 #' @param subspecies field name for Subspecies field

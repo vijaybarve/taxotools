@@ -10,15 +10,15 @@ build_gen_syn(dat)
 \item{dat}{master list}
 }
 \value{
-data frame with genus level synonyms with two columns viz. Valid_genus
-and Original_Genus
+data frame with genus level synonyms with two columns viz. 
+ Valid_genus and Original_Genus
 }
 \description{
 Build a genus level synonym list from master list.
 }
 \details{
-This is to #'  be passed on to get_accepted_names function
- as a parameter
+This genus level synonym list is generated for passing on to
+ get_accepted_names function as a parameter
 }
 \examples{
 \donttest{

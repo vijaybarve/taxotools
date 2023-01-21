@@ -16,7 +16,7 @@ cast_canonical(
 \arguments{
 \item{dat}{data frame containing taxonomic list}
 
-\item{canonical}{field name for canonical names. Deafault 'canonical'}
+\item{canonical}{field name for canonical names. Default 'canonical'}
 
 \item{genus}{field name for Genus field}
 
@@ -31,8 +31,8 @@ a data frame containing Canonical names field added or repopulated using
     filed names for Genus, Species and Subspecies specified in parameters
 }
 \description{
-Construct canonical names using Genus, Species and Subspecies fields. At times
-due to spaces or NAs in the data fields, it makes it tricky to generate
+Construct canonical names using Genus, Species and Subspecies fields. At 
+times due to spaces or NAs in the data fields, it makes it tricky to generate
 canonical names.
 }
 \examples{

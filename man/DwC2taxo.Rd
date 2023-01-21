@@ -15,7 +15,9 @@ the namelist. If Default value is NA, automatically uses list of
 \item{heterotypic Synonym} \item{homotypic Synonym} \item{doubtful},
 \item{proparte synonym}}}
 
-\item{source}{source of the namelist i.e. GBIF or ITIS. Default NA}
+\item{source}{source of the namelist i.e. Global Biodiversity Information
+Facility 'GBIF' or Integrated Taxonomic Information System 'ITIS'. 
+Default NA}
 }
 \value{
 names list is taxolist format
@@ -24,10 +26,10 @@ names list is taxolist format
 Converts a Darwin Core name list to taxolist format
 }
 \details{
-The name lists downloaded from ITIS or GBIF website in Darwin Core
- format has all the required fields for taxolist. The list just needs to be 
- converted to taxolist by renaming column names and and quality checked in 
- terms of missing synonym to accepted name linkages at times.
+The name lists downloaded from 'GBIF' or 'ITIS' website in Darwin
+ Core (DwC) format has all the required fields for taxolist. The list just
+ needs to be converted to taxolist by renaming column names and and quality
+ checked in terms of missing synonym to accepted name linkages at times.
 }
 \examples{
 \donttest{

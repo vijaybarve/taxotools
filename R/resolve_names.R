@@ -1,17 +1,18 @@
 #' Resolve canonical names against GNA
 #'
-#' Resolve names against Global Names Archtitecture (GNA) to make sure the name
-#' esixts
+#' Resolve names against Global Names Architecture (GNA) to make sure the name
+#' exists
 #'
 #' @param taxolist (data frame) taxonomic list
 #' @param sciname () column name for scientific names
-#' @param score_threshold (numeric) to mkae sure names match as desired. Dafault (0.98)
-#' Higher value indicates best match, lower vaules would return matches at 
+#' @param score_threshold (numeric) to make sure names match as desired. 
+#' Default (0.98)
+#' Higher value indicates best match, lower values would return matches at 
 #' genus level 
-#' @param best_match_only (logical) If TRUE, best match only returned else return
-#' all records returned by GNA. Default: TRUE
-#' @param add_fields (character) One of NA (default) , minimal or all. NA addts a 
-#' locical column 'resolved', Minimal gives back just four fields, whereas all 
+#' @param best_match_only (logical) If TRUE, best match only returned else 
+#' return all records returned by GNA. Default: TRUE
+#' @param add_fields (character) One of NA (default) , minimal or all. NA adds a 
+#' logical column 'resolved', Minimal gives back just four fields, whereas all 
 #' gives all fields back.
 #' @param verbose (logical) verbose output, Default: FALSE
 #' @return (data frame) names list resolves

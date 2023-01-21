@@ -13,12 +13,12 @@ list_itis_syn(namelist)
 a data frame containing canonical names (passed) and synonyms
 }
 \description{
-Fetch Synonyms from ITIS
+Fetch Synonyms from Integrated Taxonomic Information System 'ITIS'
 }
 \examples{
 \donttest{
 list_itis_syn("Abrothrix longipilis")
-#list_itis_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
+list_itis_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
 }
 }
 \seealso{
