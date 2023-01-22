@@ -10,7 +10,7 @@ Maintainer: Vijay Barve <vijay.barve@gmail.com>
 Description: Taxonomic lists matching and merging, casting and melting 
   scientific names, managing taxonomic lists from  Global Biodiversity 
   Information Facility 'GBIF' or Integrated Taxonomic Information System 'ITIS',
-  harvesting names from wikipedia and fuzzy matching.
+  harvesting names from Wikipedia and fuzzy matching.
 License: CC0
 Imports: taxize, wikitaxa, plyr, sqldf, stringr, stringdist, rmarkdown, stringi
 Encoding: UTF-8
