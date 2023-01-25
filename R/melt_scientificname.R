@@ -160,7 +160,7 @@ melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus
     newdat <- rename_column(newdat,"subgenus_",subgenus)
   }
   if(author!=""){
-    newdat$author <- trimws(newdat$author)
+    newdat$author_ <- trimws(newdat$author_)
     newdat <- rename_column(newdat,"author_",author)
   }
   newdat <- rename_column(newdat,"sciname",sciname)
