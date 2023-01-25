@@ -29,22 +29,29 @@ melt_canonical <- function(dat,canonical="",genus="",species="",
                            subspecies="",verbose=FALSE){
   newdat <- as.data.frame(dat)
   if(genus==""){
-    return(NULL)
-  } else {
-    newdat <- rename_column(newdat,genus,"genus",silent=TRUE)
-    newdat$genus <- NA
-  }
+    genus <- "genus"
+  } 
+  newdat <- rename_column(newdat,genus,"genus",silent=TRUE)
+  newdat$genus <- NA
   if(species==""){
-    return(NULL)
+    species <- "species"
+  } 
+  newdat <- rename_column(newdat,species,"species",silent=TRUE)
+  newdat$species <- NA
+  osubspecies <- subspecies
+  if(subspecies==""){
+    subspecies <- "subspecies"
+  }
+  newdat <- rename_column(newdat,subspecies,"subspecies",silent=TRUE)
+  newdat$subspecies <- NA
+  if(canonical==""){
+    if("canonical" %in% colnames(dat)){
+      canonical <- "canonical"
+    } else {
+      warning("Could not find canonical column")
+      return(NULL)
+    }
   } else {
-    newdat <- rename_column(newdat,species,"species",silent=TRUE)
-    newdat$species <- NA
-  }
-  if(subspecies!=""){
-    newdat <- rename_column(newdat,subspecies,"subspecies",silent=TRUE)
-    newdat$subspecies <- NA
-  }
-  if(canonical!=""){
     newdat <- rename_column(newdat,canonical,"canonical")
   }
   if(verbose){pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)}
@@ -78,8 +85,12 @@ melt_canonical <- function(dat,canonical="",genus="",species="",
   if(verbose){cat("\n")}
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)
-  if(subspecies!=""){
+  if(osubspecies!=""){
     newdat <- rename_column(newdat,"subspecies",subspecies)
+  } else {
+    if(all(is.na(newdat$subspecies))){
+      newdat <- newdat[,!(names(newdat) %in% "subspecies")]
+    }
   }
   newdat <- rename_column(newdat,"canonical",canonical)
   return(newdat)

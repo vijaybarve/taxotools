@@ -1,4 +1,8 @@
-taxotools 0.0.133
+taxotools 0.0.134
+=================
+* Bug fixes in melt_canonical, melt_scientificname
+
+taxotools 0.0.132
 =================
 * Added functions taxo2syn, taxo2DwC, cast_scientificname,
     resolve_names, taxo2doc, compact_ids, get_synonyms

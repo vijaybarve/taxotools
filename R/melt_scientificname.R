@@ -34,9 +34,10 @@
 #' }
 #' @rdname melt_scientificname
 #' @export
-melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus",
-                                species="species",subspecies="subspecies",
-                                author="author", verbose=FALSE){
+melt_scientificname <- function(dat,sciname="",genus="genus", 
+                                subgenus="subgenus", species="species",
+                                subspecies="subspecies", author="author",
+                                verbose=FALSE){
   if(is.null(dat) | nrow(dat)==0){
     return(NULL)
   }
