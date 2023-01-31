@@ -14,15 +14,20 @@ syn2taxo(synlist, canonical = "canonical", synonym = "synonym")
 \item{synonym}{Synonym column name , Default: 'synonym'}
 }
 \value{
-returns a data frame in taxolist format  with all the names in 
-same columns and accepted names linked to synonyms using id and accid fields
+returns a data frame in taxolist format with all the names in 
+ canonical column and accepted names linked to synonyms using id and accid
+ fields. Order, family and (guessed) taxonlevel are added if missing. Genus,
+ species and subspecies fields are added by melting the canonical names.
 }
 \description{
 Converts a Synonym list with Accepted Names and Synonym columns
-to taxolist format
+ to taxolist format
 }
 \details{
-Converts a synonyms list to taxolist format
+Converts a synonyms list to taxolist format. If order and family
+ fields are present, then they are carried forward else NAs are populated.
+ Duplicate synomyms with same source are removed but with different sources 
+ are retained.
 }
 \examples{
 \donttest{

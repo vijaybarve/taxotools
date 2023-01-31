@@ -36,7 +36,8 @@
 #'}
 #'@family Name functions
 #'@export
-list_higher_taxo <- function(indf,canonical,genus=FALSE,verbose=FALSE,progress=TRUE){
+list_higher_taxo <- function(indf,canonical,genus=FALSE,verbose=FALSE,
+                             progress=TRUE){
   colnames(indf)[which(colnames(indf) == canonical)] <- 'Scientific_name'
   names(indf)[names(indf)=="Order_"]<-"Order"
   indfu <- sqldf("select Scientific_name from indf group by Scientific_name order by Scientific_name")
