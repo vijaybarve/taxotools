@@ -85,6 +85,8 @@ syn2taxo <- function(synlist,
   }
   cat("\n")
   taxo <- melt_canonical(taxo,"canonical","genus","species","subspecies")
+  taxo$Id <- as.numeric(taxo$Id)
+  taxo$AccId <- as.numeric(taxo$AccId)
   names(taxo) <- tolower(names(taxo))
   return(taxo)
 }

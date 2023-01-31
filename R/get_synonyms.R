@@ -12,16 +12,7 @@
 #' @family List functions
 #' @examples
 #' \donttest{
-#' master <- data.frame("id" = c(1,2,3),
-#'                      "canonical" = c("Hypochlorosis ancharia",
-#'                                      "Hypochlorosis tenebrosa",
-#'                                      "Hypochlorosis ancharia tenebrosa"),
-#'                      "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
-#'                      "accid" = c(0,1,0),
-#'                      "source" = c("itis","itis","itis"),
-#'                      stringsAsFactors = FALSE)
-#' 
-#' checklist <- data.frame("id" = c(1,2,3,4,5),
+#' master <- data.frame("id" = c(1,2,3,4,5),
 #'                         "canonical" = c("Hypochlorosis ancharia",
 #'                                         "Pseudonotis humboldti",
 #'                                         "Myrina ancharia",
@@ -34,6 +25,15 @@
 #'                         "source" = c("itis","wiki","wiki","itis",
 #'                                      "itis"),
 #'                         stringsAsFactors = FALSE)
+#' checklist <- data.frame("id" = c(1,2,3),
+#'                      "canonical" = c("Hypochlorosis ancharia",
+#'                                      "Hypochlorosis tenebrosa",
+#'                                      "Hypochlorosis ancharia tenebrosa"),
+#'                      "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
+#'                      "accid" = c(0,1,0),
+#'                      "source" = c("itis","itis","itis"),
+#'                      stringsAsFactors = FALSE)
+#' 
 #' get_synonyms(master,checklist,commasep=FALSE)
 #' get_synonyms(master,checklist,commasep=TRUE)
 #' }
@@ -56,6 +56,9 @@ get_synonyms <- function(master = NULL,
   addlist <- NULL
   names(master) <- tolower(names(master))
   names(checklist) <- tolower(names(checklist))
+  if(!is.numeric(master$id)){
+    master$id <- as.numeric(master$id)
+  }
   idcount <- max(master$id) + 1
   checklist <- compact_ids(checklist,"id","accid",idcount,verbose)
   check_acc <- checklist[which(checklist$accid==0),]

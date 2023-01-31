@@ -26,16 +26,7 @@ in the checklist
 }
 \examples{
 \donttest{
-master <- data.frame("id" = c(1,2,3),
-                     "canonical" = c("Hypochlorosis ancharia",
-                                     "Hypochlorosis tenebrosa",
-                                     "Hypochlorosis ancharia tenebrosa"),
-                     "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
-                     "accid" = c(0,1,0),
-                     "source" = c("itis","itis","itis"),
-                     stringsAsFactors = FALSE)
-
-checklist <- data.frame("id" = c(1,2,3,4,5),
+master <- data.frame("id" = c(1,2,3,4,5),
                         "canonical" = c("Hypochlorosis ancharia",
                                         "Pseudonotis humboldti",
                                         "Myrina ancharia",
@@ -48,6 +39,15 @@ checklist <- data.frame("id" = c(1,2,3,4,5),
                         "source" = c("itis","wiki","wiki","itis",
                                      "itis"),
                         stringsAsFactors = FALSE)
+checklist <- data.frame("id" = c(1,2,3),
+                     "canonical" = c("Hypochlorosis ancharia",
+                                     "Hypochlorosis tenebrosa",
+                                     "Hypochlorosis ancharia tenebrosa"),
+                     "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae"),
+                     "accid" = c(0,1,0),
+                     "source" = c("itis","itis","itis"),
+                     stringsAsFactors = FALSE)
+
 get_synonyms(master,checklist,commasep=FALSE)
 get_synonyms(master,checklist,commasep=TRUE)
 }
