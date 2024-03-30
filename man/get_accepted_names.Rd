@@ -73,7 +73,7 @@ names and is accompanied by genus and species, Default: NA}
 }
 \value{
 data frame containing all the original columns with following
-additional columns:\itemize{
+additional columns:\describe{
 \item{accepted_name - }{Accepted name present in the master. NA is not resolved}
 \item{method - }{method used to resolve the name. See details for explanation
 of each method}
@@ -84,7 +84,7 @@ Match namelist with master and fetch the accepted names
 using the linkages provided within the data
 }
 \details{
-Name resolution methods:\itemize{
+Name resolution methods:\describe{
 \item{direct - }{was a direct match with name or a synonym}
 \item{direct2 - }{was a direct match with name or a synonym in non mastersource}
 \item{fuzzy - }{used fuzzy matching}

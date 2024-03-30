@@ -1,8 +1,8 @@
 Package: taxotools
 Type: Package
 Title: Taxonomic List Processing
-Version: 0.0.136
-Date: 2023-01-30
+Version: 0.0.137
+Date: 2024-03-29
 Authors@R: c(
     person("Vijay", "Barve", ,"vijay.barve@gmail.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-4852-2567")))
@@ -14,5 +14,5 @@ Description: Taxonomic lists matching and merging, casting and melting
 License: CC0
 Imports: taxize, wikitaxa, plyr, sqldf, stringr, stringdist, rmarkdown, stringi
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 BugReports: https://github.com/vijaybarve/taxotools/issues

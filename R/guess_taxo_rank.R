@@ -4,7 +4,7 @@
 #' number of words
 #'
 #' @param name scientific name string to be checked
-#' @return \itemize{\item{"Genus or above"}{ = single word} \item{"Species"}{ = 
+#' @return \describe{\item{"Genus or above"}{ = single word} \item{"Species"}{ = 
 #' two words}  \item{"Subspecies"}{ = three words} \item{"Unknown"}{ = zero or 
 #' more than three words}}
 #' @family Name functions

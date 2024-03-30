@@ -10,7 +10,7 @@ guess_taxo_rank(name)
 \item{name}{scientific name string to be checked}
 }
 \value{
-\itemize{\item{"Genus or above"}{ = single word} \item{"Species"}{ = 
+\describe{\item{"Genus or above"}{ = single word} \item{"Species"}{ = 
 two words}  \item{"Subspecies"}{ = three words} \item{"Unknown"}{ = zero or 
 more than three words}}
 }

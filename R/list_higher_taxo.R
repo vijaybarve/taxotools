@@ -18,7 +18,7 @@
 #'@param verbose If TRUE, displays each name string for which the higher
 #'  taxonomy is sought
 #'@param progress If TRUE prints progress bar and messages on the console.
-#'@return data frame with added / updated columns \itemize{ \item{"Kingdom"}{Kingdom
+#'@return data frame with added / updated columns \describe{ \item{"Kingdom"}{Kingdom
 #'  of the Scientific name} \item{"Phylum"}{Phylum of the Scientific name}
 #'  \item{"Order_"}{Order of the Scientific name} \item{"Family"}{Family of the
 #'  Scientific name} \item{"Genus"}{Genus of the Scientific name} } and also

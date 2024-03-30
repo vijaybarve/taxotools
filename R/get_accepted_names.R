@@ -37,13 +37,13 @@
 #' @param prefix to be added to all the return fields
 #' @param verbose display process messages, Default: TRUE
 #' @return data frame containing all the original columns with following
-#' additional columns:\itemize{
+#' additional columns:\describe{
 #' \item{accepted_name - }{Accepted name present in the master. NA is not resolved}
 #' \item{method - }{method used to resolve the name. See details for explanation
 #' of each method}
 #' }
 #' @details
-#' Name resolution methods:\itemize{
+#' Name resolution methods:\describe{
 #' \item{direct - }{was a direct match with name or a synonym}
 #' \item{direct2 - }{was a direct match with name or a synonym in non mastersource}
 #' \item{fuzzy - }{used fuzzy matching}

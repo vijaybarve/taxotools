@@ -7,10 +7,10 @@
 #' @family Wiki functions
 #' @return a data frame containing names, synonyms and Canonical synonyms matched
 #'    with is scientific name backbone taxonomy  
-#'    \itemize{ \item{Name}  {: Scientific name}
-#'    \item{WikiName}  {: Wikipedia page name}
-#'    \item{OrigSyn}  {: Original synonym returned by Wikipedia}
-#'  \item{Syn}  {: Synonym in canonical form, matched with GBIF}}
+#'    \describe{ \item{Name}{: Scientific name}
+#'    \item{WikiName}{: Wikipedia page name}
+#'    \item{OrigSyn}{: Original synonym returned by Wikipedia}
+#'  \item{Syn}{: Synonym in canonical form, matched with GBIF}}
 #' @importFrom wikitaxa wt_wikipedia
 #' @importFrom taxize gbif_parse
 #' @examples

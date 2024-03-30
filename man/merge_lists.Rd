@@ -18,7 +18,7 @@ onlyadd, add, merged, new or multi. Default all}
 }
 \value{
 Data frame with addition column merge_tag. The merge_tag contains 
-four possible values. \itemize{\item{orig - }{names in the master}\item{add -
+four possible values. \describe{\item{orig - }{names in the master}\item{add -
  }{ checklist names that matched using synonym linkages including direct 
  matches} \item{new - }{checklist names that did NOT match with master.
  Potentially new taxa} \item{multi -}{taxon from checklist for which two
@@ -31,7 +31,7 @@ sources
 \details{
 Matches names is checklist with names on master and returns 
 following data:
-\itemize{\item{all }{= orig + add + new + multi: all the data} \item{onlyadd
+\describe{\item{all }{= orig + add + new + multi: all the data} \item{onlyadd
  }{= add : returns records from checklist that match with master}
 \item{add }{= orig + add : returns all records from master + matched records
  from checklist} \item{merged }{= orig + add + new : returns all records from
