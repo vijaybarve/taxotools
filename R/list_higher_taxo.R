@@ -24,7 +24,7 @@
 #'  Scientific name} \item{"Genus"}{Genus of the Scientific name} } and also
 #'  saves a local copy of taxonomy downloaded for future use in 'taxo.db' sqlite
 #'  file
-#'@examples \donttest{
+#'@examples \dontrun{
 #'mylist <- data.frame("canonical" = c("Abrothrix longipilis",
 #'                                     "Mus longipilis",
 #'                                     "Abrothrix jelskii",

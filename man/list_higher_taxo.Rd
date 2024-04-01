@@ -43,7 +43,7 @@ name (or just genus name) in the data set. When new data are retrieved, they
 are stored in a local sqlite database, taxo.db, for faster further access.
 }
 \examples{
-\donttest{
+\dontrun{
 mylist <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Mus longipilis",
                                     "Abrothrix jelskii",
