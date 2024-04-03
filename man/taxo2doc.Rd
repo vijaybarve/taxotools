@@ -14,7 +14,7 @@ taxo2doc(
   duplicatesyn = TRUE,
   sourcecol = c("black", "blue"),
   outformat = "html_document",
-  outdir = ".",
+  outdir = tempdir(),
   outfile = "taxolist.html"
 )
 }
@@ -34,16 +34,16 @@ all}
 \item{mastersource}{source string for the master list}
 
 \item{duplicatesyn}{boolean if synonyms should to displayed in their 
-alphabetical sorted position too. Dafault TRUE}
+alphabetical sorted position too. Default TRUE}
 
 \item{sourcecol}{vector of text color values for each source value}
 
 \item{outformat}{output format one of "html_document", "word_document",
 "odt_document", "rtf_document", "pdf_document". Default ("html_document")}
 
-\item{outdir}{output directory for the document. Default (".")}
+\item{outdir}{output directory for the document. Default temporary directory.}
 
-\item{outfile}{output file name. Dedfaout ("taxolist.html")}
+\item{outfile}{output file name. Default ("taxolist.html")}
 }
 \value{
 NULL Saves a document file

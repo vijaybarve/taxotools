@@ -10,12 +10,12 @@
 #' @param addsource boolean If the source tag should be displayed. Default TRUE
 #' @param mastersource source string for the master list
 #' @param duplicatesyn boolean if synonyms should to displayed in their 
-#' alphabetical sorted position too. Dafault TRUE
+#' alphabetical sorted position too. Default TRUE
 #' @param sourcecol vector of text color values for each source value
 #' @param outformat output format one of "html_document", "word_document",
 #' "odt_document", "rtf_document", "pdf_document". Default ("html_document")
-#' @param outdir output directory for the document. Default (".")
-#' @param outfile output file name. Dedfaout ("taxolist.html")
+#' @param outdir output directory for the document. Default temporary directory.
+#' @param outfile output file name. Default ("taxolist.html")
 #' @importFrom rmarkdown render
 #' @importFrom stringr str_split
 #' @return NULL Saves a document file
@@ -50,7 +50,7 @@ taxo2doc <- function(taxolist=NULL,genus=NA,family=NA,
                      duplicatesyn=TRUE,
                      sourcecol=c("black","blue"),
                      outformat="html_document",
-                     outdir=".",outfile="taxolist.html"){
+                     outdir=tempdir(),outfile="taxolist.html"){
   if(is.null(taxolist)){
     stop("No taxolist to process")
   }
