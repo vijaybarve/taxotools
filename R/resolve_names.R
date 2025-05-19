@@ -35,18 +35,33 @@
 #' }
 #' @export
 resolve_names <- function(taxolist,
-                          sciname="canonical",
-                          score_threshold=0.98,
-                          best_match_only=TRUE,
-                          add_fields= NA,
-                          verbose=TRUE){
+                           sciname="canonical",
+                           score_threshold=0.98,
+                           best_match_only=TRUE,
+                           add_fields= NA,
+                           verbose=TRUE){
   taxolist <- rename_column(taxolist,sciname,"canonical__")
   taxolist$resolved <- FALSE
   taxores <- NULL
   get_fields <- ifelse(!is.na(add_fields) & add_fields=="all","all","minimal")
   if(verbose){pb = txtProgressBar(min = 0, max = nrow(taxolist), initial = 0)}
   for(i in 1:nrow(taxolist)){
-    recres <- gnr_resolve(sci  = c(taxolist$canonical__[i]),fields=get_fields)
+    recres <- NULL
+    recres <- tryCatch(
+      expr = {
+        message(gnr_resolve(sci  = c(taxolist$canonical__[i]), fields=get_fields))
+      },
+      error = function(e){
+        cat(paste("\n",e))
+        resrec <- NULL
+      },
+      warning = function(w){
+        cat(paste("\n",w))
+      },
+      finally = {
+      }
+    )   
+    if(is.null(recres)){return(NULL)}
     recres <- recres[which(recres$score>score_threshold),]
     if(nrow(recres)>0){
       # Only add a tag
@@ -55,13 +70,14 @@ resolve_names <- function(taxolist,
         if(verbose){setTxtProgressBar(pb,i)}
         next
       } 
-      #uSe only best matching (first) result
+      #use only best matching (first) result
       if(best_match_only){
         recres <- recres[1,]
       } 
       recres <- cbind(taxolist[i,], recres, row.names = NULL)
       taxores <- plyr::rbind.fill(taxores,recres)
-    } 
+    }
+    
     if(verbose){setTxtProgressBar(pb,i)}
   }
   if(verbose){cat("\n")}
