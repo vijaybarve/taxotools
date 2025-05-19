@@ -14,8 +14,19 @@
 #' @return a data frame with two fields Primary and secondary (comma
 #' separated list)
 #' @examples \donttest{
-#'   scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-#'   SynList <- list_itis_syn(scnames)
+#'SynList <- data.frame("canonical" = c("Abrothrix longipilis",
+#'                                     "Abrothrix longipilis",
+#'                                     "Abrothrix longipilis",
+#'                                     "Abrothrix longipilis",
+#'                                     "Abrothrix jelskii",
+#'                                     "Abrothrix jelskii"),
+#'                    "synonym" = c("Akodon longipilis",
+#'                                  "Acodon hirtus",
+#'                                  "Akodon longipilis apta",
+#'                                  "Akodon longipilis castaneus",
+#'                                  "Chroeomys jelskii",
+#'                                  "Acodon jelskii pyrrhotis"),
+#'                     stringsAsFactors = FALSE)
 #'   cast_cs_field(SynList,"canonical","synonym")
 #'}
 #'
