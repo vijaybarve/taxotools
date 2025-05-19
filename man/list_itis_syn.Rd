@@ -16,7 +16,7 @@ a data frame containing canonical names (passed) and synonyms
 Fetch Synonyms from Integrated Taxonomic Information System 'ITIS'
 }
 \examples{
-\donttest{
+\dontrun{
 list_itis_syn("Abrothrix longipilis")
 list_itis_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
 }
