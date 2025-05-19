@@ -1,7 +1,7 @@
 Package: taxotools
 Type: Package
 Title: Taxonomic List Processing
-Version: 0.0.140
+Version: 0.0.141
 Date: 2025-04-19
 Authors@R: c(
     person("Vijay", "Barve", ,"vijay.barve@gmail.com", role = c("aut", "cre"), 

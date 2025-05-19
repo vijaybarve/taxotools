@@ -37,8 +37,7 @@ Retrieve higher taxonomy information (like Family and Order) for each record
 from the "Encyclopedia of Life" web API.
 }
 \details{
-This function makes use of certain functions in the \code{\link{taxize}}
-package. It scans and retrieves the taxonomic hierarchy for each scientific
+This function scans and retrieves the taxonomic hierarchy for each scientific
 name (or just genus name) in the data set. When new data are retrieved, they
 are stored in a local sqlite database, taxo.db, for faster further access.
 }
