@@ -2,7 +2,7 @@ Package: taxotools
 Type: Package
 Title: Taxonomic List Processing
 Version: 0.0.141
-Date: 2025-04-19
+Date: 2025-05-19
 Authors@R: c(
     person("Vijay", "Barve", ,"vijay.barve@gmail.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-4852-2567")))
