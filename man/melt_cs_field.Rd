@@ -24,7 +24,7 @@ Builds a list, melting character (comma) separated field values given a data fra
 with a field with repeating values
 }
 \examples{
-\donttest{
+\dontrun{
   scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
   syn_list <- list_itis_syn(scnames)
   cs_syn_list <- cast_cs_field(syn_list ,"Name","Syn")

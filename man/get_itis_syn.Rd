@@ -18,7 +18,7 @@ Fetch Synonyms using Integrated Taxonomic Information System 'ITIS' web
  service
 }
 \examples{
-\donttest{
+\dontrun{
 get_itis_syn("Abrothrix longipilis")
 get_itis_syn("Abditomys latidens")
 }
