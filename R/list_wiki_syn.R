@@ -15,9 +15,9 @@
 #' @importFrom taxize gbif_parse
 #' @examples
 #' \dontrun{
-#'  list_wiki_syn("Abrothrix illutea")
-#'  list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
-#'                  "Abrocoma schistacea"))
+#'  #list_wiki_syn("Abrothrix illutea")
+#'  #list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
+#'  #                "Abrocoma schistacea"))
 #' }
 #'
 #' @export

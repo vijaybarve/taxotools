@@ -24,9 +24,9 @@ Fetch Synonyms from Wikipedia and clean them for use
 }
 \examples{
 \dontrun{
- list_wiki_syn("Abrothrix illutea")
- list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
-                 "Abrocoma schistacea"))
+ #list_wiki_syn("Abrothrix illutea")
+ #list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
+ #                "Abrocoma schistacea"))
 }
 
 }
