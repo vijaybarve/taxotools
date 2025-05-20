@@ -18,7 +18,7 @@
 #' @return (data frame) names list resolves
 #'
 #' @family Name functions
-#' @importFrom taxize gnr_resolve
+#' @importFrom taxize gna_verifier
 #' @examples
 #' \donttest{
 #' mylist <- data.frame("canonical" = c("Abrothrix longipilis",
@@ -49,7 +49,7 @@ resolve_names <- function(taxolist,
     recres <- NULL
     recres <- tryCatch(
       expr = {
-        message(gnr_resolve(sci  = c(taxolist$canonical__[i]), fields=get_fields))
+        message(gna_verifier(sci  = c(taxolist$canonical__[i])))
       },
       error = function(e){
         cat(paste("\n",e))

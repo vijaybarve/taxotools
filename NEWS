@@ -1,4 +1,4 @@
-taxotools 0.0.143
+taxotools 0.0.144
 =================
 * Bug fixes in melt_canonical, melt_scientificname, syn2taxo, get_synonym, resolve_names
 * Function syn2taxo now carries order and family if present in original data
