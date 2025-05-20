@@ -9,7 +9,14 @@
 #' @family List functions
 #' @examples
 #' \donttest{
-#'  wikilist <- list_wiki_syn("Abrothrix illutea")
+#'  wikilist <- data.frame("Name" = c("Abrothrix illutea",
+#'                                    "Abrothrix illutea"),
+#'                         "WikiName" = c("Abrothrix illuteus",
+#'                                        "Abrothrix illuteus"),
+#'                         "OrigSyn" = c("Akodon illuteus",
+#'                                       "Abrothrix illuteus"),
+#'                         "Syn" = c("Akodon illuteus",
+#'                                   "Abrothrix illuteus"))
 #'  wiki2taxo(wikilist)
 #' }
 #' @rdname wiki2taxo
