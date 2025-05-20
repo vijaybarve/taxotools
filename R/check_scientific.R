@@ -8,7 +8,7 @@
 #' @return Resolved canonical name (NULL if not matched)
 #'
 #' @family Name functions
-#' @importFrom taxize gbif_parse gnr_resolve
+#' @importFrom taxize gbif_parse gna_verifier
 #' @examples
 #' \donttest{
 #' check_scientific("Akodon longipilis (Waterhouse, 1837)")
@@ -17,12 +17,12 @@
 #' }
 #' @export
 check_scientific <- function(name){
-  res <- tryCatch({gnr_resolve(name)},
-           error=function(cond) {
-             message("There was an error")
-             return(NULL)})  
+  res <- tryCatch({gna_verifier(name)},
+                  error=function(cond) {
+                    message("There was an error")
+                    return(NULL)})  
   if(!is.null(res)){
-    res1 <- tryCatch({gbif_parse(res$matched_name[1])},
+    res1 <- tryCatch({gbif_parse(res$matchedName[1])},
                      error=function(cond) {
                        message("There was an error")
                        return(NULL)})
