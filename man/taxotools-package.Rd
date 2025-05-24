@@ -6,7 +6,7 @@
 \alias{taxotools-package}
 \title{taxotools: Taxonomic List Processing}
 \description{
-Taxonomic lists matching and merging, casting and melting scientific names, managing taxonomic lists from Global Biodiversity Information Facility 'GBIF' or Integrated Taxonomic Information System 'ITIS', harvesting names from Wikipedia and fuzzy matching.
+Taxonomic lists matching and merging, casting and melting scientific names, managing taxonomic lists from Global Biodiversity Information Facility 'GBIF' \url{https://www.gbif.org/} or Integrated Taxonomic Information System 'ITIS', \url{https://itis.gov/} harvesting names from Wikipedia and fuzzy matching.
 }
 \seealso{
 Useful links:

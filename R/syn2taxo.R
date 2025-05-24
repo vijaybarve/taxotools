@@ -4,6 +4,7 @@
 #' @param synlist Synonym list with Accepted name (canonical) and Synonym columns
 #' @param canonical Accepted names column name, Default: 'canonical'
 #' @param synonym Synonym column name , Default: 'synonym'
+#' @param verbose verbose output on the console
 #' @return returns a data frame in taxolist format with all the names in 
 #'  canonical column and accepted names linked to synonyms using id and accid
 #'  fields. Order, family and (guessed) taxonlevel are added if missing. Genus,
@@ -33,7 +34,8 @@
 #' @export
 syn2taxo <- function(synlist,
                      canonical="canonical",
-                     synonym="synonym"){
+                     synonym="synonym",
+                     verbose=FALSE){
   synlist <- rename_column(synlist,canonical,"Name_")
   synlist <- rename_column(synlist,synonym,"Syn_")
   # Accepeted Names
@@ -83,7 +85,7 @@ syn2taxo <- function(synlist,
     }
     setTxtProgressBar(pb,i)
   }
-  cat("\n")
+  if(verbose){cat("\n")}
   taxo <- melt_canonical(taxo,"canonical","genus","species","subspecies")
   taxo$Id <- as.numeric(taxo$Id)
   taxo$AccId <- as.numeric(taxo$AccId)

@@ -168,11 +168,11 @@ get_accepted_names <- function(namelist, master, gen_syn=NA, namelookup=NA,
     if("source" %in% names(master) ){
       master <- master[which(master$source %in% mastersource),]
       if(nrow(master)==0){
-        cat("\nProblem matching mastersource")
+        warning("\nProblem matching mastersource")
         return(NULL)
       }
     } else {
-      cat("\nmaster data frame needs to have source column to use mastersource option")
+      warning("\nmaster data frame needs to have source column to use mastersource option")
       return(NULL)
     }
   }

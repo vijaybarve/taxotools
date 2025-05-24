@@ -78,10 +78,10 @@ synonymize_subspecies <- function(master,
   master <- master[which(master$id %!in% remrec$id),]
   if(return_unmatched){
     if(nrow(remrec)==0){
-      cat("\nNO Orphan subspecies\n")
+      if(verbose){cat("\nNO Orphan subspecies\n")}
       return(NULL)
     } else {
-      cat("\nReturning",nrow(remrec),"Orphan subspecies\n")
+      if(verbose){cat("\nReturning",nrow(remrec),"Orphan subspecies\n")}
       return(remrec)
     }
   } else {

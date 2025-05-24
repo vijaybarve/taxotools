@@ -4,7 +4,12 @@
 \alias{syn2taxo}
 \title{Synonym list to taxolist}
 \usage{
-syn2taxo(synlist, canonical = "canonical", synonym = "synonym")
+syn2taxo(
+  synlist,
+  canonical = "canonical",
+  synonym = "synonym",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{synlist}{Synonym list with Accepted name (canonical) and Synonym columns}
@@ -12,6 +17,8 @@ syn2taxo(synlist, canonical = "canonical", synonym = "synonym")
 \item{canonical}{Accepted names column name, Default: 'canonical'}
 
 \item{synonym}{Synonym column name , Default: 'synonym'}
+
+\item{verbose}{verbose output on the console}
 }
 \value{
 returns a data frame in taxolist format with all the names in 

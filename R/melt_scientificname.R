@@ -89,7 +89,7 @@ melt_scientificname <- function(dat,sciname="",genus="genus",
             words <- words[-1]
             next
           } else {
-            cat(paste("\n Name: ",newdat$sciname[i]," is not well formated"))
+            if(verbose){cat(paste("\n Name: ",newdat$sciname[i]," is not well formated"))}
             words <- words[-1]
             next
           }
@@ -151,7 +151,7 @@ melt_scientificname <- function(dat,sciname="",genus="genus",
     }
     setTxtProgressBar(pb,i)
   }
-  cat("\n")
+  if(verbose){cat("\n")}
   newdat <- rename_column(newdat,"genus_",genus)
   newdat <- rename_column(newdat,"species_",species)
   if(subspecies!=""){

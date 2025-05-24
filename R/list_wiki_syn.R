@@ -14,10 +14,10 @@
 #' @importFrom wikitaxa wt_wikipedia
 #' @importFrom taxize gbif_parse
 #' @examples
-#' \dontrun{
-#'  #list_wiki_syn("Abrothrix illutea")
-#'  #list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
-#'  #                "Abrocoma schistacea"))
+#' \donttest{
+#'  list_wiki_syn("Abrothrix illutea")
+#'  list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
+#'                  "Abrocoma schistacea"))
 #' }
 #'
 #' @export

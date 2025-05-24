@@ -23,10 +23,10 @@ a data frame containing names, synonyms and Canonical synonyms matched
 Fetch Synonyms from Wikipedia and clean them for use
 }
 \examples{
-\dontrun{
- #list_wiki_syn("Abrothrix illutea")
- #list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
- #                "Abrocoma schistacea"))
+\donttest{
+ list_wiki_syn("Abrothrix illutea")
+ list_wiki_syn(c("Abditomys latidens", "Abeomelomys sevia",
+                 "Abrocoma schistacea"))
 }
 
 }
